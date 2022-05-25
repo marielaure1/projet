@@ -6,6 +6,7 @@
 
 <form method="post">
     <div class="row">
+      <h1>INSCRIPTION</h1>
       <div class="col-lg-6 col-12">
         <?= $form->input('firstname', 'Prénom'); ?>
       </div>
