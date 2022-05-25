@@ -1,0 +1,50 @@
+.header-home{
+    height: 100vh;
+    background-image: url("../images/inspirations/inspiration-2.png");
+}
+
+
+
+.nouveautes{
+    width: 100%;
+    height: 80vh;
+    background-color: $light-grey;
+    padding: 8vh 10vw;
+    display: grid;
+    grid-template-areas: "grid1 grid2 grid5 grid5"
+                         "grid3 grid4 grid5 grid5";
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 15px;
+
+
+}
+
+.title{
+    grid-area: grid1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    h2{
+        text-transform: uppercase;
+    }
+}
+
+
+.n1{
+    background-image: url("../images/decorations/mirroir/mirroir-sd.png");
+    grid-area: grid2;
+}
+.n2{
+    background-image: url("../images/decorations/plantes/plante-sd.jpg");
+    grid-area: grid3;
+}
+.n3{
+    background-image: url("../images/chambre/commode/commode-sd.png");
+    grid-area: grid4;
+}
+.n4{
+    background-image: url("../images/salon/canape/canape-sd.png");
+    grid-area: grid5;
+}

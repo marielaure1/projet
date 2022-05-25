@@ -1,0 +1,306 @@
+// @font-face {
+//     font-family: 'Montserrat';
+//     src: url("../fonts/Montserrat/Montserrat-Italic-VariableFont_wght.ttf");
+// }
+
+@font-face {
+    font-family: 'Dosis';
+    src: url("../fonts/Dosis/Dosis-VariableFont_wght.ttf");
+}
+html {
+    scroll-behavior: smooth;
+  }
+
+body{
+    font-family: "Dosis";
+    font-size: 16px;
+    background-color: $white;
+}
+
+.background-images{
+    background-size: cover;
+    background-position: center;
+}
+
+a, li{
+    list-style: inherit;
+    text-decoration: inherit;
+}
+
+a, li, .btn, input, .icon{
+    cursor: pointer;
+}
+
+.icon{
+    height: 28px;
+    width: 28px;
+}
+
+.navbar{
+    width: 100%;
+    height: fit-content;
+    background-color: $white;
+    box-sizing: border-box;
+    padding: 30px 0 20px 0;
+    
+    .nav-container{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .nav-left{
+            display: flex;
+            justify-content: end;
+            height: 40px;
+            width: 45%;
+                
+            li{
+                display: flex;
+                align-items: center;
+                list-style: none;
+        
+                a{
+                    text-decoration: none;
+                    color: $white;
+                    font-size: 16px;
+                    font-weight: 500;
+                    text-transform: uppercase;
+                }
+
+                a:hover{
+                    font-weight: 700;
+                }
+            }
+            li:not(:last-child){
+                 margin-right: 30px;
+            }
+        }
+
+        .logo-white{
+            width: 150px;
+            margin: 0 80px;
+        }
+    
+        .nav-right{
+            display: flex;
+            align-items: center;
+            justify-content: start;
+            height: 40px;
+            width: 45%;
+
+                .search{
+                    display: flex;
+                    align-items: center;
+                    height: 100%;
+    
+                    input{
+                        display: none;
+                        border-left: none;
+                        border-top: none;
+                        border-right: none;
+                        padding-bottom: inherit;
+                        border-bottom: 2px $white solid;
+                        background-color: inherit;
+                        color: $white;
+                        outline: none;
+                    }
+    
+                    input::placeholder{
+                        color: $grey;
+                    }
+
+                    input.actived{
+                        display: block;
+                    }
+                }
+
+                .user{
+                    padding: 0 40px;
+                    height: 100%;
+                    display: flex;
+                    align-items: center;
+                    
+                    .icons{
+                        display: flex;
+                        align-items: center;
+
+                        .icon:not(:last-child){
+                            margin-right: 10px;
+                        }
+                    }
+    
+                    .menu-account{
+                        position: absolute;
+                        display: none;
+                        background-color: $white;
+                        
+                    }
+    
+                    .menu-account.actived{
+                        display: block;
+                        border-radius: 12px;
+                        width: 100%;
+                        height: fit-content;
+                        padding: 20px;
+                        display: flex;
+                        flex-direction: column;
+    
+                        a{
+                            font-size: 14px;
+                            color: $dark-black;
+                            margin-bottom: 10px;
+                        }
+                    }
+            }
+        }
+    }
+    
+    .nav-categories{
+        display: none;
+    }
+
+    .nav-categories.actived{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-top: 20px;
+
+        li{
+            margin-right: 20px;
+
+            a{
+                color: $dark-black;
+            }
+            a:hover{
+                font-weight: 700;
+            }
+        }
+    }
+}
+
+.navbar.black{
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(33, 33, 33, 0.7);
+
+    .nav-categories{
+
+        
+
+        li{
+            a{
+                color: $white;
+            }
+        }
+    }
+}
+
+.navbar.nav-fixed{
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: $white;
+    transition: 1s ease-in;
+
+    .nav-left{
+        order: 2;
+        justify-content: center;
+        width: 20%;
+        margin: 0 20px 0 0;
+    }
+
+    .nav-left li a{
+        color: $dark-black;
+    }
+
+    .logo-nav{
+        width: 80px;
+        order: 1;
+        margin: 0 20px 0 0;
+    }
+
+    .nav-right{
+        order: 3;
+        justify-content: center;
+        width: 30%;
+    }
+
+    .nav-right .search .bar-search{
+        color: $dark-black;
+        border-color: $dark-black;
+    }
+    .nav-right .search .bar-search::placeholder{
+        color: #39393980;
+    }
+
+    .nav-categories li a{
+        color: $dark-black;
+    }
+}
+
+
+footer{
+    height: fit-content;
+    background: $dark-black;
+    padding: 5% 7% 2% 7%;
+    box-sizing: border-box;
+    color: $white;
+    font-family: "Montserrat", sans-serif;
+
+    .grid-footer{
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-rows: 80%;
+        margin-bottom: 50px;
+
+        img{
+            width: 60%;
+        }
+    
+        .column{
+            display: flex;
+            flex-direction: column;
+    
+            a{
+                text-decoration: none;
+                font-size: 14px;
+                font-weight: 400;
+                margin-bottom: 15px;
+            }
+        }
+        
+    
+        .column-4{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+    
+            p{
+                font-family: "Dosis", sans-serif;
+                font-size: 32px;
+                margin-bottom: 20px;
+            }
+            
+            .rs{
+                display: flex;
+
+                img{
+                    width: 30px;
+                }
+            }
+        }
+
+    }
+
+    .copyright{
+        width: 100%;
+        height: 20%;
+        text-align: center;
+
+        p{
+            
+            font-size: 14px;
+        }
+    }
+}

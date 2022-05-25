@@ -1,0 +1,300 @@
+.header-home {
+  height: 100vh;
+  background-image: url("../images/inspirations/inspiration-2.png");
+}
+
+.nouveautes {
+  width: 100%;
+  height: 80vh;
+  background-color: #E6F4F1;
+  padding: 8vh 10vw;
+  display: grid;
+  grid-template-areas: "grid1 grid2 grid5 grid5" "grid3 grid4 grid5 grid5";
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 15px;
+}
+
+.title {
+  grid-area: grid1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.title h2 {
+  text-transform: uppercase;
+}
+
+.n1 {
+  background-image: url("../images/decorations/mirroir/mirroir-sd.png");
+  grid-area: grid2;
+}
+
+.n2 {
+  background-image: url("../images/decorations/plantes/plante-sd.jpg");
+  grid-area: grid3;
+}
+
+.n3 {
+  background-image: url("../images/chambre/commode/commode-sd.png");
+  grid-area: grid4;
+}
+
+.n4 {
+  background-image: url("../images/salon/canape/canape-sd.png");
+  grid-area: grid5;
+}
+
+@font-face {
+  font-family: "Dosis";
+  src: url("../fonts/Dosis/Dosis-VariableFont_wght.ttf");
+}
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Dosis";
+  font-size: 16px;
+  background-color: #FAFAFA;
+}
+
+.background-images {
+  background-size: cover;
+  background-position: center;
+}
+
+a, li {
+  list-style: inherit;
+  text-decoration: inherit;
+}
+
+a, li, .btn, input, .icon {
+  cursor: pointer;
+}
+
+.icon {
+  height: 28px;
+  width: 28px;
+}
+
+.navbar {
+  width: 100%;
+  height: fit-content;
+  background-color: #FAFAFA;
+  box-sizing: border-box;
+  padding: 30px 0 20px 0;
+}
+.navbar .nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.navbar .nav-container .nav-left {
+  display: flex;
+  justify-content: end;
+  height: 40px;
+  width: 45%;
+}
+.navbar .nav-container .nav-left li {
+  display: flex;
+  align-items: center;
+  list-style: none;
+}
+.navbar .nav-container .nav-left li a {
+  text-decoration: none;
+  color: #FAFAFA;
+  font-size: 16px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+.navbar .nav-container .nav-left li a:hover {
+  font-weight: 700;
+}
+.navbar .nav-container .nav-left li:not(:last-child) {
+  margin-right: 30px;
+}
+.navbar .nav-container .logo-white {
+  width: 150px;
+  margin: 0 80px;
+}
+.navbar .nav-container .nav-right {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  height: 40px;
+  width: 45%;
+}
+.navbar .nav-container .nav-right .search {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+.navbar .nav-container .nav-right .search input {
+  display: none;
+  border-left: none;
+  border-top: none;
+  border-right: none;
+  padding-bottom: inherit;
+  border-bottom: 2px #FAFAFA solid;
+  background-color: inherit;
+  color: #FAFAFA;
+  outline: none;
+}
+.navbar .nav-container .nav-right .search input::placeholder {
+  color: #CACACA;
+}
+.navbar .nav-container .nav-right .search input.actived {
+  display: block;
+}
+.navbar .nav-container .nav-right .user {
+  padding: 0 40px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.navbar .nav-container .nav-right .user .icons {
+  display: flex;
+  align-items: center;
+}
+.navbar .nav-container .nav-right .user .icons .icon:not(:last-child) {
+  margin-right: 10px;
+}
+.navbar .nav-container .nav-right .user .menu-account {
+  position: absolute;
+  display: none;
+  background-color: #FAFAFA;
+}
+.navbar .nav-container .nav-right .user .menu-account.actived {
+  display: block;
+  border-radius: 12px;
+  width: 100%;
+  height: fit-content;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.navbar .nav-container .nav-right .user .menu-account.actived a {
+  font-size: 14px;
+  color: #393939;
+  margin-bottom: 10px;
+}
+.navbar .nav-categories {
+  display: none;
+}
+.navbar .nav-categories.actived {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 20px;
+}
+.navbar .nav-categories.actived li {
+  margin-right: 20px;
+}
+.navbar .nav-categories.actived li a {
+  color: #393939;
+}
+.navbar .nav-categories.actived li a:hover {
+  font-weight: 700;
+}
+
+.navbar.black {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(33, 33, 33, 0.7);
+}
+.navbar.black .nav-categories li a {
+  color: #FAFAFA;
+}
+
+.navbar.nav-fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #FAFAFA;
+  transition: 1s ease-in;
+}
+.navbar.nav-fixed .nav-left {
+  order: 2;
+  justify-content: center;
+  width: 20%;
+  margin: 0 20px 0 0;
+}
+.navbar.nav-fixed .nav-left li a {
+  color: #393939;
+}
+.navbar.nav-fixed .logo-nav {
+  width: 80px;
+  order: 1;
+  margin: 0 20px 0 0;
+}
+.navbar.nav-fixed .nav-right {
+  order: 3;
+  justify-content: center;
+  width: 30%;
+}
+.navbar.nav-fixed .nav-right .search .bar-search {
+  color: #393939;
+  border-color: #393939;
+}
+.navbar.nav-fixed .nav-right .search .bar-search::placeholder {
+  color: rgba(57, 57, 57, 0.5019607843);
+}
+.navbar.nav-fixed .nav-categories li a {
+  color: #393939;
+}
+
+footer {
+  height: fit-content;
+  background: #393939;
+  padding: 5% 7% 2% 7%;
+  box-sizing: border-box;
+  color: #FAFAFA;
+  font-family: "Montserrat", sans-serif;
+}
+footer .grid-footer {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: 80%;
+  margin-bottom: 50px;
+}
+footer .grid-footer img {
+  width: 60%;
+}
+footer .grid-footer .column {
+  display: flex;
+  flex-direction: column;
+}
+footer .grid-footer .column a {
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 400;
+  margin-bottom: 15px;
+}
+footer .grid-footer .column-4 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+footer .grid-footer .column-4 p {
+  font-family: "Dosis", sans-serif;
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+footer .grid-footer .column-4 .rs {
+  display: flex;
+}
+footer .grid-footer .column-4 .rs img {
+  width: 30px;
+}
+footer .copyright {
+  width: 100%;
+  height: 20%;
+  text-align: center;
+}
+footer .copyright p {
+  font-size: 14px;
+}
+
+/*# sourceMappingURL=style.css.map */
