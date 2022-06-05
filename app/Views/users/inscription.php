@@ -1,8 +1,10 @@
-<?php if($errors): ?>
+<?php if(isset($errors)): ?>
     <div class="alert alert-danger">
         <?=$messageError?>
     </div>
-<?php endif; ?>
+<?php endif;?>
+
+
 
 <form method="post">
     <div class="row">

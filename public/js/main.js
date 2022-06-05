@@ -11,6 +11,9 @@ const iconSearch = document.querySelector(".icon-search")
 const iconLike = document.querySelector(".icon-like")
 const iconBasket = document.querySelector(".icon-basket")
 
+const tools = document.querySelectorAll(".point")
+const descriptions = document.querySelectorAll(".infos")
+
 function navFix(){
     if(window.scrollY > nav.offsetHeight + 300){
         nav.classList.add("nav-fixed")
@@ -59,3 +62,16 @@ btnShop.addEventListener("click", sousMenu)
 window.addEventListener("scroll", navFix)
 
 iconSearch.addEventListener("click", searchBarDisplay)
+
+function point(){
+    tools.forEach((tool, i) => {
+        tool.addEventListener("click", () => {
+            descriptions.forEach((description)=>{
+                description.classList.remove("active")
+            })
+            descriptions[i].classList.add("active")
+        })
+    });
+}
+
+point()

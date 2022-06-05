@@ -2,6 +2,10 @@
 
 namespace App\Controller;
 
+/**
+ * Class DemoController = class enfant de AppController
+ * Permet de quoi?
+ */
 class DemoController extends AppController{
 
     public function index(){

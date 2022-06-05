@@ -45,6 +45,69 @@
   grid-area: grid5;
 }
 
+.inspiration .title-rubrique {
+  margin: 85px 0 20px 0;
+}
+.inspiration .voir-plus {
+  float: right;
+  margin: 0 45px 15px 0;
+  text-decoration: underline;
+}
+.inspiration .inspiration-block {
+  width: 100%;
+  position: relative;
+}
+.inspiration .inspiration-block img {
+  width: 100%;
+}
+.inspiration .inspiration-block .over .point1 {
+  top: 67%;
+  left: 17.5%;
+}
+.inspiration .inspiration-block .over .point2 {
+  top: 62%;
+  left: 40%;
+}
+.inspiration .inspiration-block .over .point3 {
+  top: 72%;
+  left: 49%;
+}
+.inspiration .inspiration-block .over .point4 {
+  top: 36%;
+  left: 64.5%;
+}
+.inspiration .inspiration-block .over .point5 {
+  top: 62%;
+  left: 85%;
+}
+.inspiration .inspiration-block .over .info1 {
+  top: 63%;
+  left: 21%;
+}
+.inspiration .inspiration-block .over .info2 {
+  top: 45%;
+  left: 32%;
+}
+.inspiration .inspiration-block .over .info3 {
+  top: 77%;
+  left: 41%;
+}
+.inspiration .inspiration-block .over .info4 {
+  top: 32%;
+  left: 69%;
+}
+.inspiration .inspiration-block .over .info5 {
+  top: 67%;
+  left: 77%;
+}
+
+.tendances {
+  height: 105vh;
+}
+.tendances .title-rubrique {
+  margin-top: 85px;
+  margin-bottom: 10px;
+}
 @font-face {
   font-family: "Dosis";
   src: url("../fonts/Dosis/Dosis-VariableFont_wght.ttf");
@@ -66,7 +129,8 @@ body {
 
 a, li {
   list-style: inherit;
-  text-decoration: inherit;
+  text-decoration: none;
+  color: #393939;
 }
 
 a, li, .btn, input, .icon {
@@ -83,18 +147,17 @@ a, li, .btn, input, .icon {
   height: fit-content;
   background-color: #FAFAFA;
   box-sizing: border-box;
-  padding: 30px 0 20px 0;
+  padding: 30px 6.944vw 20px 6.944vw;
 }
 .navbar .nav-container {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   align-items: center;
-  justify-content: center;
 }
 .navbar .nav-container .nav-left {
-  display: flex;
-  justify-content: end;
-  height: 40px;
-  width: 45%;
+  width: 300px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 .navbar .nav-container .nav-left li {
   display: flex;
@@ -104,26 +167,25 @@ a, li, .btn, input, .icon {
 .navbar .nav-container .nav-left li a {
   text-decoration: none;
   color: #FAFAFA;
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 500;
   text-transform: uppercase;
 }
 .navbar .nav-container .nav-left li a:hover {
   font-weight: 700;
 }
-.navbar .nav-container .nav-left li:not(:last-child) {
-  margin-right: 30px;
-}
 .navbar .nav-container .logo-white {
-  width: 150px;
-  margin: 0 80px;
+  display: flex;
+  justify-content: center;
+}
+.navbar .nav-container .logo-white img {
+  width: 10.208vw;
 }
 .navbar .nav-container .nav-right {
   display: flex;
   align-items: center;
-  justify-content: start;
+  justify-content: end;
   height: 40px;
-  width: 45%;
 }
 .navbar .nav-container .nav-right .search {
   display: flex;
@@ -142,7 +204,7 @@ a, li, .btn, input, .icon {
   outline: none;
 }
 .navbar .nav-container .nav-right .search input::placeholder {
-  color: #CACACA;
+  color: #A6A6A6;
 }
 .navbar .nav-container .nav-right .search input.actived {
   display: block;
@@ -208,43 +270,6 @@ a, li, .btn, input, .icon {
   color: #FAFAFA;
 }
 
-.navbar.nav-fixed {
-  position: fixed;
-  top: 0;
-  left: 0;
-  background-color: #FAFAFA;
-  transition: 1s ease-in;
-}
-.navbar.nav-fixed .nav-left {
-  order: 2;
-  justify-content: center;
-  width: 20%;
-  margin: 0 20px 0 0;
-}
-.navbar.nav-fixed .nav-left li a {
-  color: #393939;
-}
-.navbar.nav-fixed .logo-nav {
-  width: 80px;
-  order: 1;
-  margin: 0 20px 0 0;
-}
-.navbar.nav-fixed .nav-right {
-  order: 3;
-  justify-content: center;
-  width: 30%;
-}
-.navbar.nav-fixed .nav-right .search .bar-search {
-  color: #393939;
-  border-color: #393939;
-}
-.navbar.nav-fixed .nav-right .search .bar-search::placeholder {
-  color: rgba(57, 57, 57, 0.5019607843);
-}
-.navbar.nav-fixed .nav-categories li a {
-  color: #393939;
-}
-
 footer {
   height: fit-content;
   background: #393939;
@@ -295,6 +320,92 @@ footer .copyright {
 }
 footer .copyright p {
   font-size: 14px;
+}
+
+.title-rubrique {
+  font-family: "Dosis", sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.over {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.point {
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  border-radius: 10px;
+  background-color: rgb(255, 255, 255);
+}
+
+.point::after {
+  position: absolute;
+  content: "";
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  background-color: rgb(255, 255, 255);
+  animation: point 1s ease infinite;
+}
+
+.infos {
+  display: none;
+  width: 250px;
+  height: 120px;
+  background-color: #D1B39F;
+  position: absolute;
+}
+.infos .img-produit {
+  width: 50%;
+  height: 100%;
+  background-image: url("../images/salon/fauteuil/inspiration1-meridienne1.jpg");
+}
+.infos .text {
+  font-family: "Dosis", sans-serif;
+  font-weight: 600;
+  width: 50%;
+  height: 100%;
+  color: #FAFAFA;
+  box-sizing: border-box;
+  padding: 15px 5px 0 15px;
+}
+.infos .text h2 a {
+  font-size: 20px;
+  line-height: 24px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  color: #FAFAFA;
+}
+.infos .text h3 {
+  font-size: 16px;
+  line-height: 24px;
+}
+.infos .text p {
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.infos.active {
+  display: flex;
+}
+
+@keyframes point {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(3);
+    opacity: 0;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

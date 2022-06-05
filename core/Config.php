@@ -2,7 +2,10 @@
 
 namespace Core;
 
-
+/**
+ * Class Config
+ * Quoi?
+ */
 class Config
 {
 

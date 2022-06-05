@@ -24,7 +24,8 @@ body{
 
 a, li{
     list-style: inherit;
-    text-decoration: inherit;
+    text-decoration: none;
+    color: $dark-black;
 }
 
 a, li, .btn, input, .icon{
@@ -41,18 +42,17 @@ a, li, .btn, input, .icon{
     height: fit-content;
     background-color: $white;
     box-sizing: border-box;
-    padding: 30px 0 20px 0;
+    padding: 30px 6.944vw 20px 6.944vw;
     
     .nav-container{
-        display: flex;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
         align-items: center;
-        justify-content: center;
 
         .nav-left{
-            display: flex;
-            justify-content: end;
-            height: 40px;
-            width: 45%;
+            width: 300px;
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));  //intervalle de taille
                 
             li{
                 display: flex;
@@ -62,7 +62,7 @@ a, li, .btn, input, .icon{
                 a{
                     text-decoration: none;
                     color: $white;
-                    font-size: 16px;
+                    font-size: 20px;
                     font-weight: 500;
                     text-transform: uppercase;
                 }
@@ -72,21 +72,24 @@ a, li, .btn, input, .icon{
                 }
             }
             li:not(:last-child){
-                 margin-right: 30px;
+                //  margin-right: 35px;
             }
         }
 
         .logo-white{
-            width: 150px;
-            margin: 0 80px;
+            display: flex;
+            justify-content: center;
+            
+            img{
+                width: 10.208vw;
+            }
         }
     
         .nav-right{
             display: flex;
             align-items: center;
-            justify-content: start;
+            justify-content: end;
             height: 40px;
-            width: 45%;
 
                 .search{
                     display: flex;
@@ -196,48 +199,48 @@ a, li, .btn, input, .icon{
     }
 }
 
-.navbar.nav-fixed{
-    position: fixed;
-    top: 0;
-    left: 0;
-    background-color: $white;
-    transition: 1s ease-in;
+// .navbar.nav-fixed{
+//     position: fixed;
+//     top: 0;
+//     left: 0;
+//     background-color: $white;
+//     transition: 1s ease-in;
 
-    .nav-left{
-        order: 2;
-        justify-content: center;
-        width: 20%;
-        margin: 0 20px 0 0;
-    }
+//     .nav-left{
+//         order: 2;
+//         justify-content: center;
+//         width: 20%;
+//         margin: 0 20px 0 0;
+//     }
 
-    .nav-left li a{
-        color: $dark-black;
-    }
+//     .nav-left li a{
+//         color: $dark-black;
+//     }
 
-    .logo-nav{
-        width: 80px;
-        order: 1;
-        margin: 0 20px 0 0;
-    }
+//     .logo-nav{
+//         width: 80px;
+//         order: 1;
+//         margin: 0 20px 0 0;
+//     }
 
-    .nav-right{
-        order: 3;
-        justify-content: center;
-        width: 30%;
-    }
+//     .nav-right{
+//         order: 3;
+//         justify-content: center;
+//         width: 30%;
+//     }
 
-    .nav-right .search .bar-search{
-        color: $dark-black;
-        border-color: $dark-black;
-    }
-    .nav-right .search .bar-search::placeholder{
-        color: #39393980;
-    }
+//     .nav-right .search .bar-search{
+//         color: $dark-black;
+//         border-color: $dark-black;
+//     }
+//     .nav-right .search .bar-search::placeholder{
+//         color: #39393980;
+//     }
 
-    .nav-categories li a{
-        color: $dark-black;
-    }
-}
+//     .nav-categories li a{
+//         color: $dark-black;
+//     }
+// }
 
 
 footer{
@@ -304,3 +307,100 @@ footer{
         }
     }
 }
+
+.title-rubrique{
+    font-family: "Dosis", sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.over{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.point{
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255);
+}
+
+.point::after{
+    position: absolute;
+    content: "";
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    background-color: rgb(255, 255, 255);
+    animation: point 1s ease infinite;
+}
+
+.infos{
+    display: none;
+    width: 250px;
+    height: 120px;
+    background-color: $brown;
+    position: absolute;
+    
+    .img-produit{
+        width: 50%;
+        height: 100%;
+        background-image: url("../images/salon/fauteuil/inspiration1-meridienne1.jpg");
+    }
+
+    .text{
+        font-family: "Dosis", sans-serif;
+        font-weight: 600;
+        width: 50%;
+        height: 100%;
+        color: $white;
+        box-sizing: border-box;
+        padding: 15px 5px 0 15px;
+
+        h2{
+            a{
+                font-size: 20px;
+                line-height: 24px;
+                text-transform: uppercase;
+                margin-bottom: 10px;
+                color: $white;
+            }
+        }
+
+        h3{
+            font-size: 16px;
+            line-height: 24px;
+        }
+
+        p{
+            font-size: 14px;
+            line-height: 22px;
+        }
+    }
+}
+
+.infos.active{
+    display: flex;
+}
+
+@keyframes point{
+    0%{
+        transform: scale(1);
+        opacity: 1;
+    }
+    100%{
+        transform: scale(3);
+        opacity: 0;
+    }
+}
+
+// @media (max-width: 300px){
+
+// }

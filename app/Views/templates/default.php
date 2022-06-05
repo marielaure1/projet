@@ -39,7 +39,9 @@
                 <li><a class="btn-shop">Shop</a></li>
                 <li><a href="../public/index.php?p=users.inspirations">Inspirations</a></li>
             </ul>
-            <img class="logo-nav logo-white" src="../public/images/logo-<?=$color?>.svg" alt="">
+            <div class="logo-nav logo-white">
+                <img src="../public/images/logo-<?=$color?>.svg" alt="">
+            </div>
             <div class="nav-right">
                 <form class="search">
                     <input class="bar-search" type="text" placeholder="Recherche...">
@@ -67,12 +69,12 @@
             </div>
         </div>
         <ul class="nav-categories">
-                <li><a href="../public/index.php?p=posts.category&id=1">Salon</a></li>
-                <li><a href="../public/index.php?p=posts.category&id=2">Salle à manger</a></li>
-                <li><a href="../public/index.php?p=posts.category&id=3">Chambre</a></li>
-                <li><a href="../public/index.php?p=posts.category&id=4">Luminaire</a></li>
-                <li><a href="../public/index.php?p=posts.category&id=5">Décoration</a></li>
-            </ul>
+            <li><a href="../public/index.php?p=posts.category&id=1">Salon</a></li>
+            <li><a href="../public/index.php?p=posts.category&id=2">Salle à manger</a></li>
+            <li><a href="../public/index.php?p=posts.category&id=3">Chambre</a></li>
+            <li><a href="../public/index.php?p=posts.category&id=4">Luminaire</a></li>
+            <li><a href="../public/index.php?p=posts.category&id=5">Décoration</a></li>
+        </ul>
     </nav>
 
     <?= $content; ?>

@@ -4,6 +4,10 @@ namespace App\Controller;
 
 use Core\Controller\Controller;
 
+/**
+ * Class PostsController = class enfant de AppController
+ * Permet de quoi?
+ */
 class PostsController extends AppController{
 
     public function __construct(){
