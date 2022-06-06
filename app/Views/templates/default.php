@@ -12,10 +12,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
 
     <title><?= App::getInstance()->title; ?></title>
-
-    <!-- Bootstrap core CSS -->
-    <!-- CSS only -->
-<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous"> -->
     <link href="../public/css/reset.css" rel="stylesheet">
     <link href="../public/css/style.css" rel="stylesheet">
     <script src="../public/js/main.js" defer></script>
@@ -24,7 +20,13 @@
 
 <body>
 
-<?php if(isset($_GET["p"]) == "posts.index" or !isset($_GET["p"])){ 
+<?php if(isset($_GET["p"])){
+          $p = $_GET["p"];
+      } else {
+          $p = "";
+      }
+
+if($p === "posts.index" or !isset($_GET["p"])){ 
         $color = "white";
         $bg = "black"; ?>
 <?php } else { 
@@ -37,7 +39,7 @@
             <ul class="nav-left">
                 <li><a href="../public/index.php?p=posts.index">Accueil</a></li>
                 <li><a class="btn-shop">Shop</a></li>
-                <li><a href="../public/index.php?p=users.inspirations">Inspirations</a></li>
+                <li><a href="../public/index.php?p=posts.inspirations">Inspirations</a></li>
             </ul>
             <div class="logo-nav logo-white">
                 <img src="../public/images/logo-<?=$color?>.svg" alt="">
@@ -54,9 +56,9 @@
                         if(isset($_SESSION["auth"]) && !empty($_SESSION["auth"])){
                             // Déconnexion
                         } else { ?>
-                            <img class="icon icon-user" src="../public/icon/icon-user-<?=$color?>.svg" alt="icon-user">
+                            
                 <?php } ?>
-
+                        <img class="icon icon-user" src="../public/icon/icon-user-<?=$color?>.svg" alt="icon-user">
                         <img class="icon icon-like" src="../public/icon/icon-like-<?=$color?>.svg" alt="icon-like">
                         <img class="icon icon-basket" src="../public/icon/icon-basket-<?=$color?>.svg" alt="icon-basket">
                     </div>

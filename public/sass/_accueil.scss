@@ -1,11 +1,77 @@
-.header-home{
+.slider {
     height: 100vh;
-    background-image: url("../images/inspirations/inspiration-2.png");
+    position: relative;
+    overflow: hidden;
+
+    img {
+        object-fit: cover;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        transition: opacity .5s;
+        filter: brightness(0.9);
+    }
+
+    img.active {
+        opacity: 1;
+    }
+
+    .right, .left {
+        position: absolute;
+        top: 50%;
+        background-color: rgb(255, 255, 255);
+        height: 50px;
+        width: 50px;
+        border-radius: 25px;
+        border: none;
+        transform: translateY(-50%);
+        cursor: pointer;
+
+        img{
+            width: 30px;
+            height: 30px;
+        }
+    }
+    
+    .right {
+        right: -25px;
+    }
+    
+    .left {
+        left: -25px;
+    }
+}
+
+.navbar.black{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    background-color: rgba(33, 33, 33, 0.7);
+    
+    .nav-left li a{
+        color: $white;
+    }
+    
+    .nav-right .search input{
+        border-color: $white;
+    }
+
+    .nav-categories{
+        li{
+            a{
+                color: $white;
+            }
+        }
+    }
 }
 
 .nouveautes{
     width: 100%;
-    height: 80vh;
+    height: fit-content;
     background-color: $light-grey;
     padding: 8vh 10vw;
     display: grid;
@@ -15,37 +81,74 @@
     grid-template-rows: repeat(2, 1fr);
     gap: 15px;
 
+    .title{
+        grid-area: grid1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    
+        h2{
+            text-transform: uppercase;
+        }
+    }
 
-}
+    .n1{
+        background-image: url("../images/decorations/mirroir/mirroir-sd.png");
+        grid-area: grid2;
+    }
+    .n2{
+        background-image: url("../images/decorations/plantes/plante-sd.jpg");
+        grid-area: grid3;
+    }
+    .n3{
+        background-image: url("../images/chambre/commode/commode-sd.png");
+        grid-area: grid4;
+    }
+    .n4{
+        background-image: url("../images/salon/canape/canape-sd.png");
+        grid-area: grid5;
+    }
+    
+    .img-produit{
+        position: relative;
+        aspect-ratio: 1 / 1;
 
-.title{
-    grid-area: grid1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+        .produit-infos{
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 77px;
+            background-color: rgba(255, 255, 255, 0.62);
+            text-align: center;
 
-    h2{
-        text-transform: uppercase;
+            h2{
+                display: block;
+                font-weight: 600;
+                font-size: 20px;
+                position: relative;
+                padding-bottom: 10px;
+            }
+
+            h2::before{
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+                height: 3px;
+                color: $brown;
+            }
+
+            .price{
+                font-weight: 600;
+                font-size: 16px;
+                color: $red;
+            }
+        }
     }
 }
 
 
-.n1{
-    background-image: url("../images/decorations/mirroir/mirroir-sd.png");
-    grid-area: grid2;
-}
-.n2{
-    background-image: url("../images/decorations/plantes/plante-sd.jpg");
-    grid-area: grid3;
-}
-.n3{
-    background-image: url("../images/chambre/commode/commode-sd.png");
-    grid-area: grid4;
-}
-.n4{
-    background-image: url("../images/salon/canape/canape-sd.png");
-    grid-area: grid5;
-}
+
+
 
 .inspiration{
     .title-rubrique{
@@ -121,14 +224,12 @@
 }
 
 .tendances{
-    height: 105vh;
+    height: fit-content;
+    padding: 0 10vw 8vh 10vw;
     
     .title-rubrique{
         margin-top: 85px;
-        margin-bottom: 10px;
+        margin-bottom: 50px;
     }
 
-    .grid-tendance{
-        
-    }
 }

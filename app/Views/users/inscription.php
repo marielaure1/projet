@@ -1,4 +1,4 @@
-<?php if(isset($errors)): ?>
+<?php if($errors): ?>
     <div class="alert alert-danger">
         <?=$messageError?>
     </div>
@@ -10,28 +10,16 @@
     <div class="row">
       <h1>INSCRIPTION</h1>
       <div class="col-lg-6 col-12">
-        <?= $form->input('firstname', 'Prénom'); ?>
+        <?= $form->input('prenom', 'Prénom'); ?>
       </div>
       <div class="col-lg-6 col-12">
-        <?= $form->input('lastname', 'Nom'); ?>
+        <?= $form->input('nom', 'Nom'); ?>
       </div>
       <div class="col-lg-6 col-12">
         <?= $form->input('email', 'Email', ['type' => 'email']); ?>
       </div>
       <div class="col-lg-6 col-12">
-        <?= $form->input('emailVerif', 'Confirmez Email', ['type' => 'email']); ?>
-      </div>
-      <div class="col-lg-6 col-12">
-        <?= $form->input('tel', 'Téléphone', ['type' => 'tel', 'maxlength' => '10']); ?>
-      </div>
-      <div class="col-lg-6 col-12">
-        <?= $form->input('username', 'Pseudo'); ?>
-      </div>
-      <div class="col-lg-6 col-12">
         <?= $form->input('password', 'Mot de passe', ['type' => 'password']); ?>
-      </div>
-      <div class="col-lg-6 col-12">
-        <?= $form->input('passwordVerif', 'Confirmez Mot de passe', ['type' => 'password']); ?>
       </div>
       <div class="col-lg-2 col-12">
           <button class="btn btn-primary">Envoyer</button>

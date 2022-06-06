@@ -30,7 +30,7 @@ class PostsController extends AppController{
         }
         $articles = $this->Post->lastByCategory($_GET['id']);
         $categories = $this->Category->all();
-        $this->render('posts.category', compact('articles', 'categories', 'categorie'));
+        $this->render('posts.category', compact('produits', 'categories', 'categorie'));
     }
 
     public function show(){

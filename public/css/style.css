@@ -1,113 +1,3 @@
-.header-home {
-  height: 100vh;
-  background-image: url("../images/inspirations/inspiration-2.png");
-}
-
-.nouveautes {
-  width: 100%;
-  height: 80vh;
-  background-color: #E6F4F1;
-  padding: 8vh 10vw;
-  display: grid;
-  grid-template-areas: "grid1 grid2 grid5 grid5" "grid3 grid4 grid5 grid5";
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  gap: 15px;
-}
-
-.title {
-  grid-area: grid1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.title h2 {
-  text-transform: uppercase;
-}
-
-.n1 {
-  background-image: url("../images/decorations/mirroir/mirroir-sd.png");
-  grid-area: grid2;
-}
-
-.n2 {
-  background-image: url("../images/decorations/plantes/plante-sd.jpg");
-  grid-area: grid3;
-}
-
-.n3 {
-  background-image: url("../images/chambre/commode/commode-sd.png");
-  grid-area: grid4;
-}
-
-.n4 {
-  background-image: url("../images/salon/canape/canape-sd.png");
-  grid-area: grid5;
-}
-
-.inspiration .title-rubrique {
-  margin: 85px 0 20px 0;
-}
-.inspiration .voir-plus {
-  float: right;
-  margin: 0 45px 15px 0;
-  text-decoration: underline;
-}
-.inspiration .inspiration-block {
-  width: 100%;
-  position: relative;
-}
-.inspiration .inspiration-block img {
-  width: 100%;
-}
-.inspiration .inspiration-block .over .point1 {
-  top: 67%;
-  left: 17.5%;
-}
-.inspiration .inspiration-block .over .point2 {
-  top: 62%;
-  left: 40%;
-}
-.inspiration .inspiration-block .over .point3 {
-  top: 72%;
-  left: 49%;
-}
-.inspiration .inspiration-block .over .point4 {
-  top: 36%;
-  left: 64.5%;
-}
-.inspiration .inspiration-block .over .point5 {
-  top: 62%;
-  left: 85%;
-}
-.inspiration .inspiration-block .over .info1 {
-  top: 63%;
-  left: 21%;
-}
-.inspiration .inspiration-block .over .info2 {
-  top: 45%;
-  left: 32%;
-}
-.inspiration .inspiration-block .over .info3 {
-  top: 77%;
-  left: 41%;
-}
-.inspiration .inspiration-block .over .info4 {
-  top: 32%;
-  left: 69%;
-}
-.inspiration .inspiration-block .over .info5 {
-  top: 67%;
-  left: 77%;
-}
-
-.tendances {
-  height: 105vh;
-}
-.tendances .title-rubrique {
-  margin-top: 85px;
-  margin-bottom: 10px;
-}
 @font-face {
   font-family: "Dosis";
   src: url("../fonts/Dosis/Dosis-VariableFont_wght.ttf");
@@ -166,7 +56,7 @@ a, li, .btn, input, .icon {
 }
 .navbar .nav-container .nav-left li a {
   text-decoration: none;
-  color: #FAFAFA;
+  color: #393939;
   font-size: 20px;
   font-weight: 500;
   text-transform: uppercase;
@@ -198,7 +88,7 @@ a, li, .btn, input, .icon {
   border-top: none;
   border-right: none;
   padding-bottom: inherit;
-  border-bottom: 2px #FAFAFA solid;
+  border-bottom: 2px #393939 solid;
   background-color: inherit;
   color: #FAFAFA;
   outline: none;
@@ -260,16 +150,6 @@ a, li, .btn, input, .icon {
   font-weight: 700;
 }
 
-.navbar.black {
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-color: rgba(33, 33, 33, 0.7);
-}
-.navbar.black .nav-categories li a {
-  color: #FAFAFA;
-}
-
 footer {
   height: fit-content;
   background: #393939;
@@ -292,6 +172,7 @@ footer .grid-footer .column {
   flex-direction: column;
 }
 footer .grid-footer .column a {
+  color: #FAFAFA;
   text-decoration: none;
   font-size: 14px;
   font-weight: 400;
@@ -406,6 +287,267 @@ footer .copyright p {
     transform: scale(3);
     opacity: 0;
   }
+}
+.grid-produits {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 15px;
+  row-gap: 75px;
+}
+.grid-produits .produit {
+  aspect-ratio: 2/3;
+  background-color: #F4EAE1;
+}
+.grid-produits .produit .produit-description h2 {
+  font-weight: 600;
+  font-size: 20px;
+}
+.grid-produits .produit .produit-description h3 {
+  font-size: 16px;
+}
+.grid-produits .produit .produit-description .prix-produit {
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.slider {
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+.slider img {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 0.5s;
+  filter: brightness(0.9);
+}
+.slider img.active {
+  opacity: 1;
+}
+.slider .right, .slider .left {
+  position: absolute;
+  top: 50%;
+  background-color: rgb(255, 255, 255);
+  height: 50px;
+  width: 50px;
+  border-radius: 25px;
+  border: none;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+.slider .right img, .slider .left img {
+  width: 30px;
+  height: 30px;
+}
+.slider .right {
+  right: -25px;
+}
+.slider .left {
+  left: -25px;
+}
+
+.navbar.black {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background-color: rgba(33, 33, 33, 0.7);
+}
+.navbar.black .nav-left li a {
+  color: #FAFAFA;
+}
+.navbar.black .nav-right .search input {
+  border-color: #FAFAFA;
+}
+.navbar.black .nav-categories li a {
+  color: #FAFAFA;
+}
+
+.nouveautes {
+  width: 100%;
+  height: fit-content;
+  background-color: #E6F4F1;
+  padding: 8vh 10vw;
+  display: grid;
+  grid-template-areas: "grid1 grid2 grid5 grid5" "grid3 grid4 grid5 grid5";
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 15px;
+}
+.nouveautes .title {
+  grid-area: grid1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.nouveautes .title h2 {
+  text-transform: uppercase;
+}
+.nouveautes .n1 {
+  background-image: url("../images/decorations/mirroir/mirroir-sd.png");
+  grid-area: grid2;
+}
+.nouveautes .n2 {
+  background-image: url("../images/decorations/plantes/plante-sd.jpg");
+  grid-area: grid3;
+}
+.nouveautes .n3 {
+  background-image: url("../images/chambre/commode/commode-sd.png");
+  grid-area: grid4;
+}
+.nouveautes .n4 {
+  background-image: url("../images/salon/canape/canape-sd.png");
+  grid-area: grid5;
+}
+.nouveautes .img-produit {
+  position: relative;
+  aspect-ratio: 1/1;
+}
+.nouveautes .img-produit .produit-infos {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 77px;
+  background-color: rgba(255, 255, 255, 0.62);
+  text-align: center;
+}
+.nouveautes .img-produit .produit-infos h2 {
+  display: block;
+  font-weight: 600;
+  font-size: 20px;
+  position: relative;
+  padding-bottom: 10px;
+}
+.nouveautes .img-produit .produit-infos h2::before {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 3px;
+  color: #D1B39F;
+}
+.nouveautes .img-produit .produit-infos .price {
+  font-weight: 600;
+  font-size: 16px;
+  color: #A81933;
+}
+
+.inspiration .title-rubrique {
+  margin: 85px 0 20px 0;
+}
+.inspiration .voir-plus {
+  float: right;
+  margin: 0 45px 15px 0;
+  text-decoration: underline;
+}
+.inspiration .inspiration-block {
+  width: 100%;
+  position: relative;
+}
+.inspiration .inspiration-block img {
+  width: 100%;
+}
+.inspiration .inspiration-block .over .point1 {
+  top: 67%;
+  left: 17.5%;
+}
+.inspiration .inspiration-block .over .point2 {
+  top: 62%;
+  left: 40%;
+}
+.inspiration .inspiration-block .over .point3 {
+  top: 72%;
+  left: 49%;
+}
+.inspiration .inspiration-block .over .point4 {
+  top: 36%;
+  left: 64.5%;
+}
+.inspiration .inspiration-block .over .point5 {
+  top: 62%;
+  left: 85%;
+}
+.inspiration .inspiration-block .over .info1 {
+  top: 63%;
+  left: 21%;
+}
+.inspiration .inspiration-block .over .info2 {
+  top: 45%;
+  left: 32%;
+}
+.inspiration .inspiration-block .over .info3 {
+  top: 77%;
+  left: 41%;
+}
+.inspiration .inspiration-block .over .info4 {
+  top: 32%;
+  left: 69%;
+}
+.inspiration .inspiration-block .over .info5 {
+  top: 67%;
+  left: 77%;
+}
+
+.tendances {
+  height: fit-content;
+  padding: 0 10vw 8vh 10vw;
+}
+.tendances .title-rubrique {
+  margin-top: 85px;
+  margin-bottom: 50px;
+}
+
+.header-categorie {
+  position: static;
+  height: 100vh;
+  background-image: url("../images/inspirations/inspiration-2.png");
+}
+
+.admin {
+  margin: inherit;
+}
+.admin .admin-nav {
+  background: linear-gradient(45deg, #C29958, #F2E69B);
+  height: 100vh;
+  padding: inherit;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.admin .admin-nav img {
+  margin: 50px 0 30px 0;
+  width: 50%;
+}
+.admin .admin-nav a {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 45px;
+  color: #FAFAFA;
+}
+.admin .admin-nav a img {
+  margin: 0 30px;
+  width: 30px;
+  height: 30px;
+}
+.admin .admin-nav a span {
+  font-size: 20px;
+}
+.admin .admin-nav a:hover {
+  border-left: 2px solid #393939;
+  color: #393939;
+}
+
+.admin-section {
+  padding: 3vw;
+}
+.admin-section h1 {
+  font-size: 32px;
+  margin-bottom: 20px;
 }
 
 /*# sourceMappingURL=style.css.map */

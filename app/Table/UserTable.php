@@ -13,9 +13,9 @@ class UserTable extends Table{
      */
     public function last(){
         return $this->query("
-            SELECT produits.id, produits.titre, produits.description, produits.date
-            FROM articles
-            ORDER BY produits.date DESC");
+            SELECT *
+            FROM users
+            ORDER BY users.id DESC");
     }
 
     /**
@@ -25,9 +25,9 @@ class UserTable extends Table{
      */
     public function lastByCategory($category_id){
         return $this->query("
-            SELECT produits.id, produits.titre, produits.contenu, produits.date
-            FROM produits
-            ORDER BY produits.date DESC");
+            SELECT *
+            FROM users
+            ORDER BY users.id DESC");
     }
 
     /**
@@ -37,7 +37,7 @@ class UserTable extends Table{
      */
     public function findWithCategory($id){
         return $this->query("
-            SELECT produits.id, produits.titre, produits.contenu, produits.date
-            FROM produits");
+            SELECT *
+            FROM users");
     }
 }

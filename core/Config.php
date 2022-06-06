@@ -6,12 +6,15 @@ namespace Core;
  * Class Config
  * Quoi?
  */
-class Config
-{
+class Config{
 
     private $settings = [];
     private static $_instance;
 
+    /**
+     * getInstance() = va créer automatiquement une instance d'une class si elle est appelé mais qu'elle n'existe pas encore
+     * is_null = Indique si une variable vaut null
+     */
     public static function getInstance($file)
     {
         if (is_null(self::$_instance)) {
