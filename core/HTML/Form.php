@@ -29,7 +29,7 @@ class Form{
      * @return string
      */
     protected function surround($html){
-        return "<{$this->surround}>{$html}</{$this->surround}>";
+        return "<{$this->surround} class='form-surround'>{$html}</{$this->surround}>";
     }
 
     /**
@@ -49,10 +49,10 @@ class Form{
      * @param array $options
      * @return string
      */
-    public function input($name, $label, $options = []){
+    public function input($name, $label, $options = [], $placeholder = null){
         $type = isset($options['type']) ? $options['type'] : 'text';
         return $this->surround(
-            '<input type="' . $type . '" name="' . $name . '" value="' . $this->getValue($name) . '">'
+            '<input type="' . $type . '" name="' . $name . '" placeholder="'.$placeholder.'" value="' . $this->getValue($name) . '">'
         );
     }
 

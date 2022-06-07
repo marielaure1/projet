@@ -13,9 +13,9 @@ class ProduitTable extends Table{
      */
     public function last(){
         return $this->query("
-            SELECT produits.id, produits.titre, produits.description, produits.date, produits.img
+            SELECT *
             FROM produits
-            ORDER BY produits.date DESC");
+            ORDER BY id DESC");
     }
 
     /**
@@ -25,9 +25,11 @@ class ProduitTable extends Table{
      */
     public function lastByCategory($category_id){
         return $this->query("
-            SELECT produits.id, produits.titre, produits.contenu, produits.date
+            SELECT *
             FROM produits
-            ORDER BY produits.date DESC");
+            LEFT JOIN categories ON id_categories = categories.id
+            WHERE produits.id_categories = ?
+            ORDER BY produits.id DESC", [$category_id]);
     }
 
     /**
@@ -37,7 +39,7 @@ class ProduitTable extends Table{
      */
     public function findWithCategory($id){
         return $this->query("
-            SELECT produits.id, produits.titre, produits.description, produits.date, produits.img
+            SELECT *
             FROM produits
             WHERE produits.id = ?", [$id], true);
     }

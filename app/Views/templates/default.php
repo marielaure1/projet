@@ -15,6 +15,7 @@
     <link href="../public/css/reset.css" rel="stylesheet">
     <link href="../public/css/style.css" rel="stylesheet">
     <script src="../public/js/main.js" defer></script>
+    <script src="../public/js/adresseApi.js" defer></script>
 
 </head>
 
@@ -63,9 +64,10 @@ if($p === "posts.index" or !isset($_GET["p"])){
                         <img class="icon icon-basket" src="../public/icon/icon-basket-<?=$color?>.svg" alt="icon-basket">
                     </div>
                     <nav class="menu-account">
-                        <a href="">Gérer mon compte</a>
-                        <a href="">Mes achats</a>
-                        <a href="">Déconnexion</a>
+                        <a href="../public/index.php?p=users.login">S'identifier</a>
+                        <!-- <a href="">Gérer mon compte</a> -->
+                        <!-- <a href="">Mes achats</a>
+                        <a href="">Déconnexion</a> -->
                     </nav>
                 </div>
             </div>

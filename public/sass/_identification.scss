@@ -1,0 +1,27 @@
+.identification{
+    height: fit-content;
+    padding: 20vh 0 10vh 0;
+    background-color: $light-grey;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    h2{
+         margin-bottom: 40px;
+    }
+
+    .login{
+        border-right: 1.5px solid $dark-black;
+    }
+
+    .login, .sign-up{
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        label{
+            display: none;
+        }
+    }
+}

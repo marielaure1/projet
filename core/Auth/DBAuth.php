@@ -39,6 +39,7 @@ class DBAuth {
             // Vérifier que le mot de passe associé à l'email dans la bdd correspond à celui donner par l'utilisateur
             if($user->password === sha1($password)){
                 $_SESSION['auth'] = $user->id;
+                $_SESSION['user'] = $user;
                 return true;
             }
         }

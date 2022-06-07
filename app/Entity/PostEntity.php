@@ -9,10 +9,17 @@ class PostEntity extends Entity{
         return 'index.php?p=posts.show&id=' . $this->id;
     }
 
-    public function getExtrait(){
-        $html = '<p>' . substr($this->contenu, 0, 100) . '...</p>';
-        $html .= '<p><a href="' . $this->getURL() . '">Voir la suite</a></p>';
+    public function getNom(){
+        $html = '<p>' .$this->nom . '...</p>';
+        return $html;
+    }
+    public function getDescriptions(){
+        $html = '<p>' .$this->descriptions . '...</p>';
+        return $html;
+    }
+    public function getPrix(){
+        $html = '<p>' .$this->prix . '...</p>';
         return $html;
     }
 
-}
+} 

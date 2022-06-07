@@ -27,9 +27,9 @@ class ProduitsController extends AppController{
         if($categorie === false){
             $this->notFound();
         }
-        $articles = $this->Post->lastByCategory($_GET['id']);
+        $produits = $this->Produit->lastByCategory($_GET['id']);
         $categories = $this->Category->all();
-        $this->render('posts.category', compact('articles', 'categories', 'categorie'));
+        $this->render('posts.category', compact('produits', 'categories', 'categorie'));
     }
 
     public function show(){

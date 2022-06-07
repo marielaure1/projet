@@ -9,4 +9,9 @@ class CategoryEntity extends Entity{
         return 'index.php?p=posts.category&id=' . $this->id;
     }
 
+    public function getTitre(){
+        $html = '<p>...</p>';
+        return $html;
+    }
+
 }

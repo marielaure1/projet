@@ -1,8 +1,96 @@
 
 
-.header-categorie{
-    position: static;
-    height: 100vh;
-    background-image: url("../images/inspirations/inspiration-2.png");
+// .header-categorie{
+//     position: static;
+//     height: 100vh;
+//     background-image: url("../images/inspirations/inspiration-2.png");
+// }
+
+.category{
+    .banner{
+        height: 80vh;
+
+        .block{
+            width: 30%;
+            height: 100%;
+            background-color: rgba(56, 56, 56, 0.8);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            h2, p{
+                color: $white;
+            }
+
+            h2{
+                text-align: center;
+                font-size: 56px;
+                font-weight: 600;
+                text-transform: uppercase;
+                margin-bottom: 10vw;
+            }
+
+            p{
+                font-size: 20px;
+                font-weight: 500;
+                font-family: $montserrat;
+                padding: 0 22%;
+            }
+        }
+    }
+    
+    
 }
 
+
+// padding: 0 10vw 12vh 10vw;
+// .title-rubrique{
+//     margin-top: 85px;
+//     margin-bottom: 50px;
+// }
+
+// .grid-produits{
+//     display: grid;
+//     grid-template-columns: repeat(4, 1fr);
+//     column-gap: 15px;
+//     row-gap: 75px;
+
+//     .produit{
+//         aspect-ratio: 2/3;
+//         background-color: $beige;
+    
+//         .produit-description{
+//             width: 100%;
+//             box-sizing: border-box;
+//             padding: 15px;
+//             display: grid;
+//             grid-template-columns: 75% 25%;
+//             row-gap: 15px;
+
+//             h2{
+//                 font-weight: 600;
+//                 font-size: 20px;
+//                 display: flex;
+//                 align-items: center;
+//             }
+
+//             .icon-favoris{
+//                 display: flex;
+//                 justify-content: end;
+//             }
+
+//             h3{
+//                 font-size: 16px;
+//                 line-height: 24px;
+//             }
+
+//             .prix-produit{
+//                 font-weight: 600;
+//                 font-size: 16px;
+//                 display: flex;
+//                 justify-content: end;
+//             }
+//         }
+//     }
+// }

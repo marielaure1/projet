@@ -1,10 +1,11 @@
 .slider {
+    width: 100%;
     height: 100vh;
     position: relative;
     overflow: hidden;
+    
 
-    img {
-        object-fit: cover;
+    .img-slider{
         height: 100%;
         width: 100%;
         position: absolute;
@@ -12,10 +13,31 @@
         left: 0;
         opacity: 0;
         transition: opacity .5s;
-        filter: brightness(0.9);
+
+        img {
+            object-fit: cover;
+            height: 100%;
+            width: 100%;
+            filter: brightness(0.9);
+        }
+
+        .decouvrir{
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 275px;
+            height: 48px;
+            background-color: $white;
+            font-size: 16px;
+            font-family: "Montserrat", sans-serif;
+        }
     }
 
-    img.active {
+    .img-slider.active {
         opacity: 1;
     }
 
@@ -29,19 +51,31 @@
         border: none;
         transform: translateY(-50%);
         cursor: pointer;
+        display: flex;
+        align-items: center;
 
         img{
-            width: 30px;
-            height: 30px;
+            width: 22px;
+            height: 22px;
         }
     }
     
     .right {
         right: -25px;
+        justify-content: start;
+
+        img{
+            margin-left: 4px;
+        }
     }
     
     .left {
         left: -25px;
+        justify-content: end;
+
+        img{
+            margin-right: 4px;
+        }
     }
 }
 
@@ -72,7 +106,7 @@
 .nouveautes{
     width: 100%;
     height: fit-content;
-    background-color: $light-grey;
+    background-color: $green;
     padding: 8vh 10vw;
     display: grid;
     grid-template-areas: "grid1 grid2 grid5 grid5"
@@ -93,7 +127,7 @@
     }
 
     .n1{
-        background-image: url("../images/decorations/mirroir/mirroir-sd.png");
+        background-image: url("../images/decorations/mirroirs/mirroir-sd.png");
         grid-area: grid2;
     }
     .n2{
@@ -105,7 +139,7 @@
         grid-area: grid4;
     }
     .n4{
-        background-image: url("../images/salon/canape/canape-sd.png");
+        background-image: url("../images/salon/canapes/canape-sd.png");
         grid-area: grid5;
     }
     
@@ -119,7 +153,11 @@
             width: 100%;
             height: 77px;
             background-color: rgba(255, 255, 255, 0.62);
-            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 0;
 
             h2{
                 display: block;
@@ -145,10 +183,6 @@
         }
     }
 }
-
-
-
-
 
 .inspiration{
     .title-rubrique{
@@ -225,11 +259,135 @@
 
 .tendances{
     height: fit-content;
-    padding: 0 10vw 8vh 10vw;
+    padding: 0 10vw 12vh 10vw;
     
     .title-rubrique{
         margin-top: 85px;
         margin-bottom: 50px;
     }
+}
 
+.gallerie{
+    height: fit-content;
+    padding: 0 10vw 8vh 10vw;
+    
+    h2, p{
+        margin-bottom: 20px;
+    }
+    p{
+        font-family: "Montserrat", sans-serif;
+        font-size: 20px;
+        text-align: center;
+    }
+
+    .grid-gallerie{
+        width: 100%;
+        display: grid;
+        gap: 15px;
+
+        .img-instagram{
+            height: 13vw;
+            aspect-ratio: attr(width) / attr(height);
+        }
+
+        .img-instagram:nth-child(1){
+            grid-column: 1/4;
+            grid-row: 1/2;
+        }
+        .img-instagram:nth-child(2){
+            grid-column: 4/6;
+            grid-row: 1/2;
+        }
+        .img-instagram:nth-child(3){
+            grid-column: 6/10;
+            grid-row: 1/2;
+        }
+        .img-instagram:nth-child(4){
+            grid-column: 10/13;
+            grid-row: 1/2;
+        }
+        .img-instagram:nth-child(5){
+            grid-column: 1/5;
+            grid-row: 2/3;
+        }
+        .img-instagram:nth-child(6){
+            grid-column: 5/8;
+            grid-row: 2/3;
+        }
+        .img-instagram:nth-child(7){
+            grid-column: 8/11;
+            grid-row: 2/3;
+        }
+        .img-instagram:nth-child(8){
+            grid-column: 11/13;
+            grid-row: 2/3;
+        }
+        .img-instagram:nth-child(9){
+            grid-column: 1/4;
+            grid-row: 3/4;
+        }
+        .img-instagram:nth-child(10){
+            grid-column: 4/8;
+            grid-row: 3/4;
+        }
+        .img-instagram:nth-child(11){
+            grid-column: 8/10;
+            grid-row: 3/4;
+        }
+        .img-instagram:nth-child(12){
+            grid-column: 10/13;
+            grid-row: 3/4;
+        }
+    }
+}
+
+.newsletter{
+    background-color: $green;
+    height: fit-content;
+    padding: 0 10vw 8vh 17vw;
+
+    h2{
+        padding: 80px 0 30px 0;
+        text-align: inherit;
+    }
+
+    .newsletter-block{
+        display: flex;
+        justify-content: space-between;
+
+        p{
+            font-family: "Montserrat", sans-serif;
+            line-height: 24px;
+            font-size: 16px;
+            width: 33%;
+        }
+
+        .newsletter-form{
+            display: flex;
+
+            .form-surround{
+                width: 312px;
+                margin-right: 20px;
+
+                input{
+                    width: 312px;
+                    height: 50px;
+                    background-color: $white;
+                    border: none;
+                    outline: rgba(255, 255, 255, 0);
+                    padding-left: 20px;
+                    border-radius: 14px;
+                    font-size: 20px;
+                }
+            }
+
+            .btn-newsletter{
+                border-radius: 14px;
+                width: 115px;
+                height: 50px;
+                background-color: $dark-black;
+                color: $white;
+            }
+        }
+    }
 }

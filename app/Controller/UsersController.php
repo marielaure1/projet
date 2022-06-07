@@ -6,10 +6,6 @@ use Core\Auth\DBAuth;
 use Core\HTML\BootstrapForm;
 use \App;
 
-/**
- * Class UsersController = class enfant de AppController
- * Permet de quoi?
- */
 class UsersController extends AppController {
 
     public function __construct(){
@@ -58,6 +54,7 @@ class UsersController extends AppController {
             if(empty($_POST['prenom']) || 
                empty($_POST['nom']) || 
                empty($_POST['email']) ||
+               empty($_POST['adresse'] ) ||
                empty($_POST['password'])
                ){
                 $errors = true;
@@ -82,7 +79,8 @@ class UsersController extends AppController {
                 'prenom' => $_POST['prenom'],
                 'nom' => $_POST['nom'],
                 'email' => $_POST['email'],
-                'is_admin' => 'ROLE_USER',
+                'adresse' => $_POST['adresse'],
+                'role' => 'ROLE_USER',
                 'password' => sha1($_POST['password']),
             ]);
             if($result){

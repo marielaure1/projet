@@ -16,13 +16,13 @@ class BootstrapForm extends Form{
      * @param array $options
      * @return string
      */
-    public function input($name, $label, $options = []){
+    public function input($name, $label, $options = [], $placeholder = null){
         $type = isset($options['type']) ? $options['type'] : 'text';
         $label = '<label>' . $label . '</label>';
         if($type === 'textarea'){
-            $input = '<textarea name="' . $name . '" class="form-control">' . $this->getValue($name) . '</textarea>';
+            $input = '<textarea name="' . $name . '" class="form-control"  placeholder="'.$placeholder.'">' . $this->getValue($name) . '</textarea>';
         } else{
-            $input = '<input type="' . $type . '" name="' . $name . '" value="' . $this->getValue($name) . '" class="form-control">';
+            $input = '<input type="' . $type . '" name="' . $name . '" placeholder="'.$placeholder.'" value="' . $this->getValue($name) . '" class="form-control">';
         }
         return $this->surround($label . $input);
     }

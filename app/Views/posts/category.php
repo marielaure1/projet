@@ -1,27 +1,21 @@
-<header class="header-categorie">
+<?php
+$unwanted_array = array(    'Š'=>'S', 'š'=>'s', 'Ž'=>'Z', 'ž'=>'z', 'À'=>'A', 'Á'=>'A', 'Â'=>'A', 'Ã'=>'A', 'Ä'=>'A', 'Å'=>'A', 'Æ'=>'A', 'Ç'=>'C', 'È'=>'E', 'É'=>'E',
+'Ê'=>'E', 'Ë'=>'E', 'Ì'=>'I', 'Í'=>'I', 'Î'=>'I', 'Ï'=>'I', 'Ñ'=>'N', 'Ò'=>'O', 'Ó'=>'O', 'Ô'=>'O', 'Õ'=>'O', 'Ö'=>'O', 'Ø'=>'O', 'Ù'=>'U',
+'Ú'=>'U', 'Û'=>'U', 'Ü'=>'U', 'Ý'=>'Y', 'Þ'=>'B', 'ß'=>'Ss', 'à'=>'a', 'á'=>'a', 'â'=>'a', 'ã'=>'a', 'ä'=>'a', 'å'=>'a', 'æ'=>'a', 'ç'=>'c',
+'è'=>'e', 'é'=>'e', 'ê'=>'e', 'ë'=>'e', 'ì'=>'i', 'í'=>'i', 'î'=>'i', 'ï'=>'i', 'ð'=>'o', 'ñ'=>'n', 'ò'=>'o', 'ó'=>'o', 'ô'=>'o', 'õ'=>'o',
+'ö'=>'o', 'ø'=>'o', 'ù'=>'u', 'ú'=>'u', 'û'=>'u', 'ý'=>'y', 'þ'=>'b', 'ÿ'=>'y' );
 
-</header>
-<h1><?= $categorie->titre ?></h1>
+?>
 
-<div class="row">
-    <div class="col-sm-8">
-        <?php foreach ($articles as $post): ?>
-
-            <h2><a href="<?= $post->url ?>"><?= $post->titre; ?></a></h2>
-
-            <p><em><?= $post->categorie; ?></em></p>
-
-            <p><?= $post->extrait; ?></p>
-
-        <?php endforeach; ?>
-
-    </div>
-
-    <div class="col-sm-4">
-        <ul>
-            <?php foreach($categories as $categorie): ?>
-                <li><a href="<?= $categorie->url; ?>"><?= $categorie->titre; ?></a></li>
-            <?php endforeach; ?>
-        </ul>
-    </div>
-</div>
+<main class="category">
+    <?php $img = $categorie->nom;?>
+    <section class="banner background-images" style="background-image: url('../public/images/<?= str_replace(" ", "-", strtr($img, $unwanted_array)) ?>/<?= $categorie->images ?>');">
+        <div class="block">
+            <h2><?= $categorie->nom ?></h2>
+            <p><?= $categorie->descriptions ?></p>
+        </div>
+    </section>
+    
+    
+    
+</main>
