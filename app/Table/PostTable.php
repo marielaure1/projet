@@ -26,11 +26,11 @@ class PostTable extends Table{
      */
     public function lastByCategory($category_id){
         return $this->query("
-            SELECT articles.id, articles.titre, articles.contenu, articles.date, categories.nom as categorie
-            FROM articles
-            LEFT JOIN categories ON category_id = categories.id
-            WHERE articles.category_id = ?
-            ORDER BY articles.date DESC", [$category_id]);
+            SELECT produits.id, produits.nom, produits.descriptions, produits.prix, categories.nom as categorie
+            FROM produits
+            LEFT JOIN categories ON id_categories = categories.id
+            WHERE produits.id_categories = ?
+            ORDER BY produits.id DESC", [$category_id]);
     }
 
     /**

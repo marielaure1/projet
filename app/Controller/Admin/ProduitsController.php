@@ -2,7 +2,7 @@
 
 namespace App\Controller\Admin;
 
-use Core\HTML\BootstrapForm;
+use Core\HTML\Form;
 
 class ProduitsController extends AppController{
 
@@ -22,18 +22,20 @@ class ProduitsController extends AppController{
             $image = $this->uploadImage();
 
             $result = $this->Produit->create([
-                'titre' => $_POST['titre'],
-                'description' => $_POST['description'],
-                'date' => date('Ymd'),
-                'img' => ($image)? $image : null, 
+                'nom' => $_POST['nom'],
+                'descriptions' => $_POST['descriptions'],
+                'prix' => $_POST['prix'],
+                'quantite' => $_POST['quantite'],
+                'publier' => $_POST['publier'],
+                'id_categories' => $_POST['id_categories']
             ]);
             if($result){
                 return $this->index();
             }
         }
         $this->loadModel('Category');
-        $categories = $this->Category->extract('id', 'titre');
-        $form = new BootstrapForm($_POST);
+        $categories = $this->Category->extract('id', 'nom');
+        $form = new Form($_POST);
         $this->render('admin.produits.edit', compact('categories', 'form'));
     }
 
@@ -58,7 +60,7 @@ class ProduitsController extends AppController{
         $this->loadModel('Category');
         $categories = $this->Category->extract('id', 'titre');
 
-        $form = new BootstrapForm($produit);
+        $form = new Form($produit);
         $this->render('admin.produits.edit', compact('categories', 'form'));
     }
 

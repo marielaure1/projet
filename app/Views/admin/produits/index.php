@@ -1,5 +1,9 @@
-<h1>Administrer les produits</h1>
-
+<section class="admin-section dashboard">
+    <h1>PRODUITS</h1>
+    <form method="post">
+        <?= $form->input("nom", $option = ["type" => "text"], $placeholder = "Nom du produit") ?>
+    </form>
+</section>
 <p>
     <a href="?p=admin.produits.add" class="btn btn-success">Ajouter</a>
 </p>
@@ -8,8 +12,9 @@
     <thead>
     <tr>
         <td>ID</td>
-        <td>Image</td>
-        <td>Titre</td>
+        <td>Nom</td>
+        <td>Descriptions</td>
+        <td>Prix</td>
         <td>Actions</td>
     </tr>
     </thead>
@@ -17,8 +22,9 @@
         <?php foreach($produits as $produit): ?>
         <tr>
             <td><?= $produit->id; ?></td>
-            <td><img src="../public/img/upload/<?= $produit->img; ?>" style="width: 10%;"></td>
-            <td><?= $produit->titre; ?></td>
+            <td><?= $produit->nom; ?></td>
+            <td><?= $produit->descriptions; ?></td>
+            <td><?= $produit->prix; ?></td>
             <td>
                 <a class="btn btn-primary" href="?p=admin.produits.edit&id=<?= $produit->id; ?>">Editer</a>
                 <form action="?p=admin.produits.delete" method="post" style="display: inline;">

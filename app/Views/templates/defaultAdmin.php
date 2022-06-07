@@ -44,7 +44,7 @@ if($p === "posts.index" or !isset($_GET["p"])){
                 <img class="logo" src="../public/images/logo-white-black.svg" alt="">
                 <a href="../public/index.php?p=admin.posts.index"><img src="../public/icon/icon-home.svg" alt=""><span>Dashboard</span></a>
                 <a href="../public/index.php?p=admin.users.index"><img src="../public/icon/icon-user.svg" alt=""><span>Users</span></a>
-                <a href="../public/index.php?p=admin.categories.index"><img src="../public/icon/icon-category.svg" alt=""><span>Catégorie</span></a>
+                <a href="../public/index.php?p=admin.categories.index"><img src="../public/icon/icon-category.svg" alt=""><span>Catégories</span></a>
                 <a href="../public/index.php?p=admin.produits.index"><img src="../public/icon/icon-product.svg" alt=""><span>Produits</span></a>
                 <a href="../public/index.php?p=admin.favoris.index"><img src="../public/icon/icon-like-white.svg" alt=""><span>Favoris</span></a>
                 <a href="../public/index.php?p=admin.commandes.index"><img src="../public/icon/icon-ordered.svg" alt=""><span>Commandes</span></a>

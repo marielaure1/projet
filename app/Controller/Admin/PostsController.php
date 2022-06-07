@@ -2,7 +2,7 @@
 
 namespace App\Controller\Admin;
 
-use Core\HTML\BootstrapForm;
+use Core\HTML\Form;
 
 class PostsController extends AppController{
 
@@ -29,7 +29,7 @@ class PostsController extends AppController{
         }
         $this->loadModel('Category');
         $categories = $this->Category->extract('id', 'titre');
-        $form = new BootstrapForm($_POST);
+        $form = new Form($_POST);
         $this->render('admin.posts.edit', compact('categories', 'form'));
     }
 
@@ -47,7 +47,7 @@ class PostsController extends AppController{
         $post = $this->Post->find($_GET['id']);
         $this->loadModel('Category');
         $categories = $this->Category->extract('id', 'titre');
-        $form = new BootstrapForm($post);
+        $form = new Form($post);
         $this->render('admin.posts.edit', compact('categories', 'form'));
     }
 
