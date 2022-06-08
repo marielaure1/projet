@@ -2,7 +2,7 @@
 
 namespace App\Controller\Admin;
 
-use Core\HTML\Form;
+use Core\HTML\BootstrapForm;
 
 class ProduitsController extends AppController{
 
@@ -13,13 +13,13 @@ class ProduitsController extends AppController{
 
     public function index(){
         $produits = $this->Produit->all();
-        $this->render('admin.produits.index', compact('produits'));
+        $form = new BootstrapForm($_POST);
+        $this->render('admin.produits.index', compact('produits', 'form'));
     }
 
-    public function add(){
+    public function addProduit(){
+        $produits = $this->Produit->all();
         if (!empty($_POST)) {
-            //Enregistrement de l'image
-            $image = $this->uploadImage();
 
             $result = $this->Produit->create([
                 'nom' => $_POST['nom'],
@@ -35,8 +35,8 @@ class ProduitsController extends AppController{
         }
         $this->loadModel('Category');
         $categories = $this->Category->extract('id', 'nom');
-        $form = new Form($_POST);
-        $this->render('admin.produits.edit', compact('categories', 'form'));
+        $form = new BootstrapForm($_POST);
+        $this->render('admin.produits.addProduit', compact('categories', 'form', "produits"));
     }
 
     public function edit(){
@@ -60,7 +60,7 @@ class ProduitsController extends AppController{
         $this->loadModel('Category');
         $categories = $this->Category->extract('id', 'titre');
 
-        $form = new Form($produit);
+        $form = new BootstrapForm($produit);
         $this->render('admin.produits.edit', compact('categories', 'form'));
     }
 

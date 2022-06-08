@@ -2,7 +2,7 @@
 
 namespace App\Controller\Admin;
 
-use Core\HTML\BootstrapForm;
+use Core\HTML\Form;
 
 class CategoriesController extends AppController{
 
@@ -12,8 +12,9 @@ class CategoriesController extends AppController{
     }
 
     public function index(){
-        $items = $this->Category->all();
-        $this->render('admin.categories.index', compact('items'));
+        $categories = $this->Category->all();
+        $form = new Form($_POST);
+        $this->render('admin.categories.index', compact('categories', "form"));
     }
 
     public function add(){
@@ -23,7 +24,7 @@ class CategoriesController extends AppController{
             ]);
             return $this->index();
         }
-        $form = new BootstrapForm($_POST);
+        $form = new Form($_POST);
         $this->render('admin.categories.edit', compact('form'));
     }
 
@@ -35,7 +36,7 @@ class CategoriesController extends AppController{
             return $this->index();
         }
         $category = $this->Category->find($_GET['id']);
-        $form = new BootstrapForm($category);
+        $form = new Form($category);
         $this->render('admin.categories.edit', compact('form'));
     }
 

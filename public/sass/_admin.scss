@@ -1,3 +1,42 @@
+@font-face {
+    font-family: 'Dosis';
+    src: url("../fonts/Dosis/Dosis-VariableFont_wght.ttf");
+}
+html {
+    scroll-behavior: smooth;
+  }
+
+body{
+    font-family: "Dosis";
+    font-size: 16px;
+    background-color: $white;
+}
+
+.background-images{
+    background-size: cover;
+    background-position: center;
+}
+
+a, li{
+    list-style: inherit;
+    text-decoration: none;
+    color: $dark-black;
+}
+
+a, li, .btn, input, .icon{
+    cursor: pointer;
+}
+
+.icon{
+    height: 28px;
+    width: 28px;
+}
+
+.main{
+    height: fit-content;
+    overflow-y: scroll;
+}
+
 .admin{
     margin: inherit;
 
@@ -53,4 +92,11 @@
 }
 
 .dashboard{
+}
+
+.choix{
+    height: 200px;
+    width: 300px;
+    background-color: $white;
+    border: 1px solid $dark-black;
 }

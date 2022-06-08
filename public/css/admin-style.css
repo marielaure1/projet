@@ -1,0 +1,83 @@
+@font-face {
+  font-family: "Dosis";
+  src: url("../fonts/Dosis/Dosis-VariableFont_wght.ttf");
+}
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Dosis";
+  font-size: 16px;
+  background-color: #FAFAFA;
+}
+
+.background-images {
+  background-size: cover;
+  background-position: center;
+}
+
+a, li {
+  list-style: inherit;
+  text-decoration: none;
+  color: #393939;
+}
+
+a, li, .btn, input, .icon {
+  cursor: pointer;
+}
+
+.icon {
+  height: 28px;
+  width: 28px;
+}
+
+.main {
+  height: fit-content;
+  overflow-y: scroll;
+}
+
+.admin {
+  margin: inherit;
+}
+.admin .admin-nav {
+  background: linear-gradient(45deg, #C29958, #F2E69B);
+  height: 100vh;
+  padding: inherit;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.admin .admin-nav img {
+  margin: 50px 0 30px 0;
+  width: 50%;
+}
+.admin .admin-nav a {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 45px;
+  color: #FAFAFA;
+}
+.admin .admin-nav a img {
+  margin: 0 30px;
+  width: 30px;
+  height: 30px;
+}
+.admin .admin-nav a span {
+  font-size: 20px;
+}
+.admin .admin-nav a:hover {
+  border-left: 2px solid #393939;
+  color: #393939;
+}
+
+.admin-section {
+  padding: 3vw;
+}
+.admin-section h1 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+/*# sourceMappingURL=admin-style.css.map */

@@ -16,20 +16,22 @@ $unwanted_array = array(    'Š'=>'S', 'š'=>'s', 'Ž'=>'Z', 'ž'=>'z', 'À'=>'A
         </div>
     </section>
     
-    <div class="grid-produits">
-    <?php foreach ($produits as $produit): ?>
-        <div class="produit">
-            <img src="../public/images/decorations/tapis/tapis1-hover.jpg" alt="" class="produit-img">
-            <div class="produit-description">
-                <h2 class="titre-produit"><?= $produit->nom; ?></h2>
-                <div class="icon-favoris">
-                    <img class="icon" src="../public/icon/icon-like.png" alt="icon heart">
+    <section class="produits-categorie">
+        <div class="grid-produits">
+        <?php foreach ($produits as $produit): ?>
+            <div class="produit">
+                <img src="../public/images/decorations/tapis/tapis1-hover.jpg" alt="" class="produit-img">
+                <div class="produit-description">
+                    <h2 class="titre-produit"><?= $produit->nom; ?></h2>
+                    <div class="icon-favoris">
+                        <img class="icon" src="../public/icon/icon-like.png" alt="icon heart">
+                    </div>
+                    <h3 class="description-produit"><?= $produit->descriptions; ?></h3>
+                    <p class="prix-produit"><?= $produit->prix; ?> €</p>
                 </div>
-                <h3 class="description-produit"><?= $produit->descriptions; ?></h3>
-                <p class="prix-produit"><?= $produit->prix; ?></p>
             </div>
+        <?php endforeach; ?>
         </div>
-    <?php endforeach; ?>
-    </div>
+    </section>
     
 </main>

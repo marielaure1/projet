@@ -73,11 +73,11 @@ if($p === "posts.index" or !isset($_GET["p"])){
             </div>
         </div>
         <ul class="nav-categories">
-            <li><a href="../public/index.php?p=posts.category&id=1">Salon</a></li>
-            <li><a href="../public/index.php?p=posts.category&id=2">Salle à manger</a></li>
-            <li><a href="../public/index.php?p=posts.category&id=3">Chambre</a></li>
-            <li><a href="../public/index.php?p=posts.category&id=4">Luminaire</a></li>
-            <li><a href="../public/index.php?p=posts.category&id=5">Décoration</a></li>
+            <li><a href="index.php?p=posts.category&id=1">Salon</a></li>
+            <li><a href="index.php?p=posts.category&id=2">Salle à manger</a></li>
+            <li><a href="index.php?p=posts.category&id=3">Chambre</a></li>
+            <li><a href="index.php?p=posts.category&id=4">Luminaire</a></li>
+            <li><a href="index.php?p=posts.category&id=5">Décoration</a></li>
         </ul>
     </nav>
 
