@@ -34,69 +34,97 @@ a, li, .btn, input, .icon{
 
 .main{
     height: fit-content;
-    overflow-y: scroll;
+    padding: 10vh 5vw;
+    width: 80%;
+    margin-left: 20%;
 }
 
 .admin{
     margin: inherit;
+    display: flex;
+    position: relative;
 
     .admin-nav{
-        // background-color: #FF9671;
-        background: $gradiantOr;
+        width: 20%;
         height: 100vh;
+        background: $gradiantOr;
         padding: inherit;
+        position: fixed;
         display: flex;
         flex-direction: column;
         align-items: center;
-
-        img{
-            margin: 50px 0 30px 0;
-            width: 50%;
-        }
-
-        a{
-            display: flex;
-            align-items: center;
-            width: 100%;
-            height: 45px;
-            color: $white;
-           
-
+            
             img{
-                margin: 0 30px;
-                width: 30px;
-                height: 30px;
+                margin: 50px 0 30px 0;
+                width: 50%;
             }
-            span{
-                font-size: 20px;
+    
+            a{
+                display: flex;
+                align-items: center;
+                width: 100%;
+                height: 45px;
+                color: $white;
+               
+    
+                img{
+                    margin: 0 30px;
+                    width: 30px;
+                    height: 30px;
+                }
+                span{
+                    font-size: 20px;
+                }
             }
-        }
-
-        a:hover{
-            border-left: 2px solid $dark-black;
-            color: $dark-black;
-        }
+    
+            a:hover{
+                border-left: 2px solid $dark-black;
+                color: $dark-black;
+            }
+        
     }
 }
 
 // GENERALE
-.admin-section{
-    padding: 3vw;
-
+.admin-form{
+    padding-bottom: 10vh;
+   
     h1{
         font-size: 32px;
-        margin-bottom: 20px;
+        margin-bottom: 50px;
     }
-
-    
-}
-
-.dashboard{
 }
 
 .choix{
-    height: 200px;
-    width: 300px;
-    background-color: $white;
-    border: 1px solid $dark-black;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+   
+    a{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        aspect-ratio: 2/1;
+        background-color: $beige;
+        border-radius: 20px;
+        font-size: 32px;
+        color: $dark-black;
+    }
+
+    div{
+        background-color: $beige;
+        border-radius: 20px;
+    }
 }
+
+.listes{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+
+    .liste{
+        border-radius: 20px;
+        border: 2px solid $gradiantOr;
+    }
+}
+

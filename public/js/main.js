@@ -7,30 +7,43 @@ const navCategories = document.querySelector(".nav-categories")
 const barSearch = document.querySelector(".bar-search")
 
 const logoNav = document.querySelector(".logo-nav")
+const logoHome = document.querySelector(".logo-home")
 const iconSearch = document.querySelector(".icon-search")
 const iconLike = document.querySelector(".icon-like")
 const iconBasket = document.querySelector(".icon-basket")
 
 const tools = document.querySelectorAll(".point")
 const descriptions = document.querySelectorAll(".infos")
+const headers = document.querySelectorAll("header")
 
-function navFix(){
-    if(window.scrollY > nav.offsetHeight + 300){
-        nav.classList.add("nav-fixed")
-        logoNav.src = "../public/images/logo-black.svg"
-        iconSearch.src = "../public/icon/icon-search.svg"
-        iconLike.src = "../public/icon/icon-like.svg"
-        iconBasket.src = "../public/icon/icon-basket.svg"
-        iconUser.src = "../public/icon/icon-user.svg"
-
-    } else {
-        nav.classList.remove("nav-fixed")
-        logoNav.src = "../public/images/logo-white.svg"
+headers.forEach((header)=>{
+    if(header.classList.contains("header-home")){
+        nav.classList.add("black");
+        logoHome.src = "../public/images/logo-white.svg"
         iconSearch.src = "../public/icon/icon-search-white.svg"
         iconLike.src = "../public/icon/icon-like-white.svg"
         iconBasket.src = "../public/icon/icon-basket-white.svg"
         iconUser.src = "../public/icon/icon-user-white.svg"
     }
+})
+
+function navFix(){
+    // if(window.scrollY > nav.offsetHeight + 300){
+    //     nav.classList.add("nav-fixed")
+    //     logoNav.src = "../public/images/logo-black.svg"
+    //     iconSearch.src = "../public/icon/icon-search-black.svg"
+    //     iconLike.src = "../public/icon/icon-like.svg"
+    //     iconBasket.src = "../public/icon/icon-basket-black.svg"
+    //     iconUser.src = "../public/icon/icon-user.svg"
+
+    // } else {
+    //     nav.classList.remove("nav-fixed")
+    //     logoNav.src = "../public/images/logo-white.svg"
+    //     iconSearch.src = "../public/icon/icon-search-white.svg"
+    //     iconLike.src = "../public/icon/icon-like-white.svg"
+    //     iconBasket.src = "../public/icon/icon-basket-white.svg"
+    //     iconUser.src = "../public/icon/icon-user-white.svg"
+    // }
 }
 
 function menuAccountDisplay(){
@@ -77,42 +90,17 @@ function point(){
 point()
 
 
-// Slider
-let imgSlider = document.querySelectorAll('.img-slider');
-let left = document.querySelector('.left');
-let right = document.querySelector('.right');
-let count = 0;
-let imgLength = imgSlider.length;
+const iconFav = document.querySelectorAll(".icon-fav")
 
-function enleverActiveImages() {
-    for(let i = 0 ; i < imgLength ; i++) {
-        imgSlider[i].classList.remove('active');
-    }
-}
-
-right.addEventListener('click', function() {
-    count++;
-    if(count >= imgLength) {
-        count = 0;
-    }
-    enleverActiveImages();
-    imgSlider[count].classList.add('active');
+iconFav.forEach((icon) => {
+    icon.addEventListener("click", ()=>{
+        // icon.classList.toggle("active")
+    
+        if(icon.classList.contains("active")){
+            icon.src = "../public/icon/icon-favoris-on.svg"
+            icon.style.animation = "favoris 1s ease"
+        } else {
+            icon.src = "../public/icon/icon-favoris-off.svg"
+        }
+    })
 })
-
-left.addEventListener('click', function() {
-    count--;
-    if(count < 0) {
-        count = imgLength - 1;
-    }
-    enleverActiveImages();
-    imgSlider[count].classList.add('active');
-})
-
-setInterval(function() {
-    count++;
-    if(count >= imgLength) {
-        count = 0;
-    }
-    enleverActiveImages();
-    imgSlider[count].classList.add('active');
-}, 5000)

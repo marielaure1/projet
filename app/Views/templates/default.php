@@ -15,27 +15,14 @@
     <link href="../public/css/reset.css" rel="stylesheet">
     <link href="../public/css/style.css" rel="stylesheet">
     <script src="../public/js/main.js" defer></script>
+    <script src="../public/js/slider.js" defer></script>
     <script src="../public/js/adresseApi.js" defer></script>
 
 </head>
 
 <body>
 
-<?php if(isset($_GET["p"])){
-          $p = $_GET["p"];
-      } else {
-          $p = "";
-      }
-
-if($p === "posts.index" or !isset($_GET["p"])){ 
-        $color = "white";
-        $bg = "black"; ?>
-<?php } else { 
-        $color = "black";
-        $bg = "white"; ?>
-<?php } ?>
-
-    <nav class="navbar <?=$bg?>">
+    <nav class="navbar">
         <div class="nav-container">
             <ul class="nav-left">
                 <li><a href="../public/index.php?p=posts.index">Accueil</a></li>
@@ -43,12 +30,12 @@ if($p === "posts.index" or !isset($_GET["p"])){
                 <li><a href="../public/index.php?p=posts.inspirations">Inspirations</a></li>
             </ul>
             <div class="logo-nav logo-white">
-                <img src="../public/images/logo-<?=$color?>.svg" alt="">
+                <img src="../public/images/logo-black.svg" alt="" class="logo-home">
             </div>
             <div class="nav-right">
                 <form class="search">
                     <input class="bar-search" type="text" placeholder="Recherche...">
-                    <img class="icon icon-search" src="../public/icon/icon-search-<?=$color?>.svg" alt="icon-search">
+                    <img class="icon icon-search" src="../public/icon/icon-search-black.svg" alt="icon-search">
                 </form>
                 
                 <div class="user">
@@ -59,9 +46,9 @@ if($p === "posts.index" or !isset($_GET["p"])){
                         } else { ?>
                             
                 <?php } ?>
-                        <img class="icon icon-user" src="../public/icon/icon-user-<?=$color?>.svg" alt="icon-user">
-                        <img class="icon icon-like" src="../public/icon/icon-like-<?=$color?>.svg" alt="icon-like">
-                        <img class="icon icon-basket" src="../public/icon/icon-basket-<?=$color?>.svg" alt="icon-basket">
+                        <img class="icon icon-user" src="../public/icon/icon-user-black.svg" alt="icon-user">
+                        <img class="icon icon-like" src="../public/icon/icon-like-black.svg" alt="icon-like">
+                        <img class="icon icon-basket" src="../public/icon/icon-basket-black.svg" alt="icon-basket">
                     </div>
                     <nav class="menu-account">
                         <a href="../public/index.php?p=users.login">S'identifier</a>

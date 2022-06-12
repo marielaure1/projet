@@ -2,7 +2,7 @@
 
 namespace App\Controller\Admin;
 
-use Core\HTML\Form;
+use Core\HTML\BootstrapForm;
 
 class UsersController extends AppController{
 
@@ -13,7 +13,7 @@ class UsersController extends AppController{
 
     public function index(){
         $users = $this->User->all();
-        $form = new Form($_POST);
+        $form = new BootstrapForm($_POST);
         $this->render('admin.users.index', compact('users', 'form'));
     }
 
@@ -26,15 +26,13 @@ class UsersController extends AppController{
                 'prenom' => $_POST['prenom'],
                 'email' => $_POST['email'],
                 'password' => $_POST['password'],
-                'adresse' => $_POST['adresse'],
-                'telephone' => $_POST['telephone'],
                 'role' => "ROLE_ADMIN"
             ]);
             if($result){
                 return $this->index();
             }
         }
-        $form = new Form($_POST);
+        $form = new BootstrapForm($_POST);
         $this->render('admin.users.add', compact('users', 'form'));
     }
 
@@ -46,17 +44,14 @@ class UsersController extends AppController{
                 'nom' => $_POST['nom'],
                 'prenom' => $_POST['prenom'],
                 'email' => $_POST['email'],
-                'password' => $_POST['password'],
-                'adresse' => $_POST['adresse'],
-                'telephone' => $_POST['telephone'],
-                'role' => "ROLE_ADMIN"
+                'password' => $_POST['password']
             ]);
                 
             if($result){
                 return $this->index();
             }
         }
-        $form = new Form($user);
+        $form = new BootstrapForm($user);
         $this->render('admin.users.edit', compact('users', 'form'));
     }
 
@@ -87,7 +82,7 @@ class UsersController extends AppController{
                 }   
             }
         }
-        $form = new Form($_POST);
+        $form = new BootstrapForm($_POST);
         $this->render('admin.users.inscription', compact('form', 'errors', 'messageError'));
     }
 

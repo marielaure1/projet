@@ -413,6 +413,11 @@ footer{
             .icon-favoris{
                 display: flex;
                 justify-content: end;
+
+                img{
+                    height: 20px;
+                    width: 20px;
+                }
             }
 
             h3{
@@ -449,6 +454,8 @@ footer{
         
     }
 }
+
+
 
 .btn-form{
     margin-top: 30px;

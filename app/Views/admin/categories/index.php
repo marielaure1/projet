@@ -1,10 +1,12 @@
-<section class="admin-section dashboard">
+<section class="admin-section">
     <h1>Catégories</h1>
-    <form method="post">
-        <?= $form->input("nom", $option = ["type" => "text"], $placeholder = "Nom de la categorie") ?>
+    <form method="post" action="index?p=admin.categories.add">
+        <?= $form->input("nom", "Nom", ["type" => "text"], "Nom du produit") ?>
+        <?= $form->input("descriptions", "Description", ["type" => "textarea"], "Description") ?>
+        <?= $form->input("images", "Image", ["type" => "file"]) ?>
+        <button class="btn btn-success">Ajouter</button>
     </form>
 </section>
-
 <table class="table">
     <thead>
     <tr>

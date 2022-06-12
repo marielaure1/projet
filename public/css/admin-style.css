@@ -34,16 +34,22 @@ a, li, .btn, input, .icon {
 
 .main {
   height: fit-content;
-  overflow-y: scroll;
+  padding: 10vh 5vw;
+  width: 80%;
+  margin-left: 20%;
 }
 
 .admin {
   margin: inherit;
+  display: flex;
+  position: relative;
 }
 .admin .admin-nav {
-  background: linear-gradient(45deg, #C29958, #F2E69B);
+  width: 20%;
   height: 100vh;
+  background: linear-gradient(45deg, #C29958, #F2E69B);
   padding: inherit;
+  position: fixed;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -72,12 +78,42 @@ a, li, .btn, input, .icon {
   color: #393939;
 }
 
-.admin-section {
-  padding: 3vw;
+.admin-form {
+  padding-bottom: 10vh;
 }
-.admin-section h1 {
+.admin-form h1 {
   font-size: 32px;
-  margin-bottom: 20px;
+  margin-bottom: 50px;
+}
+
+.choix {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.choix a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 2/1;
+  background-color: #F4EAE1;
+  border-radius: 20px;
+  font-size: 32px;
+  color: #393939;
+}
+.choix div {
+  background-color: #F4EAE1;
+  border-radius: 20px;
+}
+
+.listes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.listes .liste {
+  border-radius: 20px;
+  border: 2px solid linear-gradient(45deg, #C29958, #F2E69B);
 }
 
 /*# sourceMappingURL=admin-style.css.map */

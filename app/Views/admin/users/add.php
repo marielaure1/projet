@@ -1,7 +1,11 @@
 <section class="admin-section users">
     <h1>Users</h1>
     <form method="post">
-        <?= $form->input("nom", $option = ["type" => "text"], $placeholder = "Nom de l'utilisateur'") ?>
+        <?= $form->input("nom", "Nom", $option = ["type" => "text"], $placeholder = "Nom de l'utilisateur") ?>
+        <?= $form->input("prenom", "Prénom", $option = ["type" => "text"], $placeholder = "Prénom de l'utilisateur") ?>
+        <?= $form->input("email", "E-mail", $option = ["type" => "email"], $placeholder = "Email") ?>
+        <?= $form->input("password", "Mot de Passe", $option = ["type" => "password"], $placeholder = "Mot de Passe") ?>
+        <button class="btn btn-success">Ajouter</button>
     </form>
 </section>
 
