@@ -1,3 +1,14 @@
+@keyframes favoris {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
 @font-face {
   font-family: "Dosis";
   src: url("../fonts/Dosis/Dosis-VariableFont_wght.ttf");
@@ -316,6 +327,10 @@ footer .copyright p {
 .grid-produits .produit .produit-description .icon-favoris {
   display: flex;
   justify-content: end;
+}
+.grid-produits .produit .produit-description .icon-favoris img {
+  height: 20px;
+  width: 20px;
 }
 .grid-produits .produit .produit-description h3 {
   font-size: 16px;

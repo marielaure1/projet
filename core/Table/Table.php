@@ -2,6 +2,7 @@
 namespace Core\Table;
 
 use Core\Database\Database;
+use Core\Entity;
 
 class Table
 {
@@ -79,5 +80,4 @@ class Table
             );
         }
     }
-
 }

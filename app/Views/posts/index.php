@@ -1,6 +1,3 @@
-<script src="../public/js/main.js" defer></script>
-
-
 <header class="header-home slider">
     
     <div class="img-slider active">
@@ -117,7 +114,7 @@
             <div class="produit-description">
                 <h2 class="titre-produit">MAIA</h2>
                 <div class="icon-favoris">
-                    <img class="icon" src="../public/icon/icon-like.png" alt="icon heart">
+                    <img class="icon icon-fav" src="../public/icon/icon-favoris-off.svg" alt="icon heart">
                 </div>
                 <h3 class="description-produit">Plante en pot, arbre-ombrelle/tige tressée</h3>
                 <p class="prix-produit">17,99 €</p>
@@ -128,7 +125,7 @@
             <div class="produit-description">
                 <h2 class="titre-produit">MAIA</h2>
                 <div class="icon-favoris">
-                    <img class="icon" src="../public/icon/icon-like.png" alt="icon heart">
+                    <img class="icon icon-fav" src="../public/icon/icon-favoris-off.svg" alt="icon heart">
                 </div>
                 <h3 class="description-produit">Tableaux, rêves et fleurs</h3>
                 <p class="prix-produit">5,99 €</p>
@@ -139,7 +136,7 @@
             <div class="produit-description">
                 <h2 class="titre-produit">IONA</h2>
                 <div class="icon-favoris">
-                    <img class="icon" src="../public/icon/icon-like.png" alt="icon heart">
+                    <img class="icon icon-fav" src="../public/icon/icon-favoris-off.svg" alt="icon heart">
                 </div>
                 <h3 class="description-produit">Méridienne,  orange</h3>
                 <p class="prix-produit">200 €</p>
@@ -150,7 +147,7 @@
             <div class="produit-description">
                 <h2 class="titre-produit">HOWARD</h2>
                 <div class="icon-favoris">
-                    <img class="icon" src="../public/icon/icon-like.png" alt="icon heart">
+                    <img class="icon icon-fav" src="../public/icon/icon-favoris-off.svg" alt="icon heart">
                 </div>
                 <h3 class="description-produit">Armoire 2 portes, gris</h3>
                 <p class="prix-produit">79 €</p>
@@ -161,7 +158,7 @@
             <div class="produit-description">
                 <h2 class="titre-produit">PARKER</h2>
                 <div class="icon-favoris">
-                    <img class="icon" src="../public/icon/icon-like.png" alt="icon heart">
+                    <img class="icon icon-fav" src="../public/icon/icon-favoris-off.svg" alt="icon heart">
                 </div>
                 <h3 class="description-produit">Meuble TV, blanc/effet chêne blanchi</h3>
                 <p class="prix-produit">160 €</p>
@@ -173,7 +170,7 @@
             <div class="produit-description">
                 <h2 class="titre-produit">LOREN</h2>
                 <div class="icon-favoris">
-                    <img class="icon" src="../public/icon/icon-like.png" alt="icon heart">
+                    <img class="icon icon-fav" src="../public/icon/icon-favoris-off.svg" alt="icon heart">
                 </div>
                 <h3 class="description-produit">Tapis tissé à plat, vert foncé</h3>
                 <p class="prix-produit">129 €</p>
@@ -184,7 +181,7 @@
             <div class="produit-description">
                 <h2 class="titre-produit">JUAN</h2>
                 <div class="icon-favoris">
-                    <img class="icon" src="../public/icon/icon-like.png" alt="icon heart">
+                    <img class="icon icon-fav" src="../public/icon/icon-favoris-off.svg" alt="icon heart">
                 </div>
                 <h3 class="description-produit">Vase en verre, 68 cm</h3>
                 <p class="prix-produit">15 €</p>
@@ -195,7 +192,7 @@
             <div class="produit-description">
                 <h2 class="titre-produit">PARKER</h2>
                 <div class="icon-favoris">
-                    <img class="icon" src="../public/icon/icon-like.png" alt="icon heart">
+                    <img class="icon icon-fav" src="../public/icon/icon-favoris-off.svg" alt="icon heart">
                 </div>
                 <h3 class="description-produit">Lit banquette 2 places, noir</h3>
                 <p class="prix-produit">120 €</p>

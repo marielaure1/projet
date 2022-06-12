@@ -1,3 +1,4 @@
+<main class="category">
 <?php
 $unwanted_array = array(    'Š'=>'S', 'š'=>'s', 'Ž'=>'Z', 'ž'=>'z', 'À'=>'A', 'Á'=>'A', 'Â'=>'A', 'Ã'=>'A', 'Ä'=>'A', 'Å'=>'A', 'Æ'=>'A', 'Ç'=>'C', 'È'=>'E', 'É'=>'E',
 'Ê'=>'E', 'Ë'=>'E', 'Ì'=>'I', 'Í'=>'I', 'Î'=>'I', 'Ï'=>'I', 'Ñ'=>'N', 'Ò'=>'O', 'Ó'=>'O', 'Ô'=>'O', 'Õ'=>'O', 'Ö'=>'O', 'Ø'=>'O', 'Ù'=>'U',
@@ -6,25 +7,47 @@ $unwanted_array = array(    'Š'=>'S', 'š'=>'s', 'Ž'=>'Z', 'ž'=>'z', 'À'=>'A
 'ö'=>'o', 'ø'=>'o', 'ù'=>'u', 'ú'=>'u', 'û'=>'u', 'ý'=>'y', 'þ'=>'b', 'ÿ'=>'y' );
 
 ?>
-
-<main class="category">
-    <?php $img = $categorie->nom;?>
+    <?php $img = $categorie->nom;
+          $categorie_dossier = $categorie->nom;
+    ?>
     <section class="banner background-images" style="background-image: url('../public/images/<?= str_replace(" ", "-", strtr($img, $unwanted_array)) ?>/<?= $categorie->images ?>');">
         <div class="block">
             <h2><?= $categorie->nom ?></h2>
             <p><?= $categorie->descriptions ?></p>
         </div>
     </section>
+
+   
     
     <section class="produits-categorie">
         <div class="grid-produits">
         <?php foreach ($produits as $produit): ?>
             <div class="produit">
-                <img src="../public/images/decorations/tapis/tapis1-hover.jpg" alt="" class="produit-img">
+            <?php foreach ($images as $image): 
+                if($image->id_produits == $produit->id && $image->image_principale == true){ ?>
+                    <img src="../public/images/<?= str_replace(" ", "-", strtr($categorie_dossier, $unwanted_array)) ?>/<?= $image->fichier ?>" alt="" class="produit-img">
+                <?php } endforeach; ?>
                 <div class="produit-description">
                     <h2 class="titre-produit"><?= $produit->nom; ?></h2>
                     <div class="icon-favoris">
-                        <img class="icon" src="../public/icon/icon-like.png" alt="icon heart">
+                        <form action="" method="post">
+                            <input type="hidden" name="id_users" value="<?= $_SESSION["auth"] ?>">
+                            <input type="hidden" name="id_produits" value="<?= $produit->id ?>">
+                            <?php
+                                 if(count($favoris) > 0){
+                                    foreach($favoris as $fav){
+                                        if($fav->id_users == $_POST['id_users'] && $fav->id_produits == $_POST['id_produits'] ){
+                                            $btnfavoris = "<img class='icon icon-fav active' src='../public/icon/icon-favoris-on.svg' alt='icon heart'>";
+                                        } else {
+                                            $btnfavoris = "<img class='icon icon-fav' src='../public/icon/icon-favoris-off.svg' alt='icon heart'>";
+                                        }
+                                    }
+                                } else {
+                                    $btnfavoris = "<img class='icon icon-fav' src='../public/icon/icon-favoris-off.svg' alt='icon heart'>";
+                                }
+                             ?> 
+                            <button type="submit"><?= $btnfavoris ?></button>
+                        </form>
                     </div>
                     <h3 class="description-produit"><?= $produit->descriptions; ?></h3>
                     <p class="prix-produit"><?= $produit->prix; ?> €</p>
@@ -35,3 +58,6 @@ $unwanted_array = array(    'Š'=>'S', 'š'=>'s', 'Ž'=>'Z', 'ž'=>'z', 'À'=>'A
     </section>
     
 </main>
+
+<!--  && $fav->id_produits == $produit->id -->
+<!-- $fav->id_users == $_SESSION["auth"] &&  -->

@@ -9,15 +9,21 @@ class ProduitsController extends AppController{
     public function __construct(){
         parent::__construct();
         $this->loadModel('Produit');
+        $this->loadModel('Category');
     }
 
     public function index(){
-        $produits = $this->Produit->all();
-        $form = new BootstrapForm($_POST);
-        $this->render('admin.produits.index', compact('produits', 'form'));
+        $this->render('admin.produits.index');
     }
 
-    public function addProduit(){
+    public function indexProduit(){
+        $produits = $this->Produit->all();
+        $categories = $this->Category->extract('id', 'nom');
+        $form = new BootstrapForm($_POST);
+        $this->render('admin.produits.indexProduit', compact('produits', 'form', "categories"));
+    }
+
+    public function add(){
         $produits = $this->Produit->all();
         if (!empty($_POST)) {
 
@@ -30,13 +36,13 @@ class ProduitsController extends AppController{
                 'id_categories' => $_POST['id_categories']
             ]);
             if($result){
-                return $this->index();
+                return $this->add();
             }
         }
         $this->loadModel('Category');
         $categories = $this->Category->extract('id', 'nom');
         $form = new BootstrapForm($_POST);
-        $this->render('admin.produits.addProduit', compact('categories', 'form', "produits"));
+        $this->render('admin.produits.indexProduit', compact('categories', 'form', "produits"));
     }
 
     public function edit(){
