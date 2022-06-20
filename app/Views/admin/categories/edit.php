@@ -1,6 +1,13 @@
-<form method="post">
-    <?= $form->input("nom", "Nom", ["type" => "text"], "Nom du produit", $category->nom) ?>
-    <?= $form->input("descriptions", "Description", ["type" => "textarea"], "Description") ?>
-    <?= $form->input("images", "Image", ["type" => "file"]) ?>
-    <button class="btn btn-success">Modifier</button>
-</form>
+<section class="admin-section categories">
+    <h1>Catégories</h1>
+    <div class="form-bg">
+        <form method="post" enctype="multipart/form-data" action="index.php?p=admin.categories.index">
+            <?= $form->input("nom", "Nom", $option = ["type" => "text"], "Nom du produit") ?>
+            <?= $form->input("descriptions", "Description", $option = ["type" => "textarea"], $placeholder = "Description de la catégorie") ?>
+            <?= $form->input("images", "Images", $option = ["type" => "file"]) ?>
+            <div>
+                <?= $form->btnSubmit('btn-editer', "Editer") ?>
+            </div>
+        </form>
+    </div>
+</section>

@@ -1,31 +1,42 @@
-<h1>Administrer les catégories</h1>
+<section class="admin-section souscategories">
+    <h1>Sous Catégories</h1>
+    <div class="form-bg">
+        <form method="post" action="index?p=admin.souscategories.add">
+            <?= $form->input("nom", "Nom", $option = ["type" => "text"], $placeholder = "Nom de l'utilisateur") ?>
+            <?= $form->select('id_categories', 'Catégorie', $categories) ?>
+            <?= $form->btnSubmit('btn-ajouter', "Envoyer") ?>
+        </form>
+    </div>
 
-<p>
-    <a href="?p=admin.categories.add" class="btn btn-success">Ajouter</a>
-</p>
-
-<table class="table">
-    <thead>
-    <tr>
-        <td>ID</td>
-        <td>Titre</td>
-        <td>Actions</td>
-    </tr>
-    </thead>
-    <tbody>
-        <?php foreach($items as $category): ?>
-        <tr>
-            <td><?= $category->id; ?></td>
-            <td><?= $category->titre; ?></td>
-            <td>
-                <a class="btn btn-primary" href="?p=admin.categories.edit&id=<?= $category->id; ?>">Editer</a>
-                <form action="?p=admin.categories.delete" method="post" style="display: inline;">
-                    <input type="hidden" name="id" value="<?= $category->id ?>">
-                    <button type="submit" class="btn btn-danger">Supprimer</button>
-                </form>
-            </td>
-        </tr>
-        <?php endforeach; ?>
-    </tbody>
-</table>
-
+    <div class="table-bg listes">
+        <div class="liste">
+            <h3>Tous les catégories</h3>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <td>ID</td>
+                        <td>Nom</td>
+                        <td>ID Categories</td>
+                        <td>Actions</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach($souscategories as $souscategorie): ?>
+                    <tr>
+                        <td><?= $souscategorie->id; ?></td>
+                        <td><?= $souscategorie->nom; ?></td>
+                        <td><?= $souscategorie->id_categories; ?></td>
+                        <td class="btns-actions">
+                            <a class="btn btn-editer" href="?p=admin.souscategories.edit&id=<?= $souscategorie->id; ?>">Editer</a>
+                            <form action="?p=admin.souscategories.delete" method="post" style="display: inline;">
+                                <input type="hidden" name="id" value="<?= $souscategorie->id ?>">
+                                <?= $form->btnSubmit('btn-supprimer', "Supprimer") ?>
+                            </form>
+                        </td>
+                    </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section> 

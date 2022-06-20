@@ -115,10 +115,11 @@ a, li, .btn, input, .icon{
                 }
 
                 .user{
-                    padding: 0 40px;
+                    padding: 6px 40px;
                     height: 100%;
                     display: flex;
-                    align-items: center;
+                    flex-direction: column;
+                    align-items: flex-end;
                     
                     .icons{
                         display: flex;
@@ -127,10 +128,13 @@ a, li, .btn, input, .icon{
                         .icon:not(:last-child){
                             margin-right: 10px;
                         }
+
+                        .icon:nth-child(1).actived{
+                            background-color: $white;
+                        }
                     }
     
                     .menu-account{
-                        position: absolute;
                         display: none;
                         background-color: $white;
                         
@@ -139,7 +143,7 @@ a, li, .btn, input, .icon{
                     .menu-account.actived{
                         display: block;
                         border-radius: 12px;
-                        width: 100%;
+                        width: 150%;
                         height: fit-content;
                         padding: 20px;
                         display: flex;
@@ -297,12 +301,42 @@ footer{
     text-align: center;
 }
 
+.title-user{
+    display: inline-block;
+    font-weight: 600;
+    font-size: 36px;
+    text-transform: uppercase;
+    margin-bottom: 50px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.title-user:before{
+    position: absolute;
+    bottom: 0;
+    content: "";
+    width: 100%;
+    height: 5px;
+    background-color: $dark-black;
+}
+
 .over{
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
+}
+
+.scroll::-webkit-scrollbar{
+    background-color: $light-grey;
+    width: 4px;
+}
+
+.scroll::-webkit-scrollbar-thumb{
+    background-color: $dark-black;
+    width: 4px;
+    border-radius: 2px;
 }
 
 .point{
@@ -418,6 +452,11 @@ footer{
                     height: 20px;
                     width: 20px;
                 }
+
+                button{
+                    background-color: inherit;
+                    border: inherit;
+                }
             }
 
             h3{
@@ -449,13 +488,24 @@ footer{
         padding: 4px 15px;
     }
 
+    textarea{
+        background-color: inherit;
+        border: none;
+        border-bottom: 1.5px solid $dark-black;
+        color: $dark-black;
+        outline: rgba(255, 255, 255, 0);
+        width: 355px;
+        padding: 4px 15px;
+    }
+
+    textarea::-webkit-scrollbar{
+        display: none;
+    }
+
     input::placeholder{
         color: $grey;
-        
     }
 }
-
-
 
 .btn-form{
     margin-top: 30px;
@@ -465,4 +515,20 @@ footer{
     border: none;
     border-radius: 10px;
     color: $white;
+}
+
+.btn-generale{
+    background-color: $brown;
+    border-radius: 20px;
+    height: 48px;
+    color: $true-white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-family: $montserrat;
+    font-weight: 500;
+}
+.btn-generale:hover{
+    background-color: $dark-black;
 }

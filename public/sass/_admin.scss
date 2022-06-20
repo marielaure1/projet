@@ -9,7 +9,7 @@ html {
 body{
     font-family: "Dosis";
     font-size: 16px;
-    background-color: $white;
+    background-color: #F8F9FA;
 }
 
 .background-images{
@@ -34,10 +34,25 @@ a, li, .btn, input, .icon{
 
 .main{
     height: fit-content;
-    padding: 10vh 5vw;
+    padding: 50px 5vw;
     width: 80%;
     margin-left: 20%;
+
+    .admin-connect{
+        width: 100%;
+        display: flex;
+        justify-content: end;
+        margin-bottom: 50px;
+
+        p{
+            margin-right: 20px;
+        }
+    }
 }
+
+// textarea{
+//     resize : none;
+// }
 
 .admin{
     margin: inherit;
@@ -47,25 +62,31 @@ a, li, .btn, input, .icon{
     .admin-nav{
         width: 20%;
         height: 100vh;
-        background: $gradiantOr;
+        background: $true-white;
         padding: inherit;
         position: fixed;
         display: flex;
         flex-direction: column;
         align-items: center;
             
-            img{
-                margin: 50px 0 30px 0;
-                width: 50%;
-            }
-    
+        img{
+            margin: 80px 0 70px 0;
+            width: 50%;
+        }
+
+        .bg-link{
+            background: $gradiantRose;
+            width: 100%;
+            height: 60px;
+            border-bottom: 1px solid rgb(239, 239, 239);
+
             a{
+                width: 100%;
+                height: 100%;
+                background-color: $true-white;
                 display: flex;
                 align-items: center;
-                width: 100%;
-                height: 45px;
-                color: $white;
-               
+                color: $dark-black;
     
                 img{
                     margin: 0 30px;
@@ -78,10 +99,13 @@ a, li, .btn, input, .icon{
             }
     
             a:hover{
-                border-left: 2px solid $dark-black;
-                color: $dark-black;
+                font-weight: 800;
             }
-        
+        }
+
+        .bg-link:hover{
+            padding-left: 3px;
+        }
     }
 }
 
@@ -97,8 +121,9 @@ a, li, .btn, input, .icon{
 
 .choix{
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(4, 1fr);
     gap: 20px;
+    margin-bottom: 50px;
    
     a{
         display: flex;
@@ -112,19 +137,299 @@ a, li, .btn, input, .icon{
     }
 
     div{
-        background-color: $beige;
-        border-radius: 20px;
+        background: $true-white;
+        border-radius: 14px;
+        aspect-ratio: 2/1;
+        padding: 20px;
+
+        p:nth-child(1){
+            font-size: 18px;
+        }
+        p:nth-child(2){
+            font-size: 32px;
+            color: #4CCBAB;
+        }
     }
 }
 
+
 .listes{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
+    background-color: $true-white;
+    border-radius: 14px;
+    box-sizing: border-box;
+    padding: 20px;
+    width: 100%;
 
     .liste{
         border-radius: 20px;
         border: 2px solid $gradiantOr;
+
+        h3{
+            margin-bottom: 20px;
+        }
+
+        table tr{
+            border: inherit;
+            
+        }
+
+        table tbody tr:nth-child(odd){
+            background-color: rgb(249, 249, 249);
+        }
+
+        .btns-actions{
+            display: flex;
+            padding: 10px;
+
+            .btn-editer{
+                margin-right: 20px;
+            }
+        }
     }
 }
 
+.dashboard{
+    .listes{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        width: fit-content;
+    }
+}
+
+.admin-section{
+    h1{
+        font-size: 48px;
+        text-transform: uppercase;
+        margin-bottom: 30px;
+    }
+
+    .form-bg{
+        background-color: $true-white;
+        border-radius: 14px;
+        box-sizing: border-box;
+        padding: 50px;
+        margin-bottom: 100px;
+
+        form{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            width: 80%;
+            column-gap: 50px;
+            row-gap: 20px;
+    
+            .form-group{
+                width: 100%;
+                .form-label{
+                    color: $grey;
+                }
+                .form-control{
+                    margin-top: 10px;
+                    height: 48px;
+                    width: 100%;
+                    border: 2px solid $light-grey;
+                    border-radius: 5px;
+                    outline: rgba(0, 0, 0, 0);
+                    background-color: $true-white;
+                    font-size: 14px;
+                    padding-left: 20px;
+                }
+
+                input[type=file]{
+                    padding: 10px;
+                }
+                input[type=file]::-webkit-file-upload-button{
+                    visibility: hidden;
+                }
+            }
+
+            .form-group-radio{
+                margin-top: 10px;
+                display: flex;
+                height: 48px;
+
+                div{
+                    display: flex;
+                    align-items: center;
+                    margin-right: 20px;
+                }
+            }
+        }
+    }
+
+    .table-bg{
+        background-color: $true-white;
+        border-radius: 14px;
+        box-sizing: border-box;
+        padding: 50px;
+        width: 100%;
+
+        .liste{
+            h3{
+                font-size: 18px;
+                margin-bottom: 30px;
+            }
+
+            table{
+                width: 100%;
+
+                tr{
+                    height: 40px;
+
+                    td{
+                        vertical-align: middle;
+                        padding-left: 10px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.users{
+    form{
+        grid-template-areas: "nom prenom"
+                                 "email telephone"
+                                 "mdp role"
+                                 "adresse adresse"
+                                 "ajouter .";
+        div:nth-child(1){
+            grid-area: nom;
+        }
+        div:nth-child(2){
+            grid-area: prenom;
+        }
+        div:nth-child(3){
+            grid-area: email;
+        }
+        div:nth-child(4){
+            grid-area: telephone;
+        }
+        div:nth-child(5){
+            grid-area: mdp;
+        }
+        div:nth-child(6){
+            grid-area: role;
+        }
+        div:nth-child(7){
+            grid-area: adresse;
+        }
+        div:nth-child(8){
+            grid-area: ajouter;
+        }
+    }
+}
+
+.btn{
+    width: 150px;
+    height: 48px;
+    border: inherit;
+    border-radius: 5px;
+    outline: rgba(0, 0, 0, 0);
+    color: $white;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.btn-ajouter{
+    background: $gradiantRoseDegres;
+}
+
+.categories{
+    form{
+        grid-template-areas: "nom images"
+                             "description description"
+                             "ajouter .";
+        div:nth-child(1){
+            grid-area: nom;
+        }
+        div:nth-child(2){
+            grid-area: images;
+        }
+        div:nth-child(3){
+            grid-area: description;
+        }
+        div:nth-child(4){
+            grid-area: ajouter;
+        }
+    }
+}
+
+.produits{
+    form{
+        grid-template-areas: "nom prix"
+                             "quantite souscategories"
+                             "descriptions publier"
+                             "details details"
+                             "caracteristique caracteristique"
+                             "ajouter .";
+        div:nth-child(1){
+            grid-area: nom;
+        }
+        div:nth-child(2){
+            grid-area: prix;
+        }
+        div:nth-child(3){
+            grid-area: quantite;
+        }
+        div:nth-child(4){
+            grid-area: souscategories;
+        }
+        div:nth-child(5){
+            grid-area: descriptions;
+        }
+        div:nth-child(6){
+            grid-area: publier;
+        }
+        div:nth-child(7){
+            grid-area: details;
+        }
+        div:nth-child(8){
+            grid-area: caracteristique;
+        }
+        div:nth-child(9){
+            grid-area: ajouter;
+        }
+    }
+}
+
+.btn{
+    width: 150px;
+    height: 48px;
+    border: inherit;
+    border-radius: 5px;
+    outline: rgba(0, 0, 0, 0);
+    color: $white;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.btn-ajouter{
+    background: $gradiantRoseDegres;
+}
+.btn-editer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    background: #4CCBAB;
+}
+.btn-supprimer{
+    width: 100px;
+    background: #3E75C8;
+}
+.btn-ajouter:hover{
+    color: #E56590;
+    background: $white;
+    border: 2px solid #E56590;
+}
+.btn-editer:hover{
+    color: #4CCBAB;
+    background: $white;
+    border: 2px solid #4CCBAB;
+}
+.btn-supprimer:hover{
+    color: #3E75C8;
+    background: $white;
+    border: 2px solid #3E75C8;
+}

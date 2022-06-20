@@ -23,13 +23,13 @@ class ProduitTable extends Table{
      * @param $category_id int
      * @return array
      */
-    public function lastByCategory($category_id){
+    public function lastBySousCategory($sous_category_id){
         return $this->query("
-            SELECT *
+            SELECT produits.nom, produits.descriptions, produits.details, produits.caracteristiques, produits.prix, produits.quantite, produits.publier, produits.id
             FROM produits
-            LEFT JOIN categories ON id_categories = categories.id
-            WHERE produits.id_categories = ?
-            ORDER BY produits.id DESC", [$category_id]);
+            LEFT JOIN sous_categories ON id_sous_categories = sous_categories.id
+            WHERE produits.id_sous_categories = ?
+            ORDER BY produits.id DESC", [$sous_category_id]);
     }
 
     /**

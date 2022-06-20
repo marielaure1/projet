@@ -16,38 +16,30 @@ $unwanted_array = array(    'Š'=>'S', 'š'=>'s', 'Ž'=>'Z', 'ž'=>'z', 'À'=>'A
             <p><?= $categorie->descriptions ?></p>
         </div>
     </section>
-
+     <section  class="sous-categories">
+            <a class="filtre-nom active" href="index.php?p=posts.category&id=<?= $_GET["id"] ?>">Tout</a>
+        <?php foreach($souscategories as $souscat){ ?>
+            <a class="filtre-nom" href="index.php?p=posts.category&id=<?= $_GET["id"] ?>&souscategories=<?= $souscat->id ?>"><?= $souscat->nom ?></a>
+             <?php } ?>
+     </section>
    
     
     <section class="produits-categorie">
         <div class="grid-produits">
-        <?php foreach ($produits as $produit): ?>
+
+        <?php
+        foreach ($produits as $produit): ?>
             <div class="produit">
             <?php foreach ($images as $image): 
                 if($image->id_produits == $produit->id && $image->image_principale == true){ ?>
                     <img src="../public/images/<?= str_replace(" ", "-", strtr($categorie_dossier, $unwanted_array)) ?>/<?= $image->fichier ?>" alt="" class="produit-img">
                 <?php } endforeach; ?>
                 <div class="produit-description">
-                    <h2 class="titre-produit"><?= $produit->nom; ?></h2>
-                    <div class="icon-favoris">
-                        <form action="" method="post">
-                            <input type="hidden" name="id_users" value="<?= $_SESSION["auth"] ?>">
-                            <input type="hidden" name="id_produits" value="<?= $produit->id ?>">
-                            <?php
-                                 if(count($favoris) > 0){
-                                    foreach($favoris as $fav){
-                                        if($fav->id_users == $_POST['id_users'] && $fav->id_produits == $_POST['id_produits'] ){
-                                            $btnfavoris = "<img class='icon icon-fav active' src='../public/icon/icon-favoris-on.svg' alt='icon heart'>";
-                                        } else {
-                                            $btnfavoris = "<img class='icon icon-fav' src='../public/icon/icon-favoris-off.svg' alt='icon heart'>";
-                                        }
-                                    }
-                                } else {
-                                    $btnfavoris = "<img class='icon icon-fav' src='../public/icon/icon-favoris-off.svg' alt='icon heart'>";
-                                }
-                             ?> 
-                            <button type="submit"><?= $btnfavoris ?></button>
-                        </form>
+                    <h2 class="titre-produit"><a href="index.php?p=posts.show&id=<?= $produit->id ?>'"><?= $produit->nom; ?></a></h2>
+                    <div class="icon-favoris"> 
+                        <a href="index.php?p=users.favorisApplication&user=<?=$_SESSION["auth"]?>&produit=<?=$produit->id?>">
+                            <img class='icon icon-fav active' src='../public/icon/icon-favoris-off.svg' alt='icon heart'>
+                        </a>
                     </div>
                     <h3 class="description-produit"><?= $produit->descriptions; ?></h3>
                     <p class="prix-produit"><?= $produit->prix; ?> €</p>

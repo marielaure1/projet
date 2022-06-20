@@ -31,17 +31,17 @@ class Controller{
     /**
      * 403 forbidden = Le client n'a pas les droits d'accès au contenu, donc le serveur refuse de donner la véritable réponse
      */
-    protected function forbidden(){
-        header('HTTP/1.0 403 Forbidden');
-        die('Acces interdit');
+    protected function forbidden($message = "Accès interdit !"){
+        $this->render('posts.errorpage', compact("message"));
+        die();
     }
 
     /**
      * 404 not found = Le serveur n'a pas trouvé la ressource demandée
      */
-    protected function notFound(){
-        header('HTTP/1.0 404 Not Found');
-        die('Page introuvable');
+    protected function notFound($message = "OUPS ! La page que vous cherchez semble introuvable."){
+        $this->render('posts.errorpage', compact("message"));
+        die();
     }
 
 }

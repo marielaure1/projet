@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
+    <link rel="icon" href="../public/icon/favicon.ico" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
@@ -14,8 +14,16 @@
     <title><?= App::getInstance()->title; ?></title>
     <link href="../public/css/reset.css" rel="stylesheet">
     <link href="../public/css/style.css" rel="stylesheet">
+    <script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous"></script>
+    <script src="../public/js/ajax.js" defer></script>
     <script src="../public/js/main.js" defer></script>
     <script src="../public/js/slider.js" defer></script>
+    <script src="../public/js/mini-slider.js" defer></script>
+    <script src="../public/js/btn-quantite.js" defer></script>
+    <script src="../public/js/filtre.js" defer></script>
     <script src="../public/js/adresseApi.js" defer></script>
 
 </head>
@@ -40,31 +48,32 @@
                 
                 <div class="user">
                     <div class="icons">
-                        <?php //Pour se connecter
-                        if(isset($_SESSION["auth"]) && !empty($_SESSION["auth"])){
-                            // Déconnexion
-                        } else { ?>
-                            
-                <?php } ?>
-                        <img class="icon icon-user" src="../public/icon/icon-user-black.svg" alt="icon-user">
-                        <img class="icon icon-like" src="../public/icon/icon-like-black.svg" alt="icon-like">
-                        <img class="icon icon-basket" src="../public/icon/icon-basket-black.svg" alt="icon-basket">
+                        <div  class="icon"><img class="icon-user" src="../public/icon/icon-user-black.svg" alt="icon-user"></div>
+                        <a href="index.php?p=users.favoris"><img class="icon icon-like" src="../public/icon/icon-like-black.svg" alt="icon-like"></a>
+                        <a href="index.php?p=users.panier"><img class="icon icon-basket" src="../public/icon/icon-basket-black.svg" alt="icon-basket"></a>
                     </div>
                     <nav class="menu-account">
-                        <a href="../public/index.php?p=users.login">S'identifier</a>
-                        <!-- <a href="">Gérer mon compte</a> -->
-                        <!-- <a href="">Mes achats</a>
-                        <a href="">Déconnexion</a> -->
+                    <?php //Pour se connecter
+                        if(isset($_SESSION["auth"]) && !empty($_SESSION["auth"])){ ?>
+                            <a href="../public/index.php?p=users.account">Gérer mon compte</a>
+                            <a href="../public/index.php?p=users.account">Mes achats</a>
+                           <?php if($_SESSION['user']->role === 'ROLE_ADMIN'){ ?>
+                            <a href="../public/index.php?p=admin.posts.index">Admin</a>
+                            <?php } ?>
+                            <a href="../public/index.php?p=users.logout">Déconnexion</a>
+                    <?php } else { ?>
+                            <a href="../public/index.php?p=users.identification">S'identifier</a>
+                <?php } ?>
                     </nav>
                 </div>
             </div>
         </div>
         <ul class="nav-categories">
-            <li><a href="index.php?p=posts.category&id=1">Salon</a></li>
-            <li><a href="index.php?p=posts.category&id=2">Salle à manger</a></li>
-            <li><a href="index.php?p=posts.category&id=3">Chambre</a></li>
-            <li><a href="index.php?p=posts.category&id=4">Luminaire</a></li>
-            <li><a href="index.php?p=posts.category&id=5">Décoration</a></li>
+            <?php 
+                foreach($categories as $categorie){ ?>
+                    <li><a href="index.php?p=posts.category&id=<?= $categorie->id ?>"><?= $categorie->nom ?></a></li>
+            <?php }
+            ?>
         </ul>
     </nav>
 
@@ -74,7 +83,7 @@
         <div class="grid-footer">
             <img src="../public/images/logo-white.svg" alt="">
             <div class="column">
-                <a>Contact</a>
+                <a href="index.php?p=posts.contact">Contact</a>
                 <a>Qui sommes-nous</a>
                 <a>Nous rejoindre</a>
             </div>

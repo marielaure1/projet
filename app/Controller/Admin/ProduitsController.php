@@ -9,7 +9,9 @@ class ProduitsController extends AppController{
     public function __construct(){
         parent::__construct();
         $this->loadModel('Produit');
+        $this->loadModel('Image');
         $this->loadModel('Category');
+        $this->loadModel('SousCategory');
     }
 
     public function index(){
@@ -18,25 +20,37 @@ class ProduitsController extends AppController{
 
     public function indexProduit(){
         $produits = $this->Produit->all();
-        $categories = $this->Category->extract('id', 'nom');
+        $souscategories = $this->SousCategory->extract('id', 'nom');
         $form = new BootstrapForm($_POST);
-        $this->render('admin.produits.indexProduit', compact('produits', 'form', "categories"));
+        $this->render('admin.produits.indexProduit', compact('produits', 'form', "souscategories"));
     }
 
-    public function add(){
+    public function indexImage(){
+        $images = $this->Image->all();
+        $produits = $this->Produit->extract('id', 'nom');
+        $form = new BootstrapForm($_POST);
+        $this->render('admin.produits.indexImage', compact('produits', 'form', 'images'));
+    }
+
+    public function addProduit(){
         $produits = $this->Produit->all();
         if (!empty($_POST)) {
 
             $result = $this->Produit->create([
                 'nom' => $_POST['nom'],
                 'descriptions' => $_POST['descriptions'],
+                'details' => $_POST['details'],
+                'caracteristiques' => $_POST['caracteristiques'],
                 'prix' => $_POST['prix'],
                 'quantite' => $_POST['quantite'],
                 'publier' => $_POST['publier'],
-                'id_categories' => $_POST['id_categories']
+                'id_sous_categories' => $_POST['id_sous_categories']
             ]);
+            if(empty($_POST["nom"])){
+                
+            }
             if($result){
-                return $this->add();
+                return $this->indexProduit();
             }
         }
         $this->loadModel('Category');
@@ -73,7 +87,7 @@ class ProduitsController extends AppController{
     public function delete(){
         if (!empty($_POST)) {
             $result = $this->Produit->delete($_POST['id']);
-            return $this->index();
+            return $this->indexProduit();
         }
     }
 

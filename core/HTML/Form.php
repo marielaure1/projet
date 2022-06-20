@@ -15,7 +15,7 @@ class Form{
     /**
      * @var string Tag utilisé pour entourer les champs
      */
-    public $surround = 'p';
+    public $surround = 'div';
 
     /**
      * @param array $data Données utilisées par le formulaire
@@ -29,7 +29,7 @@ class Form{
      * @return string
      */
     protected function surround($html){
-        return "<{$this->surround} class='form-surround'>{$html}</{$this->surround}>";
+        return "<{$this->surround} class='form-surround form-group'>{$html}</{$this->surround}>";
     }
 
     /**
@@ -49,10 +49,10 @@ class Form{
      * @param array $options
      * @return string
      */
-    public function input($name, $label, $options = [], $placeholder = null){
+    public function input($name, $label, $options = [], $placeholder = null, $messageError = ""){
         $type = isset($options['type']) ? $options['type'] : 'text';
         return $this->surround(
-            '<input type="' . $type . '" name="' . $name . '" placeholder="'.$placeholder.'" value="' . $this->getValue($name) . '">'
+            '<input type="' . $type . '" name="' . $name . '" placeholder="'.$placeholder.'" value="' . $this->getValue($name) . '"><p class="error">'.$messageError.'</p>'
         );
     }
 

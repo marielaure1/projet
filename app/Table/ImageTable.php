@@ -12,6 +12,6 @@ class ImageTable extends Table{
             SELECT *
             FROM produits_images
             LEFT JOIN produits ON id_produits = produits.id
-            WHERE produits.id_produits = ? ", [$produit_id]);
+            WHERE produits_images.id_produits = ? ", [$produit_id]);
     }
 }

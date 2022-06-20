@@ -16,6 +16,8 @@ const tools = document.querySelectorAll(".point")
 const descriptions = document.querySelectorAll(".infos")
 const headers = document.querySelectorAll("header")
 
+
+
 headers.forEach((header)=>{
     if(header.classList.contains("header-home")){
         nav.classList.add("black");
@@ -48,16 +50,18 @@ function navFix(){
 
 function menuAccountDisplay(){
     menuAccount.classList.toggle("actived")
+    iconUser.classList.toggle("actived")
     navHeight = nav.offsetHeight
     userWidth = users.offsetWidth
-    menuAccount.style.top = `${navHeight}px`
-    menuAccount.style.width = `${userWidth}px`
+    // menuAccount.style.top = `${navHeight}px`
+    // menuAccount.style.width = `${userWidth}px`
 
 }
 
-function menuAccountNoDisplay(){
-    menuAccount.classList.remove("actived")
-}
+// function menuAccountNoDisplay(){
+//     menuAccount.classList.remove("actived")
+//     iconUser.classList.remove("actived")
+// }
 
 function sousMenu(){
     navCategories.classList.toggle("actived")
@@ -65,7 +69,7 @@ function sousMenu(){
 }
 
 iconUser.addEventListener("click", menuAccountDisplay)
-menuAccount.addEventListener("mouseout", menuAccountNoDisplay)
+// menuAccount.addEventListener("mouseout", menuAccountNoDisplay)
 btnShop.addEventListener("click", sousMenu)
 
 window.addEventListener("scroll", navFix)
@@ -104,3 +108,4 @@ iconFav.forEach((icon) => {
         }
     })
 })
+

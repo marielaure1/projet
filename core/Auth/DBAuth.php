@@ -50,7 +50,11 @@ class DBAuth {
      * logged() = Vérifier si un utilisateur est connecter
      */
     public function logged(){
-        return isset($_SESSION['auth']);
+        if(isset($_SESSION["user"])){
+            if($_SESSION['user']->role === 'ROLE_ADMIN'){
+                return isset($_SESSION['auth']);
+            }
+        }
     }
 
 }

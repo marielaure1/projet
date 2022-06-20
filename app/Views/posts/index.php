@@ -1,5 +1,4 @@
 <header class="header-home slider">
-    
     <div class="img-slider active">
         <img src="../public/images/inspirations/inspiration-2.jpg" alt="inspiration" />
         <a class="decouvrir" href="../public/index.php?p=posts.inspirations">Découvrir cette pièce</a>
@@ -56,7 +55,7 @@
     <h2 class="title-rubrique">Inspiration</h2>
     <a href="../public/index.php?p=posts.inspirations" class="voir-plus">Voir plus</a>
     <div class="inspiration-block">
-        <img src="../public/images/inspirations/inspiration-2.png" alt="">
+        <img src="../public/images/inspirations/inspiration-1.png" alt="">
         <div class="over">
             <div class="point point1"></div>
             <div class="point point2"></div>
@@ -110,7 +109,7 @@
     <h2 class="title-rubrique">Tendances</h2>
     <div class="grid-produits">
         <div class="produit">
-            <img src="../public/images/decorations/plantes/plante-sd.jpg" alt="" class="produit-img">
+            <img src="../public/images/salon/iona-meridienne2.jpg" alt="" class="produit-img">
             <div class="produit-description">
                 <h2 class="titre-produit">MAIA</h2>
                 <div class="icon-favoris">
@@ -121,7 +120,7 @@
             </div>
         </div>
         <div class="produit">
-            <img src="../public/images/decorations/cadres/tableau1-hover.jpg" alt="" class="produit-img">
+            <img src="../public/images/salon/iona-meridienne2.jpg" alt="" class="produit-img">
             <div class="produit-description">
                 <h2 class="titre-produit">MAIA</h2>
                 <div class="icon-favoris">
@@ -132,7 +131,7 @@
             </div>
         </div>
         <div class="produit">
-            <img src="../public/images/salon/fauteuils/meridienne2-hover.jpg" alt="" class="produit-img">
+            <img src="../public/images/salon/iona-meridienne2.jpg" alt="" class="produit-img">
             <div class="produit-description">
                 <h2 class="titre-produit">IONA</h2>
                 <div class="icon-favoris">
@@ -143,7 +142,7 @@
             </div> 
         </div>
         <div class="produit">
-            <img src="../public/images/salon/rangements/armoire1-hover.jpg" alt="" class="produit-img">
+            <img src="../public/images/salon/iona-meridienne2.jpg" alt="" class="produit-img">
             <div class="produit-description">
                 <h2 class="titre-produit">HOWARD</h2>
                 <div class="icon-favoris">
@@ -154,7 +153,7 @@
             </div>
         </div>
         <div class="produit">
-            <img src="../public/images/salon/meubles-tv/meubleTV1-hover.jpg" alt="" class="produit-img">
+            <img src="../public/images/salon/iona-meridienne2.jpg" alt="" class="produit-img">
             <div class="produit-description">
                 <h2 class="titre-produit">PARKER</h2>
                 <div class="icon-favoris">
@@ -166,7 +165,7 @@
             
         </div>
         <div class="produit">
-            <img src="../public/images/decorations/tapis/tapis1-hover.jpg" alt="" class="produit-img">
+            <img src="../public/images/salon/iona-meridienne2.jpg" alt="" class="produit-img">
             <div class="produit-description">
                 <h2 class="titre-produit">LOREN</h2>
                 <div class="icon-favoris">
@@ -177,7 +176,7 @@
             </div>
         </div>
         <div class="produit">
-            <img src="../public/images/decorations/vases/vase1-hover.jpg" alt="" class="produit-img">
+            <img src="../public/images/salon/iona-meridienne2.jpg" alt="" class="produit-img">
             <div class="produit-description">
                 <h2 class="titre-produit">JUAN</h2>
                 <div class="icon-favoris">
@@ -188,7 +187,7 @@
             </div>
         </div>
         <div class="produit">
-            <img src="../public/images/chambre/lits/parker-lit.jpg" alt="" class="produit-img">
+            <img src="../public/images/salon/iona-meridienne2.jpg" alt="" class="produit-img">
             <div class="produit-description">
                 <h2 class="titre-produit">PARKER</h2>
                 <div class="icon-favoris">

@@ -15,4 +15,7 @@ class UserEntity extends Entity{
         return $html;
     }
 
+    public function getPassword(){
+    }
+
 }

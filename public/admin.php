@@ -15,6 +15,7 @@ if(isset($_GET['p'])){
 $app = App::getInstance();
 $auth = new DBAuth($app->getDb());
 if(!$auth->logged()){
+    $this->template = 'default';
     $app->forbidden();
 }
 
