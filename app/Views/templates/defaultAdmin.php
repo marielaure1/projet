@@ -21,10 +21,11 @@
     <link href="../public/css/admin-style.css" rel="stylesheet">
     
     <script src="../public/js/main.js" defer></script>
+    <script src="../public/js/theme-admin.js" defer></script>
 
 </head>
 
-<body>
+<body data-theme="light">
 
     <div class="admin">
         <nav class="admin-nav">
@@ -40,6 +41,10 @@
         
         <div class="main">
             <div class="admin-connect">
+            <div class="theme-switcher">
+                <input type="checkbox" id="switcher">
+                <label for=switcher>switch</label>
+            </div>
                 <p><?= $_SESSION["user"]->nom ?></p>
                 <p><?= $_SESSION["user"]->prenom ?></p>
                 <a href="../public/index.php?p=users.logout">Déconnexion</a>

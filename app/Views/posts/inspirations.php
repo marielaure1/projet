@@ -32,16 +32,76 @@
     </section>
     <section class="nos-idees-deco">
         <h2 class="title-rubrique">NOS IDÉES DÉCOS</h2>
-        <div class="grid-idee-deco">
-            <div class="background-images inspi"></div>
-            <div class="background-images inspi"></div>
-            <div class="background-images inspi"></div>
-            <div class="background-images inspi"></div>
-            <div class="background-images inspi"></div>
-            <div class="background-images inspi"></div>
-            <div class="background-images inspi"></div>
-            <div class="background-images inspi"></div>
-            <div class="background-images inspi"></div>
+        <div id="les-inspi" class="container-inspi">
+            <div class="grid-idee-deco active">
+                <div class="background-images inspi"></div>
+                <div class="background-images inspi"></div>
+                <div class="background-images inspi"></div>
+                <div class="background-images inspi"></div>
+                <div class="background-images inspi"></div>
+                <div class="background-images inspi"></div>
+                <div class="background-images inspi"></div>
+                <div class="background-images inspi"></div>
+                <div class="background-images inspi"></div>
+            </div>
+            <div class="grid-idee-deco">
+                <div class="background-images inspi"></div>
+                <div class="background-images inspi"></div>
+                <div class="background-images inspi"></div>
+                <div class="background-images inspi"></div>
+                <div class="background-images inspi"></div>
+                <div class="background-images inspi"></div>
+                <div class="background-images inspi"></div>
+                <div class="background-images inspi"></div>
+                <div class="background-images inspi"></div>
+            </div>
+            <div class="grid-idee-deco">
+                <div class="background-images inspi"></div>
+                <div class="background-images inspi"></div>
+                <div class="background-images inspi"></div>
+                <div class="background-images inspi"></div>
+                <div class="background-images inspi"></div>
+                <div class="background-images inspi"></div>
+                <div class="background-images inspi"></div>
+                <div class="background-images inspi"></div>
+                <div class="background-images inspi"></div>
+            </div>
         </div>
+
+        <a href="index.php?p=posts.inspirations" id="inspi-btn">Voir plus</a>
     </section>
 </main>
+
+<script>
+    $(document).ready(function(){
+        let counter = 0
+        $("#inspi-btn").click(()=>{
+            counter++
+            page=  window.location.href
+
+            $.ajax({
+                url: page,
+                cache: false,
+                success: function(html){
+                    $(".grid-idee-deco").each(function(index){
+                        if(counter == index){
+                            $(this).addClass("active")
+                            console.log(counter)
+                        } else if(counter == ($(".grid-idee-deco").length - 1) ){
+                            $("#inspi-btn").text("Voir moins")
+                        } else if(counter >= $(".grid-idee-deco").length ){
+                            counter = 0
+                            $(".grid-idee-deco:not(:first)").removeClass("active")
+                            $("#inspi-btn").text("Voir plus")
+                        }
+                    })
+                },
+                error: function(XMLHttpRequest, textStatus, errorThrown){
+                    alert(textStatus)
+                }
+            })
+            // empecher l'exécuton du lien
+            return false;
+        })
+    })
+</script>

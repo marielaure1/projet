@@ -14,15 +14,17 @@ class PostsController extends AppController{
         $this->loadModel('Produit');
         $this->loadModel('User');
         $this->loadModel('Commande');
+        $this->loadModel('Newsletter');
     }
 
     public function index(){
         $posts = $this->Post->all();
+        $newsletters = $this->Newsletter->all();
         $produits = $this->Produit->all();
         $users = $this->User->all();
         $commandes = $this->Commande->all();
         $lastUsers = $this->User->threeLast();
         $lastCommandes = $this->Commande->threeLast();
-        $this->render('admin.posts.index', compact('posts', "produits", "users", "commandes", "lastUsers", "lastCommandes"));
+        $this->render('admin.posts.index', compact('posts', 'newsletters', "produits", "users", "commandes", "lastUsers", "lastCommandes"));
     }
 }

@@ -1,9 +1,6 @@
+
 <section class="identification">
-    <?php if($errors): ?>
-        <div class="alert-error">
-            Identifiants incorrects
-        </div>
-    <?php endif; ?>
+
 
     <form class="login" method="post" action="index.php?p=users.login">
         <h2 class="title-rubrique">Connexion</h2>

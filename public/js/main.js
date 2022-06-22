@@ -16,8 +16,6 @@ const tools = document.querySelectorAll(".point")
 const descriptions = document.querySelectorAll(".infos")
 const headers = document.querySelectorAll("header")
 
-
-
 headers.forEach((header)=>{
     if(header.classList.contains("header-home")){
         nav.classList.add("black");

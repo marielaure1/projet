@@ -12,7 +12,7 @@ class FavorisTable extends Table{
             SELECT favoris.id, favoris.id_users, favoris.id_produits
             FROM favoris
             LEFT JOIN users ON id_users = users.id
-            WHERE favoris.id_users = ".$id_user."");
+            WHERE favoris.id_users = ? ", [$id_user]);
     }
 
     public function lastBySousCategory($sous_category_id){

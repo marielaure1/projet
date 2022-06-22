@@ -125,20 +125,16 @@
         }
     }
 
-    .n1{
-        background-image: url("../images/decorations/mirroirs/mirroir-sd.png");
+    .img-produit:nth-child(1){
         grid-area: grid2;
     }
-    .n2{
-        background-image: url("../images/decorations/plantes/plante-sd.jpg");
+    .img-produit:nth-child(2){
         grid-area: grid3;
     }
-    .n3{
-        background-image: url("../images/chambre/commode/commode-sd.png");
+    .img-produit:nth-child(3){
         grid-area: grid4;
     }
-    .n4{
-        background-image: url("../images/salon/canapes/canape-sd.png");
+    .img-produit:nth-child(4){
         grid-area: grid5;
     }
     

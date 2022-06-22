@@ -22,22 +22,25 @@ class UsersController extends AppController {
 
     public function login(){
         $errors = false;
+        $message = "";
         if(!empty($_POST)){
             $auth = new DBAuth(App::getInstance()->getDb());
-            if($auth->login($_POST['email'], $_POST['password'])){
+            if($auth->login($_POST['email'],$_POST['password'])){
                 if($_SESSION['user']->role === 'ROLE_ADMIN'){
                     // champ user 'role' administrateur
                     header('Location: index.php?p=admin.posts.index');
                     // champ user 'user'
                 }else{
                     header('Location: index.php');
+                    $message = "oui";
                 }
             } else {
                 $errors = true;
+                $message = "non";
             }
         }
         $form = new Form($_POST);
-        $this->render('users.identification', compact('form', 'errors'));
+        $this->render('users.identification', compact('form', "message"));
     }
 
     /*
@@ -49,14 +52,16 @@ class UsersController extends AppController {
     }
 
     public function identification(){
+        $message = "";
+        $categories = $this->Category->all();
         if(isset($_SESSION["auth"])){
             $this->notFound();
         } else {
             $form = new BootstrapForm($_POST);
             $errors = false;
-            $this->render('users.identification', compact('form', 'errors'));
+            $this->render('users.identification', compact('form', 'errors', "categories", "message"));
         }
-        
+        return $this->identification();
     }
 
 
@@ -67,6 +72,8 @@ class UsersController extends AppController {
     public function inscription(){
         $errors = false;
         $messageError = null;
+        $categories = $this->Category->all();
+
 
         if(!empty($_POST)){
             // Vérification des champs de manière générale
@@ -86,10 +93,6 @@ class UsersController extends AppController {
                 if(preg_match("/[0-9\[^\'£$%^&*()}{@:\'#~?><>,;@\|\=\_+\¬\`\]]/", $_POST["prenom"])){
                     $errors = true;
                 }
-                 
-                if(isset($_POST["telephone"]) && preg_match("/[a-zA-z\[^\'£$%^&*()}{@:\'#~?><>,;@\|\=\_+\¬\`\]]/", $_POST["telephone"]) || strlen( $_POST["telephone"]) != 10){
-                    $errors = true;
-                }
     
                 if(!preg_match('@[A-Z]@', $_POST["password"]) || !preg_match('@[a-z]@', $_POST["password"]) || !preg_match('@[0-9]@', $_POST["password"]) || !strlen($_POST["password"]) >= 8){
                     $errors = true;
@@ -101,7 +104,7 @@ class UsersController extends AppController {
             } 
         }
         $form = new Form($_POST);
-        $this->render('users.identification', compact('form', 'errors', 'messageError'));
+        $this->render('users.identification', compact('form', 'errors', 'messageError', "categories"));
     }
 
     public function registration($donnees){
@@ -113,7 +116,8 @@ class UsersController extends AppController {
                 'adresse' => $_POST['adresse'],
                 'telephone' => "",
                 'role' => 'ROLE_USER',
-                'password' => sha1($_POST['password']),
+                'password' => password_hash($_POST['password'], PASSWORD_DEFAULT) ,
+                
             ]);
             if($result){
                 header('Location: index.php?p=users.inscription');
@@ -122,10 +126,11 @@ class UsersController extends AppController {
     }
 
     public function favoris(){
+        $categories = $this->Category->all();
         $form = new Form($_POST);
         $favoris = $this->Favoris->all();
 
-        $this->render('users.favoris', compact('form', 'favoris'));
+        $this->render('users.favoris', compact('form', 'favoris', "categories"));
     }
 
     public function favorisApplication(){
@@ -133,10 +138,10 @@ class UsersController extends AppController {
         $favorisUser = $this->Favoris->findFavoris($_GET["user"]);
         var_dump($_GET);
 
-        if(!empty($_GET)){
-            foreach($favorisUser as $fav){
-                var_dump($favorisUser);
-                if($fav->id_produits == $_GET['produit']){
+        if(!empty($_GET)){ 
+            foreach($favoris as $fav){
+               
+                if($fav->id_produits == $_GET['produit'] && $fav->id_users == $_GET['user']){
                     $this->Favoris->delete($fav->id);
                     echo "delete";
                     break;
@@ -149,7 +154,7 @@ class UsersController extends AppController {
                     break;
                 }
             }
-            if(count($favoris) == 0){
+            if(!count($favoris) > 0){
                 $this->Favoris->create([
                     'id_users' => $_GET['user'],
                     'id_produits' => $_GET['produit']
@@ -201,9 +206,11 @@ class UsersController extends AppController {
     }
 
     public function panier(){
-        $this->render('users.panier');
+        $categories = $this->Category->all();
+        $this->render('users.panier', compact("categories"));
     }
     public function account(){
-        $this->render('users.account');
+        $categories = $this->Category->all();
+        $this->render('users.account', compact("categories"));
     }
 }

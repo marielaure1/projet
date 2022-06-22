@@ -1,3 +1,4 @@
+
 <header class="header-home slider">
     <div class="img-slider active">
         <img src="../public/images/inspirations/inspiration-2.jpg" alt="inspiration" />
@@ -24,30 +25,18 @@
     <div class="title">
         <h2 class="title-rubrique">Nouveautés</h2>
     </div>
-    <div class="img-produit n1 background-images">
-        <div class="produit-infos">
-            <h2>AMELIA - Mirroir rotin</h2>
-            <p class="price">29,99 €</p>
-        </div>
-    </div>
-    <div class="img-produit n2 background-images">
-        <div class="produit-infos">
-            <h2>AMELIA -Plante en pot Aréca</h2>
-            <p class="price">24,99 €</p>
-        </div>
-    </div>
-    <div class="img-produit n3 background-images">
-        <div class="produit-infos">
-            <h2>EMMA - Commodes 6 tiroirs brun noir</h2>
-            <p class="price">179 €</p>
-        </div>
-    </div>
-    <div class="img-produit n4 background-images">
-        <div class="produit-infos">
-            <h2>Canapé en tissu gris</h2>
-            <p class="price">229 €</p>
-        </div>
-    </div>
+
+    <?php 
+        foreach($nouveautes as $nouveaute){ 
+            foreach ($images as $image){
+                if($image->id_produits == $nouveaute->id && $image->image_principale == true && $image->publier == true && $nouveaute->publier == true){ ?>
+                <div class="img-produit background-images" style="background-image: url('../public/images/<?= $image->fichier ?>');">
+                    <div class="produit-infos">
+                        <h2><span class="nom"><?= $nouveaute->nom ?></span> - <span class="descriptions"><?= $nouveaute->descriptions ?></span></h2>
+                        <p class="price"><?= $nouveaute->prix ?> €</p>
+                    </div>
+                </div>
+    <?php  } } } ?>
 
 </section>
 

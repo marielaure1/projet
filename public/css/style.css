@@ -551,20 +551,16 @@ footer .copyright p {
 .nouveautes .title h2 {
   text-transform: uppercase;
 }
-.nouveautes .n1 {
-  background-image: url("../images/decorations/mirroirs/mirroir-sd.png");
+.nouveautes .img-produit:nth-child(1) {
   grid-area: grid2;
 }
-.nouveautes .n2 {
-  background-image: url("../images/decorations/plantes/plante-sd.jpg");
+.nouveautes .img-produit:nth-child(2) {
   grid-area: grid3;
 }
-.nouveautes .n3 {
-  background-image: url("../images/chambre/commode/commode-sd.png");
+.nouveautes .img-produit:nth-child(3) {
   grid-area: grid4;
 }
-.nouveautes .n4 {
-  background-image: url("../images/salon/canapes/canape-sd.png");
+.nouveautes .img-produit:nth-child(4) {
   grid-area: grid5;
 }
 .nouveautes .img-produit {
@@ -1055,8 +1051,17 @@ footer .copyright p {
 .inspirations .nos-idees-deco {
   width: 100%;
   height: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-.inspirations .nos-idees-deco .grid-idee-deco {
+.inspirations .nos-idees-deco .container-inspi {
+  width: 100%;
+}
+.inspirations .nos-idees-deco .container-inspi .grid-idee-deco {
+  display: none;
+}
+.inspirations .nos-idees-deco .container-inspi .grid-idee-deco.active {
   width: 100%;
   height: fit-content;
   box-sizing: border-box;
@@ -1065,37 +1070,45 @@ footer .copyright p {
   grid-template-columns: repeat(3, 1fr);
   gap: 15px;
 }
-.inspirations .nos-idees-deco .grid-idee-deco .inspi:nth-child(1) {
+.inspirations .nos-idees-deco .container-inspi .grid-idee-deco.active .inspi {
+  aspect-ratio: 4/6;
+}
+.inspirations .nos-idees-deco .container-inspi .grid-idee-deco.active .inspi:nth-child(1) {
   background-image: url("../images/inspirations/inspi-1.jpg");
-  grid-row: 1/10;
 }
-.inspirations .nos-idees-deco .grid-idee-deco .inspi:nth-child(2) {
+.inspirations .nos-idees-deco .container-inspi .grid-idee-deco.active .inspi:nth-child(2) {
   background-image: url("../images/inspirations/inspi-2.jpg");
-  grid-row: 8/12;
 }
-.inspirations .nos-idees-deco .grid-idee-deco .inspi:nth-child(3) {
+.inspirations .nos-idees-deco .container-inspi .grid-idee-deco.active .inspi:nth-child(3) {
   background-image: url("../images/inspirations/inspi-3.jpg");
-  grid-row: 8/11;
 }
-.inspirations .nos-idees-deco .grid-idee-deco .inspi:nth-child(4) {
+.inspirations .nos-idees-deco .container-inspi .grid-idee-deco.active .inspi:nth-child(4) {
   background-image: url("../images/inspirations/inspi-4.jpg");
-  grid-row: 8/12;
 }
-.inspirations .nos-idees-deco .grid-idee-deco .inspi:nth-child(5) {
+.inspirations .nos-idees-deco .container-inspi .grid-idee-deco.active .inspi:nth-child(5) {
   background-image: url("../images/inspirations/inspi-5.jpg");
-  grid-row: 8/11;
 }
-.inspirations .nos-idees-deco .grid-idee-deco .inspi:nth-child(6) {
+.inspirations .nos-idees-deco .container-inspi .grid-idee-deco.active .inspi:nth-child(6) {
   background-image: url("../images/inspirations/inspi-6.jpg");
 }
-.inspirations .nos-idees-deco .grid-idee-deco .inspi:nth-child(7) {
+.inspirations .nos-idees-deco .container-inspi .grid-idee-deco.active .inspi:nth-child(7) {
   background-image: url("../images/inspirations/inspi-7.jpg");
 }
-.inspirations .nos-idees-deco .grid-idee-deco .inspi:nth-child(8) {
+.inspirations .nos-idees-deco .container-inspi .grid-idee-deco.active .inspi:nth-child(8) {
   background-image: url("../images/inspirations/inspi-8.jpg");
 }
-.inspirations .nos-idees-deco .grid-idee-deco .inspi:nth-child(9) {
+.inspirations .nos-idees-deco .container-inspi .grid-idee-deco.active .inspi:nth-child(9) {
   background-image: url("../images/inspirations/inspi-9.jpg");
+}
+
+#inspi-btn {
+  margin: 80px;
+  height: 50px;
+  width: 143px;
+  color: #FAFAFA;
+  background-color: #393939;
+  border-radius: 12px;
+  text-decoration: none;
 }
 
 .contact {

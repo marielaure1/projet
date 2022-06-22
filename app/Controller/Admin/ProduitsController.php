@@ -46,9 +46,6 @@ class ProduitsController extends AppController{
                 'publier' => $_POST['publier'],
                 'id_sous_categories' => $_POST['id_sous_categories']
             ]);
-            if(empty($_POST["nom"])){
-                
-            }
             if($result){
                 return $this->indexProduit();
             }
@@ -57,6 +54,23 @@ class ProduitsController extends AppController{
         $categories = $this->Category->extract('id', 'nom');
         $form = new BootstrapForm($_POST);
         $this->render('admin.produits.indexProduit', compact('categories', 'form', "produits"));
+    }
+    public function addImage(){
+        $images = $this->Image->all();
+        if (!empty($_POST)) {
+
+            $result = $this->Image->create([
+                'id_produits' => $_POST['id_produits'],
+                'fichier' => $_POST['fichier'],
+                'image_principale' => $_POST['image_principale'],
+                'publier' => $_POST['publier']
+            ]);
+            if($result){
+                return $this->indexImage();
+            }
+        }
+        $form = new BootstrapForm($_POST);
+        $this->render('admin.produits.indexImage', compact('form'));
     }
 
     public function edit(){

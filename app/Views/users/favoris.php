@@ -3,7 +3,7 @@
         <h1 class="title-user">Favoris</h1>
         <div class="grid-favoris">
             <div class="block-favoris">
-                <img class="img-favoris" src="../public/images/salon/iona-meridienne2.jpg" alt="">
+                <img class="img-favoris" src="../public/images/iona-meridienne2.jpg" alt="">
                 <div class="text-favoris active">
                     <h2>Iona</h2>
                     <h3>Lorem ipsum</h3>
@@ -13,7 +13,7 @@
                 </div>
             </div>
             <div class="block-favoris">
-                <img class="img-favoris" src="../public/images/salon/iona-meridienne2.jpg" alt="">
+                <img class="img-favoris" src="../public/images/iona-meridienne2.jpg" alt="">
                 <div class="text-favoris active">
                     <h2>Iona</h2>
                     <h3>Lorem ipsum</h3>
@@ -23,7 +23,7 @@
                 </div>
             </div>
             <div class="block-favoris">
-                <img class="img-favoris" src="../public/images/salon/iona-meridienne2.jpg" alt="">
+                <img class="img-favoris" src="../public/images/iona-meridienne2.jpg" alt="">
                 <div class="text-favoris active">
                     <h2>Iona</h2>
                     <h3>Lorem ipsum</h3>
@@ -33,7 +33,7 @@
                 </div>
             </div>
             <div class="block-favoris">
-                <img class="img-favoris" src="../public/images/salon/iona-meridienne2.jpg" alt="">
+                <img class="img-favoris" src="../public/images/iona-meridienne2.jpg" alt="">
                 <div class="text-favoris active">
                     <h2>Iona</h2>
                     <h3>Lorem ipsum</h3>
@@ -43,7 +43,7 @@
                 </div>
             </div>
             <div class="block-favoris">
-                <img class="img-favoris" src="../public/images/salon/iona-meridienne2.jpg" alt="">
+                <img class="img-favoris" src="../public/images/iona-meridienne2.jpg" alt="">
                 <div class="text-favoris active">
                     <h2>Iona</h2>
                     <h3>Lorem ipsum</h3>
@@ -53,7 +53,7 @@
                 </div>
             </div>
             <div class="block-favoris">
-                <img class="img-favoris" src="../public/images/salon/iona-meridienne2.jpg" alt="">
+                <img class="img-favoris" src="../public/images/iona-meridienne2.jpg" alt="">
                 <div class="text-favoris active">
                     <h2>Iona</h2>
                     <h3>Lorem ipsum</h3>
@@ -63,7 +63,7 @@
                 </div>
             </div>
             <div class="block-favoris">
-                <img class="img-favoris" src="../public/images/salon/iona-meridienne2.jpg" alt="">
+                <img class="img-favoris" src="../public/images/iona-meridienne2.jpg" alt="">
                 <div class="text-favoris active">
                     <h2>Iona</h2>
                     <h3>Lorem ipsum</h3>
@@ -73,7 +73,7 @@
                 </div>
             </div>
             <div class="block-favoris">
-                <img class="img-favoris" src="../public/images/salon/iona-meridienne2.jpg" alt="">
+                <img class="img-favoris" src="../public/images/iona-meridienne2.jpg" alt="">
                 <div class="text-favoris active">
                     <h2>Iona</h2>
                     <h3>Lorem ipsum</h3>
@@ -83,7 +83,7 @@
                 </div>
             </div>
             <div class="block-favoris">
-                <img class="img-favoris" src="../public/images/salon/iona-meridienne2.jpg" alt="">
+                <img class="img-favoris" src="../public/images/iona-meridienne2.jpg" alt="">
                 <div class="text-favoris active">
                     <h2>Iona</h2>
                     <h3>Lorem ipsum</h3>

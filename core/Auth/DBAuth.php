@@ -31,13 +31,12 @@ class DBAuth {
      * @param $password
      * @return boolean
      */
+
     public function login($email, $password){
         $user = $this->db->prepare('SELECT * FROM users WHERE email = ?', [$email], null, true);
-        var_dump(sha1($password));
-        // Vérifier que l'email existe
+        var_dump(password_hash($password, PASSWORD_DEFAULT));
         if($user){
-            // Vérifier que le mot de passe associé à l'email dans la bdd correspond à celui donner par l'utilisateur
-            if($user->password === sha1($password)){
+            if(password_verify($password,$user->password )){
                 $_SESSION['auth'] = $user->id;
                 $_SESSION['user'] = $user;
                 return true;

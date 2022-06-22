@@ -2,10 +2,9 @@
 <main class="show">
     <section class="fiche">
         <div class="slider-produit scroll"> <?php
-            foreach($images as $image){ ?>
-                <img src="../public/images/salon/<?= $image->fichier ?>" alt=""> <?php
-                if($image->image_principale == true){ ?>_
-                    <img src="<?= $image->fichier ?>" alt="">
+            foreach($images as $image){
+                if($image->publier == true){ ?>
+                    <img src="../public/images/<?= $image->fichier ?>" alt="">
             <?php  }
             }
        ?> </div>
@@ -23,12 +22,13 @@
             
            <div class="block2">
                 <p class="prix"><?= $produit->prix ?> €</p>
-                <div class="quantite">
-                    <p class="moins">-</p>
-                    <p class="nombre">1</p>
-                    <p class="plus">+</p>
-                </div>
                 <form class="panier-produit" action="">
+                    <input type="hidden" value="<?= $_GET["id"] ?>">
+                    <div class="quantite">
+                        <p class="moins">-</p>
+                        <input id="nb" type="text" class="nombre" value="1">
+                        <p class="plus">+</p>
+                    </div>
                     <input type="hidden" value="id">
                     <input type="submit" value="Ajouter au panier">
                 </form>
@@ -44,49 +44,26 @@
     <section class="suggestions">
         <h2 class="title-rubrique">Suggestions</h2>
         <div class="grid-produits">
-        <div class="produit">
-            <img src="../public/images/salon/iona-meridienne2.jpg" alt="" class="produit-img">
-            <div class="produit-description">
-                <h2 class="titre-produit">IONA</h2>
-                <div class="icon-favoris"> 
-                    <a href="index.php?p=users.favorisApplication&user=<?=$_SESSION["auth"]?>&produit=<?=$produit->id?>">
-                        <img class='icon icon-fav active' src='../public/icon/icon-favoris-off.svg' alt='icon heart'>
-                    </a>
-                </div>
-                <h3 class="description-produit">Méridienne,  orange</h3>
-                <p class="prix-produit">200 €</p>
-            </div> 
-        </div> <div class="produit">
-            <img src="../public/images/salon/iona-meridienne2.jpg" alt="" class="produit-img">
-            <div class="produit-description">
-                <h2 class="titre-produit">IONA</h2>
-                <div class="icon-favoris">
-                    <img class="icon icon-fav" src="../public/icon/icon-favoris-off.svg" alt="icon heart">
-                </div>
-                <h3 class="description-produit">Méridienne,  orange</h3>
-                <p class="prix-produit">200 €</p>
-            </div> 
-        </div> <div class="produit">
-            <img src="../public/images/salon/iona-meridienne2.jpg" alt="" class="produit-img">
-            <div class="produit-description">
-                <h2 class="titre-produit">IONA</h2>
-                <div class="icon-favoris">
-                    <img class="icon icon-fav" src="../public/icon/icon-favoris-off.svg" alt="icon heart">
-                </div>
-                <h3 class="description-produit">Méridienne,  orange</h3>
-                <p class="prix-produit">200 €</p>
-            </div> 
-        </div> <div class="produit">
-            <img src="../public/images/salon/iona-meridienne2.jpg" alt="" class="produit-img">
-            <div class="produit-description">
-                <h2 class="titre-produit">IONA</h2>
-                <div class="icon-favoris">
-                    <img class="icon icon-fav" src="../public/icon/icon-favoris-off.svg" alt="icon heart">
-                </div>
-                <h3 class="description-produit">Méridienne,  orange</h3>
-                <p class="prix-produit">200 €</p>
-            </div> 
-        </div>
+            <?php
+                $suggestions = $this->Produit->suggestions($produit->id_sous_categories);
+           
+            foreach($suggestions as $suggestion){
+                foreach($images as $image){
+                    if($image->image_principale == true && $suggestion->id != $_GET["id"] ){ ?>
+                        <div class="produit">
+                            <img src="../public/images/<?= $image->fichier ?>" alt="" class="produit-img">
+                            <div class="produit-description">
+                            <h2 class="titre-produit"><?= $suggestion->nom ?></h2>
+                            <div class="icon-favoris"> 
+                                <a href="index.php?p=users.favorisApplication&user=<?=$_SESSION["auth"]?>&produit=<?=$produit->id?>">
+                                    <img class='icon icon-fav active' src='../public/icon/icon-favoris-off.svg' alt='icon heart'>
+                                </a>
+                            </div>
+                            <h3 class="description-produit"><?= $suggestion->descriptions ?></h3>
+                            <p class="prix-produit"><?= $suggestion->prix ?> €</p>
+                        </div> 
+                    </div>
+            <?php } } } ?>
         </div>
     </section>
 </main>

@@ -11,16 +11,16 @@
             <p><?= count($produits) ?></p>
         </div>
         <div>
-            <p>Nombre d'utilisateurs</p>
-            <p><?= count($users) ?></p>
+            <p>Nombre de commandes</p>
+            <p><?= count($commandes) ?></p>
         </div>
         <div>
-            <p>Nombre de produits</p>
-            <p><?= count($produits) ?></p>
+            <p>Nombre d'inscrits à la newsletter</p>
+            <p><?= count($newsletters) ?></p>
         </div>
     </div>
 
-    <div class="listes">
+    <div class="table-bg listes">
     <?php if(count($users) > 0){?>
         <div class="liste">
             <h3>Derniers utilisateurs inscrits</h3>

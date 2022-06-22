@@ -26,38 +26,44 @@ class PostsController extends AppController{
         $posts = $this->Post->last();
         $categories = $this->Category->all();
         $favoris = $this->Favoris->all();
+        $nouveautes = $this->Produit->nouveaute();
         $form = new Form($_POST);
-        $this->render('posts.index', compact('posts', 'categories', 'form', "favoris"));
+        $images = $this->Image->all();
+        $this->render('posts.index', compact('images', 'nouveautes', 'posts', 'categories', 'form', "favoris"));
     }
 
     public function category(){
+
         $url = new CategoryEntity();
         $categorie = $this->Category->find($_GET['id']);
         if($categorie === false){
             $this->notFound();
         }
 
+        $allProduits = $this->Produit->all();
+
         if(isset($_GET['souscategories'])){
             $produits = $this->Produit->lastBySousCategory($_GET['souscategories']);
         } else {
-            $produits = $this->Produit->all();
+            $produits = $this->Produit->produitCategory($_GET["id"]);
         }
+
         if(isset($_SESSION["auth"])){
             $favoris = $this->Favoris->findFavoris($_SESSION["auth"]);
         } else{
             $favoris = "";
         }
 
-        
         $souscategories = $this->SousCategory->allByCategory($_GET['id']);
         $categories = $this->Category->all();
         
         $images = $this->Image->all();
 
-        $this->render('posts.category', compact('produits', 'categories', 'categorie', 'favoris', 'images', "souscategories", "url"));
+        $this->render('posts.category', compact('allProduits', 'produits', 'categories', 'categorie', 'favoris', 'images', "souscategories", "url"));
     }
 
     public function show(){
+        $categories = $this->Category->all();
         if(isset($_SESSION["auth"])){
             $favoris = $this->Favoris->findFavoris($_SESSION["auth"]);
         } else{
@@ -66,20 +72,23 @@ class PostsController extends AppController{
         $favoris = $this->Favoris->all();
         $images = $this->Image->produitImage($_GET["id"]);
         $produit = $this->Produit->find($_GET["id"]);
-        $this->render('posts.show', compact('images', "produit", "favoris"));
+        $this->render('posts.show', compact('images', "produit", "favoris", "categories"));
     }
 
     
 
     public function inspirations(){
-        $this->render('posts.inspirations');
+        $categories = $this->Category->all();
+        $this->render('posts.inspirations', compact("categories"));
     }
 
     public function error(){
-        $this->render('posts.error');
+        $categories = $this->Category->all();
+        $this->render('posts.error', compact("categories"));
     }
 
     public function contact(){
+        $categories = $this->Category->all();
         $success = false;
         $display = "none";
         $contentMail = "";
@@ -145,11 +154,12 @@ class PostsController extends AppController{
 
         $form = new Form($_POST);
 
-        $this->render('posts.contact', compact("form", "display", "errors"));
+        $this->render('posts.contact', compact("form", "display", "errors", "categories"));
     }
 
     public function errorpage(){
-        $this->render('posts.errorpage');
+        $categories = $this->Category->all();
+        $this->render('posts.errorpage', compact("categories"));
     }
     
 }

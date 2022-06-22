@@ -1,9 +1,9 @@
 <section class="admin-section images">
     <h1>Images</h1>
     <div class="form-bg">
-        <form method="post" action="index?p=admin.produits.add">
+        <form method="post" action="index?p=admin.produits.addImage">
             <?= $form->select("id_produits", "Produits", $produits) ?>
-            <?= $form->input("images", "Images", $option = ["type" => "file"], $placeholder = "Images") ?>
+            <?= $form->input("fichier", "Images", $option = ["type" => "file"], $placeholder = "Images") ?>
             <div class="form-group-radio">
                 <div>
                     <h3>Image Principale ? </h3>

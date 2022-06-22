@@ -104,49 +104,68 @@
     .nos-idees-deco{
         width: 100%;
         height: fit-content;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
 
-        .grid-idee-deco{
+        .container-inspi{
             width: 100%;
-            height: fit-content;
-            box-sizing: border-box;
-            padding: 15px;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
 
-            .inspi:nth-child(1){
-                background-image: url("../images/inspirations/inspi-1.jpg");
-                grid-row: 1/10;
+            .grid-idee-deco{
+                display: none;
             }
-            .inspi:nth-child(2){
-                background-image: url("../images/inspirations/inspi-2.jpg");
-                grid-row: 8/12;
-            }
-            .inspi:nth-child(3){
-                background-image: url("../images/inspirations/inspi-3.jpg");
-                grid-row: 8/11;
-            }
-            .inspi:nth-child(4){
-                background-image: url("../images/inspirations/inspi-4.jpg");
-                grid-row: 8/12;
-            }
-            .inspi:nth-child(5){
-                background-image: url("../images/inspirations/inspi-5.jpg");
-                grid-row: 8/11;
-            }
-            .inspi:nth-child(6){
-                background-image: url("../images/inspirations/inspi-6.jpg");
-            }
-            .inspi:nth-child(7){
-                background-image: url("../images/inspirations/inspi-7.jpg");
-            }
-            .inspi:nth-child(8){
-                background-image: url("../images/inspirations/inspi-8.jpg");
-            }
-            .inspi:nth-child(9){
-                background-image: url("../images/inspirations/inspi-9.jpg");
+    
+            .grid-idee-deco.active{
+                width: 100%;
+                height: fit-content;
+                box-sizing: border-box;
+                padding: 15px;
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 15px;
+    
+                .inspi{
+                    aspect-ratio: 4/6;
+                }
+    
+                .inspi:nth-child(1){
+                    background-image: url("../images/inspirations/inspi-1.jpg");
+                }
+                .inspi:nth-child(2){
+                    background-image: url("../images/inspirations/inspi-2.jpg");
+                }
+                .inspi:nth-child(3){
+                    background-image: url("../images/inspirations/inspi-3.jpg");
+                }
+                .inspi:nth-child(4){
+                    background-image: url("../images/inspirations/inspi-4.jpg");
+                }
+                .inspi:nth-child(5){
+                    background-image: url("../images/inspirations/inspi-5.jpg");
+                }
+                .inspi:nth-child(6){
+                    background-image: url("../images/inspirations/inspi-6.jpg");
+                }
+                .inspi:nth-child(7){
+                    background-image: url("../images/inspirations/inspi-7.jpg");
+                }
+                .inspi:nth-child(8){
+                    background-image: url("../images/inspirations/inspi-8.jpg");
+                }
+                .inspi:nth-child(9){
+                    background-image: url("../images/inspirations/inspi-9.jpg");
+                }
             }
         }
-
     }
  }
+
+ #inspi-btn{
+    margin: 80px;
+    height: 50px;
+    width: 143px;
+    color: $white;
+    background-color: $dark-black;
+    border-radius: 12px;
+    text-decoration: none;
+}
