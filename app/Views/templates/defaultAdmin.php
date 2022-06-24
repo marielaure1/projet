@@ -36,6 +36,7 @@
                 <div class="bg-link"><a href="index.php?p=admin.souscategories.index"><img src="../public/icon/icon-subcategory-black.svg" alt=""><span>Sous-Catégories</span></a></div>
                 <div class="bg-link"><a href="index.php?p=admin.produits.index"><img src="../public/icon/icon-produit-black.svg" alt=""><span>Produits</span></a></div>
                 <div class="bg-link"><a href="index.php?p=admin.commandes.index"><img src="../public/icon/icon-ordered-black.svg" alt=""><span>Commandes</span></a></div>
+                <div class="bg-link"><a href="http://127.0.0.1:5000/"><img src="../public/icon/icon-ordered-black.svg" alt=""><span>Newsletter</span></a></div>
                 <div class="bg-link"><a href="index.php?p=posts.index"><img src="../public/icon/favicon.png" alt=""><span>Site</span></a></div>
         </nav>
         

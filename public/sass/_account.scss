@@ -1,95 +1,140 @@
-#account{
-    width: 100%;
+
+
+.global-mon-compte{
+    position: relative;
     height: fit-content;
-    padding: 5vh 6.944vw 20px 6.944vw;
+    width: 100%;
 
-    .filtre{
-        display: flex;
-        justify-content: center;
+    .moncompte{
         width: 100%;
-
-        a{
-            display: block;
-            width: 220px;
-            font-size: 20px;
-            position: relative;
-            padding-bottom: 15px;
-            color: $grey;
+        height: fit-content;
+        padding: 75px 6.944vw 30px 6.944vw;
+    
+        .filtre-user{
             display: flex;
             justify-content: center;
-            box-sizing: border-box;
-        }
-        a:before{
-            position: absolute;
-            bottom: 0;
-            content: "";
             width: 100%;
-            height: 5px;
-            background-color: $grey;
-        }
-
-        a:hover{
-            color: $dark-black;
-        }
-
-        a:hover::before{
-            background-color: $dark-black;
+    
+            a{
+                display: block;
+                width: 220px;
+                font-size: 20px;
+                position: relative;
+                padding-bottom: 15px;
+                color: $grey;
+                display: flex;
+                justify-content: center;
+                box-sizing: border-box;
+            }
+            a:before{
+                position: absolute;
+                bottom: 0;
+                content: "";
+                width: 100%;
+                height: 5px;
+                background-color: $grey;
+            }
+    
+            a:hover, a.active{
+                color: $dark-black;
+            }
+    
+            a:hover::before, a.active:before{
+                background-color: $dark-black;
+            }
         }
     }
 
-    .tableau{
-        padding: 0 8vw;
-        font-size: 16px;
-        font-family: $montserrat;
-
-        .title-tab{
+    #account{
+        width: 100%;
+        height: fit-content;
+        min-height: 50vh;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+    
+        .modification{
+            padding: 75px 6.944vw 8vh 6.944vw;
             display: grid;
-            grid-template-columns: 30% 40% 10% 20%;
+            grid-template-columns: repeat(4, 1fr);
             gap: 15px;
-            padding: 10px 0;
-            box-sizing: border-box;
-
-            p{
-                padding-left: 20px;
-            }
-        }
-
-        .commandes{
-            .commande-ligne{
-                background-color: $beige;
-                display: grid;
-                grid-template-columns: 30% 40% 10% 20%;
-                gap: 15px;
-                height: 80px;
-                align-items: center;
-
-                p, a{
-                    padding-left: 20px;
-                }
-            }
-
-            .commande-ligne:not(:last-child){
-                border-bottom: 1px solid $grey;
-            }
-
-            .tableau-commande-details{
-                & > div:nth-child(1){
-                    display: grid;
-                    grid-template-columns: 30% 20% 20% 10% 20%;
-                    gap: 15px;
-                    padding: 10px 0;
-                    box-sizing: border-box;
-        
-                    p{
-                        padding-left: 20px;
+            font-family: $montserrat;
+    
+            div{
+                h4{
+                    margin-bottom: 20px;
+    
+                    span{
+                        font-size: 18px;
+                        font-weight: 600;
+                        margin-right: 20px;
+                    }
+    
+                    img{
+                        width: 20px;
                     }
                 }
-        
-                & > div:nth-child(2){
-                        
+    
+                p{
+                    font-size: 14px;
+                    margin-bottom: 10px;
+                }
+    
+                a{
+                    font-size: 18px;
+                    font-weight: 600;
+                }
+            }
+    
+            .block-popup{
+                display: none;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(250, 250, 250, 0.35);
+                backdrop-filter: blur(5px);
+            }
+    
+            .block-popup.active{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+    
+                .popup{
+                    width: 450px;
+                    height: fit-content;
+                    border: 1px solid $grey;
+                    border-radius: 27px;
+                    padding: 40px;
+                    box-sizing: border-box;
+                    position: relative;
+                    background-color: $true-white;
+
+                    img{
+                        width: 20px;
+                        cursor: pointer;
+                        position: absolute;
+                        top: 20px;
+                        right: 20px;
+                    }
+
+                    h4{
+                        font-size: 20px;
+                        font-weight: 500;
+                        margin-bottom: 20px;
+                    }
+
+                    form{
+                        .form-group{
+                            margin-bottom: 20px;
+                            font-size: 14px;
+                        }
+                    }
                 }
             }
         }
-
     }
 }
+

@@ -33,15 +33,16 @@ class SousCategoriesController extends AppController{
 
     public function edit(){
         if (!empty($_POST)) {
-            $result = $this->Category->update($_GET['id'], [
+            $result = $this->SousCategory->update($_GET['id'], [
                 'nom' => $_POST['nom'],
                 'id_categories' => $_POST['id_categories']
             ]);
             return $this->index();
         }
-        $souscategories = $this->SousCategory->all();
-        $form = new BootstrapForm($_POST);
-        $this->render('admin.souscategories.edit', compact('form', "souscategories"));
+        $categories = $this->Category->extract('id', 'nom');
+        $souscategories = $this->SousCategory->find($_GET["id"]);
+        $form = new BootstrapForm($souscategories);
+        $this->render('admin.souscategories.edit', compact('form', "souscategories", 'categories'));
     }
 
     public function delete(){

@@ -46,6 +46,10 @@ a, li, .btn, input, .icon {
   cursor: pointer;
 }
 
+input {
+  outline: none;
+}
+
 .icon {
   height: 28px;
   width: 28px;
@@ -614,6 +618,10 @@ footer .copyright p {
 .inspiration .inspiration-block img {
   width: 100%;
 }
+.inspiration .inspiration-block .over {
+  width: 100%;
+  height: 100%;
+}
 .inspiration .inspiration-block .over .point1 {
   top: 67%;
   left: 17.5%;
@@ -881,12 +889,13 @@ footer .copyright p {
   font-size: 20px;
   margin-bottom: 20px;
 }
-.show .fiche .fiche-text .block2 {
+.show .fiche .fiche-text form {
   display: grid;
   width: 100%;
   grid-template-areas: ". prix" "quantite panier";
+  gap: 20px;
 }
-.show .fiche .fiche-text .block2 .prix {
+.show .fiche .fiche-text form .prix {
   grid-area: prix;
   display: flex;
   justify-content: end;
@@ -894,24 +903,32 @@ footer .copyright p {
   font-weight: 600;
   margin-bottom: 20px;
 }
-.show .fiche .fiche-text .block2 .quantite {
+.show .fiche .fiche-text form .quantite {
   grid-area: quantite;
   display: grid;
   grid-template-columns: 20px 40px 20px;
   column-gap: 10px;
   cursor: pointer;
 }
-.show .fiche .fiche-text .block2 .quantite p {
+.show .fiche .fiche-text form .quantite .btn-quantity {
   font-size: 48px;
   font-weight: bold;
   text-align: center;
+  background: none;
+  border: none;
 }
-.show .fiche .fiche-text .block2 .panier-produit {
+.show .fiche .fiche-text form .quantite #nb {
+  border: none;
+  font-size: 48px;
+  outline: none;
+  text-align: center;
+}
+.show .fiche .fiche-text form .panier-produit {
   grid-area: panier;
   display: flex;
   justify-content: end;
 }
-.show .fiche .fiche-text .block2 .panier-produit input[type=submit] {
+.show .fiche .fiche-text form .panier-produit input[type=submit] {
   width: 187px;
   height: 48px;
   background-color: #393939;
@@ -1001,6 +1018,46 @@ footer .copyright p {
   transition: opacity 0.5s;
   object-fit: cover;
   filter: brightness(0.9);
+}
+.inspirations .nos-selections .slider-inspirations .img-carousel .over .point1 {
+  top: 67%;
+  left: 17.5%;
+}
+.inspirations .nos-selections .slider-inspirations .img-carousel .over .point2 {
+  top: 62%;
+  left: 40%;
+}
+.inspirations .nos-selections .slider-inspirations .img-carousel .over .point3 {
+  top: 72%;
+  left: 49%;
+}
+.inspirations .nos-selections .slider-inspirations .img-carousel .over .point4 {
+  top: 36%;
+  left: 64.5%;
+}
+.inspirations .nos-selections .slider-inspirations .img-carousel .over .point5 {
+  top: 62%;
+  left: 85%;
+}
+.inspirations .nos-selections .slider-inspirations .img-carousel .over .info1 {
+  top: 63%;
+  left: 21%;
+}
+.inspirations .nos-selections .slider-inspirations .img-carousel .over .info2 {
+  top: 45%;
+  left: 32%;
+}
+.inspirations .nos-selections .slider-inspirations .img-carousel .over .info3 {
+  top: 77%;
+  left: 41%;
+}
+.inspirations .nos-selections .slider-inspirations .img-carousel .over .info4 {
+  top: 32%;
+  left: 69%;
+}
+.inspirations .nos-selections .slider-inspirations .img-carousel .over .info5 {
+  top: 67%;
+  left: 77%;
 }
 .inspirations .nos-selections .slider-inspirations .img-carousel.active {
   opacity: 1;
@@ -1268,6 +1325,7 @@ footer .copyright p {
   display: grid;
   grid-template-columns: 45% 25% 25% 5%;
   padding: 20px 0;
+  font-family: "Montserrat", sans-serif;
 }
 .panier .liste-panier .tableau .row-produit .produit-panier {
   display: flex;
@@ -1281,7 +1339,6 @@ footer .copyright p {
   width: 200px;
   height: 140px;
   padding: 20px 10px 0 10px;
-  font-family: "Montserrat", sans-serif;
 }
 .panier .liste-panier .tableau .row-produit .produit-panier .text-panier h2 {
   font-size: 20px;
@@ -1300,6 +1357,16 @@ footer .copyright p {
   display: flex;
   align-items: center;
   justify-content: start;
+}
+.panier .liste-panier .tableau .row-produit .quantite-panier input {
+  height: 34px;
+  width: 80px;
+  background-color: #EEE;
+  color: #393939;
+  font-size: 20px;
+  border: none;
+  text-align: center;
+  border-radius: 17px;
 }
 .panier .liste-panier .tableau .row-produit .delete-panier {
   display: flex;
@@ -1430,17 +1497,22 @@ footer .copyright p {
   display: none;
 }
 
-#account {
+.global-mon-compte {
+  position: relative;
+  height: fit-content;
+  width: 100%;
+}
+.global-mon-compte .moncompte {
   width: 100%;
   height: fit-content;
-  padding: 5vh 6.944vw 20px 6.944vw;
+  padding: 75px 6.944vw 30px 6.944vw;
 }
-#account .filtre {
+.global-mon-compte .moncompte .filtre-user {
   display: flex;
   justify-content: center;
   width: 100%;
 }
-#account .filtre a {
+.global-mon-compte .moncompte .filtre-user a {
   display: block;
   width: 220px;
   font-size: 20px;
@@ -1451,7 +1523,7 @@ footer .copyright p {
   justify-content: center;
   box-sizing: border-box;
 }
-#account .filtre a:before {
+.global-mon-compte .moncompte .filtre-user a:before {
   position: absolute;
   bottom: 0;
   content: "";
@@ -1459,28 +1531,109 @@ footer .copyright p {
   height: 5px;
   background-color: #A6A6A6;
 }
-#account .filtre a:hover {
+.global-mon-compte .moncompte .filtre-user a:hover, .global-mon-compte .moncompte .filtre-user a.active {
   color: #393939;
 }
-#account .filtre a:hover::before {
+.global-mon-compte .moncompte .filtre-user a:hover::before, .global-mon-compte .moncompte .filtre-user a.active:before {
   background-color: #393939;
 }
-#account .tableau {
+.global-mon-compte #account {
+  width: 100%;
+  height: fit-content;
+  min-height: 50vh;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.global-mon-compte #account .modification {
+  padding: 75px 6.944vw 8vh 6.944vw;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  font-family: "Montserrat", sans-serif;
+}
+.global-mon-compte #account .modification div h4 {
+  margin-bottom: 20px;
+}
+.global-mon-compte #account .modification div h4 span {
+  font-size: 18px;
+  font-weight: 600;
+  margin-right: 20px;
+}
+.global-mon-compte #account .modification div h4 img {
+  width: 20px;
+}
+.global-mon-compte #account .modification div p {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+.global-mon-compte #account .modification div a {
+  font-size: 18px;
+  font-weight: 600;
+}
+.global-mon-compte #account .modification .block-popup {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(250, 250, 250, 0.35);
+  backdrop-filter: blur(5px);
+}
+.global-mon-compte #account .modification .block-popup.active {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.global-mon-compte #account .modification .block-popup.active .popup {
+  width: 450px;
+  height: fit-content;
+  border: 1px solid #A6A6A6;
+  border-radius: 27px;
+  padding: 40px;
+  box-sizing: border-box;
+  position: relative;
+  background-color: #FFF;
+}
+.global-mon-compte #account .modification .block-popup.active .popup img {
+  width: 20px;
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+.global-mon-compte #account .modification .block-popup.active .popup h4 {
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+.global-mon-compte #account .modification .block-popup.active .popup form .form-group {
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+#commandes {
+  width: 100%;
+  height: fit-content;
+  padding: 5vh 6.944vw 20px 6.944vw;
+}
+#commandes .tableau {
   padding: 0 8vw;
   font-size: 16px;
   font-family: "Montserrat", sans-serif;
 }
-#account .tableau .title-tab {
+#commandes .tableau .title-tab {
   display: grid;
   grid-template-columns: 30% 40% 10% 20%;
   gap: 15px;
   padding: 10px 0;
   box-sizing: border-box;
 }
-#account .tableau .title-tab p {
+#commandes .tableau .title-tab p {
   padding-left: 20px;
 }
-#account .tableau .commandes .commande-ligne {
+#commandes .tableau .commandes .commande-ligne {
   background-color: #F4EAE1;
   display: grid;
   grid-template-columns: 30% 40% 10% 20%;
@@ -1488,20 +1641,20 @@ footer .copyright p {
   height: 80px;
   align-items: center;
 }
-#account .tableau .commandes .commande-ligne p, #account .tableau .commandes .commande-ligne a {
+#commandes .tableau .commandes .commande-ligne p, #commandes .tableau .commandes .commande-ligne a {
   padding-left: 20px;
 }
-#account .tableau .commandes .commande-ligne:not(:last-child) {
+#commandes .tableau .commandes .commande-ligne:not(:last-child) {
   border-bottom: 1px solid #A6A6A6;
 }
-#account .tableau .commandes .tableau-commande-details > div:nth-child(1) {
+#commandes .tableau .commandes .tableau-commande-details > div:nth-child(1) {
   display: grid;
   grid-template-columns: 30% 20% 20% 10% 20%;
   gap: 15px;
   padding: 10px 0;
   box-sizing: border-box;
 }
-#account .tableau .commandes .tableau-commande-details > div:nth-child(1) p {
+#commandes .tableau .commandes .tableau-commande-details > div:nth-child(1) p {
   padding-left: 20px;
 }
 

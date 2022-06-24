@@ -55,8 +55,8 @@
                                 } ?>
                         </td>
                         <td class="btns-actions">
-                            <a class="btn btn-editer" href="?p=admin.produits.edit&id=<?= $produit->id; ?>">Editer</a>
-                            <form action="?p=admin.produits.delete" method="post" style="display: inline;">
+                            <a class="btn btn-editer" href="?p=admin.produits.editProduit&id=<?= $produit->id; ?>">Editer</a>
+                            <form action="?p=admin.produits.deleteProduit" method="post" style="display: inline;">
                                 <input type="hidden" name="id" value="<?= $produit->id ?>">
                                 <?= $form->btnSubmit('btn-supprimer', "Supprimer") ?>
                             </form>

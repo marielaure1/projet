@@ -50,7 +50,7 @@
                     <div class="icons">
                         <div  class="icon"><img class="icon-user" src="../public/icon/icon-user-black.svg" alt="icon-user"></div>
                         <a href="index.php?p=users.favoris"><img class="icon icon-like" src="../public/icon/icon-like-black.svg" alt="icon-like"></a>
-                        <a href="index.php?p=users.panier"><img class="icon icon-basket" src="../public/icon/icon-basket-black.svg" alt="icon-basket"></a>
+                        <a href="index.php?p=panier.index"><img class="icon icon-basket" src="../public/icon/icon-basket-black.svg" alt="icon-basket"></a>
                     </div>
                     <nav class="menu-account">
                     <?php //Pour se connecter

@@ -31,7 +31,7 @@ class CategoriesController extends AppController{
     }
 
     public function edit(){
-        $category = $this->Category->find($_GET['id']);
+        $category = $this->Category->editFind($_GET['id']);
 
         if (!empty($_POST)) {
             $image = $this->uploadImage();
@@ -41,7 +41,6 @@ class CategoriesController extends AppController{
                 'descriptions' => $_POST['descriptions'],
                 'images' => $_POST['images']
             ]);
-            return $this->index();
         }
         $form = new BootstrapForm($category);
         $this->render('admin.categories.edit', compact('form', "category"));

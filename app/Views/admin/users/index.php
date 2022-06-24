@@ -21,11 +21,11 @@
                 </div>
             </div>
             <?= $form->input("adresse", "Adresse", $option = ["type" => "textarea"], $placeholder = "Adresse", isset($errors["adresseError"]) ? $errors["adresseError"] : "") ?>
-            <div>
+            <div class="result">
             <?= $form->btnSubmit('btn-ajouter', "Envoyer") ?>
             <?php if(isset($displaySuccess) || isset($displayWarning)) {
                         if($displaySuccess === true){ ?>
-                            <p class="success">Votre message a bien été envoyé.</p>
+                            <p class="success">L'utisateur a été ajouté avec succès.</p>
                    <?php }else if($displayWarning === true){ ?>
                             <p class="warning">Un compte est déjà associé à cette email.</p>
                     <?php } 

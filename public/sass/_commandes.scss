@@ -1,0 +1,61 @@
+#commandes{
+    width: 100%;
+    height: fit-content;
+    padding: 5vh 6.944vw 20px 6.944vw;
+
+    .tableau{
+        padding: 0 8vw;
+        font-size: 16px;
+        font-family: $montserrat;
+
+        .title-tab{
+            display: grid;
+            grid-template-columns: 30% 40% 10% 20%;
+            gap: 15px;
+            padding: 10px 0;
+            box-sizing: border-box;
+
+            p{
+                padding-left: 20px;
+            }
+        }
+
+        .commandes{
+            .commande-ligne{
+                background-color: $beige;
+                display: grid;
+                grid-template-columns: 30% 40% 10% 20%;
+                gap: 15px;
+                height: 80px;
+                align-items: center;
+
+                p, a{
+                    padding-left: 20px;
+                }
+            }
+
+            .commande-ligne:not(:last-child){
+                border-bottom: 1px solid $grey;
+            }
+
+            .tableau-commande-details{
+                & > div:nth-child(1){
+                    display: grid;
+                    grid-template-columns: 30% 20% 20% 10% 20%;
+                    gap: 15px;
+                    padding: 10px 0;
+                    box-sizing: border-box;
+        
+                    p{
+                        padding-left: 20px;
+                    }
+                }
+        
+                & > div:nth-child(2){
+                        
+                }
+            }
+        }
+
+    }
+}

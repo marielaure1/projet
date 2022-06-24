@@ -32,6 +32,10 @@ a, li, .btn, input, .icon{
     cursor: pointer;
 }
 
+input{
+    outline: none;
+}
+
 .icon{
     height: 28px;
     width: 28px;

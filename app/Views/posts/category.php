@@ -28,7 +28,7 @@
                     <img src="../public/images/<?= $image->fichier ?>" alt="" class="produit-img">
                 <?php } endforeach; ?>
                 <div class="produit-description">
-                    <h2 class="titre-produit"><a href="index.php?p=posts.show&id=<?= $produit->id ?>'"><?= $produit->nom; ?></a></h2>
+                    <h2 class="titre-produit"><a href="index.php?p=posts.show&id=<?= $produit->id ?>"><?= $produit->nom; ?></a></h2>
                     <div class="icon-favoris">
                         <a onClick="ajoutFavoris(<?= $_SESSION["auth"] ?>, <?= $produit->id ?>)">
                             <img class='icon icon-fav active' src='../public/icon/icon-favoris-off.svg' alt='icon heart'>

@@ -26,6 +26,7 @@
                 display: grid;
                 grid-template-columns: 45% 25% 25% 5%;
                 padding: 20px 0;
+                font-family: $montserrat;
 
                 .produit-panier{
                     display: flex;
@@ -40,8 +41,7 @@
                         width: 200px;
                         height: 140px;
                         padding: 20px 10px 0 10px;
-                        font-family: $montserrat;
-
+                    
                         h2{
                             font-size: 20px;
                             font-weight: 500;
@@ -64,6 +64,19 @@
                     display: flex;
                     align-items: center;
                     justify-content: start;
+                }
+
+                .quantite-panier{
+                    input{
+                        height: 34px;
+                        width: 80px;
+                        background-color: $light-grey;
+                        color: $dark-black;
+                        font-size: 20px;
+                        border: none;
+                        text-align: center;
+                        border-radius: 17px;
+                    }
                 }
 
                 .delete-panier{

@@ -11,13 +11,13 @@ class UsersController extends AppController {
 
     public function __construct(){
         parent::__construct();
-        $this->loadModel('Post');
         $this->loadModel('Category');
         $this->loadModel('SousCategory');
         $this->loadModel('Produit');
         $this->loadModel('Favoris');
         $this->loadModel('Image');
         $this->loadModel('User');
+        $this->loadModel('Commande');
     }
 
     public function login(){
@@ -163,33 +163,6 @@ class UsersController extends AppController {
                 echo "create first";
             }
         }
-
-        // if(!empty($_GET)){
-        //     var_dump($_GET);
-
-        //     if(count($favoris) > 0){
-        //         foreach($favoris as $fav){
-        //             if($fav->id_users == $_POST['id_users'] && $fav->id_produits == $_POST['id_produits'] ){
-        //                 $this->Favoris->delete($fav->id);
-        //                 var_dump("existe deja donc delete");
-        //                 return ;
-        //             } else {
-        //                 $this->favorisAction($_POST);
-        //                 var_dump("existe pas donc create");
-        //                 return ;
-        //             }
-        //         }
-        //     } else {
-        //         $this->favorisAction($_POST);
-        //         var_dump($_POST);
-        //         var_dump("create premier favoris");
-        //         return ;
-        //     }
-        // }
-
-        // var_dump("vide");
-        // header("Location:".$_SERVER[HTTP_REFERER]."");
-        // die;
     }
 
     public function favorisAction($donnees){
@@ -209,8 +182,124 @@ class UsersController extends AppController {
         $categories = $this->Category->all();
         $this->render('users.panier', compact("categories"));
     }
+    public function commandes(){
+        $commandes = $this->Commande->all();
+        $this->render('users.commandes', compact("commandes"));
+    }
     public function account(){
-        $categories = $this->Category->all();
-        $this->render('users.account', compact("categories"));
+
+        $user = $this->User-> editFind($_SESSION["auth"]);
+        $form = new Form($user);
+        $this->render('users.account', compact( 'user', 'form'));
+    }
+
+    public function profilEdit(){
+        $success = false;
+        $displaySuccess = false;
+        $displayWarning = false;
+        $errors = array();
+
+        if(!empty($_POST)){
+            $success = true;
+
+            if(empty($_POST["nom"])){
+                $errors["nomError"] = "Veuillez saisir votre nom.";
+                $success = false;
+            } else if(preg_match("/[0-9\[^\'£$%^&*()}{@:\'#~?><>,;@\|\=\_+\¬\`\]]/", $_POST["nom"])){
+                $errors["nomError"] = "Veuillez saisir un nom valide.";
+            }
+
+            if(empty($_POST["prenom"])){
+                $errors["prenomError"] = "Veuillez saisir votre prénom.";
+                $success = false;
+            } else if(preg_match("/[0-9\[^\'£$%^&*()}{@:\'#~?><>,;@\|\=\_+\¬\`\]]/", $_POST["prenom"])){
+                $errors["prenomError"] = "Veuillez saisir un prénom valide.";
+            }
+            if(!empty( $_POST["telephone"]) && (!filter_var( $_POST["telephone"]) || strlen( $_POST["telephone"]) != 10)){
+                $errors["telephoneError"] = "Veuillez un numéro valide.";
+                $success = false;
+            }
+            if($success){
+                $result = $this->User->update($_SESSION["auth"], [
+                    'nom' => $_POST['nom'],
+                    'prenom' => $_POST['prenom'],
+                    'telephone' => $_POST['telephone']
+                ]);
+
+                
+            }
+        }
+        $this->account();
+
+    }
+
+    public function adresseEdit(){
+        $success = false;
+        $displaySuccess = false;
+        $displayWarning = false;
+        $errors = array();
+
+        if(!empty($_POST)){
+            $success = true;
+
+            if(empty($_POST["adresse"])){
+                $errors["adresseError"] = "Veuillez saisir votre adresse.";
+                $success = false;
+            }
+
+            if($success){
+                $result = $this->User->update($_SESSION["auth"], [
+                    'adresse' => $_POST['adresse']
+                ]);
+            }
+        }
+
+        $user = $this->User-> editFind($_SESSION["auth"]);
+        $form = new Form($user);
+        $this->render('users.account', compact('form', 'success', 'user', 'form', "errors", "displaySuccess", "displayWarning"));
+    }
+
+    public function identifiantsEdit(){
+        $success = false;
+        $displaySuccess = false;
+        $displayWarning = false;
+        $errors = array();
+
+        if(!empty($_POST)){
+            $success = true;
+
+            if(empty($_POST["email"])){
+                $errors["emailError"] = "Veuillez saisir votre e-mail.";
+                $success = false;
+            } else if(!empty($_POST["email"]) && !filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)){
+                    $errors["emailError"] = "Veuillez saisir un email valide.";
+                    $success = false;
+            }
+            if(empty($_POST["password"])){
+                $errors["passwordError"] = "Veuillez saisir votre mot de passe.";
+                $success = false;
+            } else if(!preg_match('@[A-Z]@', $_POST["password"]) || !preg_match('@[a-z]@', $_POST["password"]) || !preg_match('@[0-9]@', $_POST["password"]) || !strlen($_POST["password"]) >= 8){
+                $errors["passwordError"] = "Votre mot de passe doit contenir: au moins 8 caractères, au moins une lettre majuscule et au moins une lettre miniscule";
+                $success = false;
+            }
+
+            $userExist = $this->User-> userExist();
+
+            if($userExist){
+                $success = false;
+                $displayWarning = true;
+            }
+
+            if($success){
+                $result = $this->User->update($_SESSION["auth"], [
+                    'email' => $_POST['email'],
+                    'password' => $_POST['password']
+                ]);
+            }
+        }
+
+        $user = $this->User-> editFind($_SESSION["auth"]);
+        $form = new Form($user);
+        $this->render('users.account', compact('form', 'success', 'user', 'form', "errors", "displaySuccess", "displayWarning"));
     }
 }

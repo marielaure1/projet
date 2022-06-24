@@ -66,8 +66,8 @@
                                 } ?>
                         </td>
                         <td class="btns-actions">
-                            <a class="btn btn-editer" href="?p=admin.produits.edit&id=<?= $image->id; ?>">Editer</a>
-                            <form action="?p=admin.produits.delete" method="post" style="display: inline;">
+                            <a class="btn btn-editer" href="?p=admin.produits.editImage&id=<?= $image->id; ?>">Editer</a>
+                            <form action="?p=admin.produits.deleteImage" method="post" style="display: inline;">
                                 <input type="hidden" name="id" value="<?= $image->id ?>">
                                 <?= $form->btnSubmit('btn-supprimer', "Supprimer") ?>
                             </form>

@@ -19,20 +19,24 @@
                 <h3 class="descriptions"><?= $produit->descriptions ?></h3>
                 <p class="details"><?= $produit->details ?></p>
             </div>
-            
-           <div class="block2">
-                <p class="prix"><?= $produit->prix ?> €</p>
-                <form class="panier-produit" action="">
-                    <input type="hidden" value="<?= $_GET["id"] ?>">
-                    <div class="quantite">
-                        <p class="moins">-</p>
-                        <input id="nb" type="text" class="nombre" value="1">
-                        <p class="plus">+</p>
-                    </div>
-                    <input type="hidden" value="id">
+            <form method="post" action="index.php?p=panier.add">
+               <input type="hidden" name="idProduit" value="<?=$_GET['id']?>">
+               <input type="hidden" id="prix" name="prix" value="<?= $produit->prix ?>"> 
+               <input type="hidden" name="nom" value="<?= $produit->nom ?>"> 
+               <input type="hidden" name="descriptions" value="<?= $produit->descriptions ?>">
+
+                <p class="prix"><span class="prixTotal" ><?= $produit->prix ?></span> €</p>
+                <div class="quantite">
+                    <button type="button" id="moins" class="btn-quantity">-</button>
+                    <input type="text" id="nb" name="nbr" readonly="" value="1">
+                    <button type="button" id="plus" class="btn-quantity">+</button>
+                </div>
+
+                <div class="panier-produit">
                     <input type="submit" value="Ajouter au panier">
-                </form>
-           </div>
+                </div>
+
+            </form>
         </div>
     </section>
     <section class="caracteristique">
@@ -68,7 +72,7 @@
     </section>
 </main>
 
-<script defer> 
+<script> 
     const btnCaract = document.querySelector(".btn-caract")
     const TextCaract = document.querySelector(".text-caract")
 
@@ -76,4 +80,5 @@
         btnCaract.classList.toggle("active")
         TextCaract.classList.toggle("active")
     })
+
 </script>

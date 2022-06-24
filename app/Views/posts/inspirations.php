@@ -6,7 +6,57 @@
     <section class="nos-selections">
         <h2 class="title-rubrique">NOS SÉLECTIONS</h2>
         <div class="slider-inspirations">
-            <img class="img-carousel active" src="../public/images/inspirations/inspiration-1.png" alt="img1">
+            <div class="img-carousel active">
+                <img src="../public/images/inspirations/inspiration-1.png" alt="img1">
+                <div class="over">
+                    <div class="point point1"></div>
+                    <div class="point point2"></div>
+                    <div class="point point3"></div>
+                    <div class="point point4"></div>
+                    <div class="point point5"></div>
+                    <div class="infos info1 active">
+                        <div class="img-produit background-images" style="background-image: url('../public/images/salon/rangements/inspiration1-desserte1.jpg')"></div>
+                        <div class="text">
+                            <h2><a href="">Molly</a></h2>
+                            <h3>Desserte, noir</h3>
+                            <p>15,99 €</p>
+                        </div>
+                    </div>
+                    <div class="infos info2">
+                        <div class="img-produit background-images" style="background-image: url('../public/images/salon/fauteuils/inspiration1-meridienne1.jpg')"></div>
+                        <div class="text">
+                            <h2><a href="">Iona</a></h2>
+                            <h3>Méridienne, blanc</h3>
+                            <p>200 €</p>
+                        </div>
+                    </div>
+                    <div class="infos info3">
+                        <div class="img-produit background-images" style="background-image: url('../public/images/salon/tables-basses/inspiration-1-tablebasse1.jpg')"></div>
+                        <div class="text">
+                            <h2><a href="">Carol</a></h2>
+                            <h3>Tables basses lot de 2, noir</h3>
+                            <p>35 €</p>
+                        </div>
+                    </div>
+                    <div class="infos info4">
+                        <div class="img-produit background-images" style="background-image: url('../public/images/luminaires/lampadaires/inspiration1-lampadaire1.jpg')"></div>
+                        <div class="text">
+                            <h2><a href="">Diego</a></h2>
+                            <h3>Lampadaire en bambou</h3>
+                            <p>29 €</p>
+                        </div>
+                    </div>
+                    <div class="infos info5">
+                        <div class="img-produit background-images" style="background-image: url('../public/images/salon/canapes/inspiration1-canape2.jpg')"></div>
+                        <div class="text">
+                            <h2><a href="">Iona</a></h2>
+                            <h3>Canapé d'angle 6 places, blanc</h3>
+                            <p>759 €</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
             <img class="img-carousel" src="../public/images/inspirations/inspiration-2.jpg" alt="img2">
             <img class="img-carousel" src="../public/images/inspirations/inspiration-3.jpg" alt="img3">
             <img class="img-carousel" src="../public/images/inspirations/inspiration-4.jpg" alt="img4">

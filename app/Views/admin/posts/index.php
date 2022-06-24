@@ -20,8 +20,10 @@
         </div>
     </div>
 
-    <div class="table-bg listes">
+    <div class="table-bg">
+       
     <?php if(count($users) > 0){?>
+        <div class="listes">
         <div class="liste">
             <h3>Derniers utilisateurs inscrits</h3>
             <table class="table">
@@ -43,28 +45,35 @@
                 </tbody>
             </table>
         </div>
+        </div>
     <?php } ?>
+
     <?php if(count($commandes) > 0){?>
-        <table class="table">
-        <thead>
-            <tr>
-                <td>Numéro de commande</td>
-                <td>Utilisateur</td>
-                <td>Total</td>
-            </tr>
-        </thead>
-        <tbody>
-            <?php foreach($lastCommandes as $commande): ?>
-                <tr>
-                    <td><?= $commande->id; ?></td>
-                    <td><?= $commande->id_users; ?></td>
-                    <td><?= $commande->total; ?></td>
-                </tr>
-            <?php endforeach; ?>
-        </tbody>
-    </table>
+        <div class="listes">
+        <div class="liste">
+            <h3>Dernières commandes</h3>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <td>ID</td>   
+                        <td>User</td>   
+                        <td>Total</td>       
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach($lastCommandes as $commande): ?>
+                        <tr>
+                            <td><?= $commande->id; ?></td>
+                            <td><?= $commande->user_id; ?></td>
+                            <td><?= $commande->prix_total; ?></td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
+        </div>
     <?php } ?>
-</div>
+    </div>
 </section>
 
 

@@ -51,11 +51,13 @@
                 }
             }
     
-            .block2{
+            form{
                 display: grid;
                 width: 100%;
                 grid-template-areas: ". prix"
                                      "quantite panier";
+
+                gap: 20px;
     
                 .prix{
                     grid-area: prix;
@@ -73,11 +75,21 @@
                     column-gap: 10px;
                     cursor: pointer;
     
-                    p{
+                    .btn-quantity{
                         font-size: 48px;
                         font-weight: bold;
                         text-align: center;
+                        background: none;
+                        border: none;
                     }
+
+                    #nb{
+                        border: none;
+                        font-size: 48px;
+                        outline: none;
+                        text-align: center;
+                    }
+
                 }
     
                 .panier-produit{

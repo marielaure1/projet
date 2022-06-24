@@ -43,6 +43,58 @@
                 transition: opacity .5s;
                 object-fit: cover;
                 filter: brightness(0.9);
+
+                .over{
+                    .point1{
+                        top: 67%;
+                        left: 17.5%;
+                    }
+                     
+                    .point2{
+                        top: 62%;
+                        left: 40%;
+                    }
+                     
+                    .point3{
+                        top: 72%;
+                        left: 49%;
+                    }
+                     
+                    .point4{
+                        top: 36%;
+                        left: 64.5%;
+                    }
+                     
+                    .point5{
+                        top: 62%;
+                        left: 85%;
+                    }
+        
+                    .info1{
+                        top: 63%;
+                        left: 21%;
+                    }
+                     
+                    .info2{
+                        top: 45%;
+                        left: 32%;
+                    }
+                     
+                    .info3{
+                        top: 77%;
+                        left: 41%;
+                    }
+                     
+                    .info4{
+                        top: 32%;
+                        left: 69%;
+                    }
+                     
+                    .info5{
+                        top: 67%;
+                        left: 77%;
+                    }
+                }
             }
 
             .img-carousel.active {
@@ -71,6 +123,8 @@
                 .radios-sliders.active{
                     background-color: $red;
                 }
+
+                
             }
 
             .controller-nom{

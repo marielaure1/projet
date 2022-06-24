@@ -14,7 +14,6 @@ class PostsController extends AppController{
 
     public function __construct(){
         parent::__construct();
-        $this->loadModel('Post');
         $this->loadModel('Category');
         $this->loadModel('SousCategory');
         $this->loadModel('Produit');
@@ -23,13 +22,12 @@ class PostsController extends AppController{
     }
 
     public function index(){
-        $posts = $this->Post->last();
         $categories = $this->Category->all();
         $favoris = $this->Favoris->all();
         $nouveautes = $this->Produit->nouveaute();
         $form = new Form($_POST);
         $images = $this->Image->all();
-        $this->render('posts.index', compact('images', 'nouveautes', 'posts', 'categories', 'form', "favoris"));
+        $this->render('posts.index', compact('images', 'nouveautes', 'categories', 'form', "favoris"));
     }
 
     public function category(){

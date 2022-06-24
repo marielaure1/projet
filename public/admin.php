@@ -34,8 +34,18 @@ if($page === 'home'){
     require ROOT . '/pages/admin/categories/edit.php';
 } elseif ($page === 'categories.add'){
     require ROOT . '/pages/admin/categories/add.php';
-}elseif ($page === 'categories.delete'){
+} elseif ($page === 'categories.delete'){
     require ROOT . '/pages/admin/categories/delete.php';
-}
+} elseif($page === 'produits.index'){
+    require ROOT . '/pages/admin/produits/index.php';
+} elseif($page === 'produits.indexProduit'){
+    require ROOT . '/pages/admin/produits/indexProduit.php';
+}elseif ($page === 'produits.editProduit'){
+    require ROOT . '/pages/admin/produits/editProduit.php';
+} elseif ($page === 'produits.addProduit'){
+    require ROOT . '/pages/admin/produits/addProduit.php';
+} elseif ($page === 'produits.deleteProduit'){
+    require ROOT . '/pages/admin/produits/deleteProduit.php';
+} 
 $content = ob_get_clean();
 require ROOT . '/pages/templates/default.php';

@@ -46,16 +46,12 @@ class ProduitsController extends AppController{
                 'publier' => $_POST['publier'],
                 'id_sous_categories' => $_POST['id_sous_categories']
             ]);
-            if($result){
-                return $this->indexProduit();
-            }
         }
-        $this->loadModel('Category');
-        $categories = $this->Category->extract('id', 'nom');
         $form = new BootstrapForm($_POST);
-        $this->render('admin.produits.indexProduit', compact('categories', 'form', "produits"));
+        $this->render('admin.produits.indexProduit', compact('produits', 'form'));
     }
     public function addImage(){
+        $produits = $this->Produit->extract('id', 'nom');
         $images = $this->Image->all();
         if (!empty($_POST)) {
 
@@ -65,43 +61,69 @@ class ProduitsController extends AppController{
                 'image_principale' => $_POST['image_principale'],
                 'publier' => $_POST['publier']
             ]);
-            if($result){
-                return $this->indexImage();
-            }
         }
         $form = new BootstrapForm($_POST);
-        $this->render('admin.produits.indexImage', compact('form'));
+        $this->render('admin.produits.indexImage', compact('form', 'images', "produits"));
     }
 
-    public function edit(){
+    public function editProduit(){
+        $success = false;
         $produit = $this->Produit->find($_GET['id']);
 
-        if (!empty($_POST)) {
-            //Enregistrement de l'image
-            $image = $this->uploadImage();
+        if($_SERVER["REQUEST_METHOD"] == "POST"){
+            $success = true;
 
-            $result = $this->Produit->update($_GET['id'], [
-                'titre' => $_POST['titre'],
-                'description' => $_POST['description'],
-                'img' => ($image)? $image : $produit->img,
-            ]);
-                
-            if($result){
-                return $this->index();
+            if($success){
+                $result = $this->Produit->update($_GET['id'], [
+                    'nom' => $_POST['nom'],
+                    'descriptions' => $_POST['descriptions'],
+                    'details' => $_POST['details'],
+                    'caracteristiques' => $_POST['caracteristiques'],
+                    'prix' => $_POST['prix'],
+                    'quantite' => $_POST['quantite'],
+                    'publier' => $_POST['publier'],
+                    'id_sous_categories' => $_POST['id_sous_categories']
+                ]);
             }
         }
+        $souscategories = $this->SousCategory->extract('id', 'nom');
         
-        $this->loadModel('Category');
-        $categories = $this->Category->extract('id', 'titre');
 
         $form = new BootstrapForm($produit);
-        $this->render('admin.produits.edit', compact('categories', 'form'));
+        $this->render('admin.produits.editProduit', compact('souscategories', 'form'));
+    }
+    public function editImage(){
+        $success = false;
+        $image = $this->Image->find($_GET['id']);
+        $produits = $this->Produit->extract('id', 'nom');
+
+        if($_SERVER["REQUEST_METHOD"] == "POST"){
+            $success = true;
+
+            if($success){
+                $result = $this->Image->update($_GET['id'], [
+                    'id_produits' => $_POST['id_produits'],
+                    'fichier' => $_POST['fichier'],
+                    'image_principale' => $_POST['image_principale'],
+                    'publier' => $_POST['publier']
+                ]);
+            }
+        }
+
+        $form = new BootstrapForm($image);
+        $this->render('admin.produits.editImage', compact('form', 'image', 'produits'));
     }
 
-    public function delete(){
+    public function deleteProduit(){
         if (!empty($_POST)) {
             $result = $this->Produit->delete($_POST['id']);
             return $this->indexProduit();
+        }
+    }
+    public function deleteImage(){
+        if (!empty($_POST)) {
+            $result = $this->Image->delete($_POST['id']);
+            return $this->indexImage();
         }
     }
 
