@@ -71,4 +71,13 @@ class ProduitTable extends Table{
             WHERE sous_categories.id = ?
             ORDER BY sous_categories.id DESC LIMIT 4", [$sous_category_id]);
     }
+
+    public function extractProduit($key, $value, $value2){
+        $records = $this->all();
+        $return = [];
+        foreach($records as $v){
+            $return[$v->$key] = $v->$value." - ".$v->$value2;
+        }
+        return $return;
+    }
 }

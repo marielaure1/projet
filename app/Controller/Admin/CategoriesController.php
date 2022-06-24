@@ -31,15 +31,14 @@ class CategoriesController extends AppController{
     }
 
     public function edit(){
-        $category = $this->Category->editFind($_GET['id']);
+        $category = $this->Category->find($_GET['id']);
 
         if (!empty($_POST)) {
-            $image = $this->uploadImage();
 
             $result = $this->Category->update($_GET['id'], [
                 'nom' => $_POST['nom'],
                 'descriptions' => $_POST['descriptions'],
-                'images' => $_POST['images']
+                'images' => empty($_POST['images']) ? $category->images : $_POST['images']
             ]);
         }
         $form = new BootstrapForm($category);

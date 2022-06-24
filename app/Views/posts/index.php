@@ -38,7 +38,7 @@
                 </div>
     <?php  } } } ?>
 
-</section>
+</section>z
 
 <section class="inspiration">
     <h2 class="title-rubrique">Inspiration</h2>

@@ -83,7 +83,7 @@
         <div class="grid-footer">
             <img src="../public/images/logo-white.svg" alt="">
             <div class="column">
-                <a href="index.php?p=posts.contact">Contact</a>
+                <a href="index.php?p=footer.contact">Contact</a>
                 <a>Qui sommes-nous</a>
                 <a>Nous rejoindre</a>
             </div>
@@ -95,7 +95,7 @@
             <div class="column">
                 <a>Paramètres des cookies</a>
                 <a>Politique relative aux cookies</a>
-                <a>Charte de protection des données</a>
+                <a href="index.php?p=footer.protectiondonnee">Charte de protection des données</a>
             </div>
             <div class="column-4">
                 <p>Suivez-nous</p>
@@ -108,7 +108,7 @@
             </div>
         </div>
         <div class="copyright">
-            <p>Copyright © 2022 - Tous droits réservés - Mentions Légales - CGV</p>
+            <p>Copyright © 2022 - Tous droits réservés - <a href="index.php?p=footer.mentionslegales">Mentions Légales</a> - <a href="index.php?p=footer.cgv"> CGV</a></p>
         </div>
     </footer>
 

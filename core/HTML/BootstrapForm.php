@@ -21,8 +21,6 @@ class BootstrapForm extends Form{
         $label = '<label class="form-label">' . $label . '</label>';
         if($type === 'textarea'){
             $input = '<textarea  rows="5" cols="33" name="' . $name . '" class="form-control" placeholder="'.$placeholder.'">' . $this->getValue($name) . '</textarea><p class="error">'.$messageError.'</p>';
-        } else if($type === 'file'){
-            $input = '<input type="' . $type . '" name="' . $name . '" placeholder="'.$placeholder.'" class="form-control"><p class="error">'.$messageError.'</p>';
         } else{
             $input = '<input type="' . $type . '" name="' . $name . '" placeholder="'.$placeholder.'" value="' . $this->getValue($name) . '" class="form-control"><p class="error">'.$messageError.'</p>';
         }

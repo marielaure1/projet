@@ -10,11 +10,11 @@
                 </div>
                 <div>
                     <label for="oui">Oui</label>
-                    <input type="radio" id="oui" name="image_principale" value="1" class="form-control" checked>
+                    <input type="radio" id="oui" name="image_principale" value="1" class="form-control" >
                 </div>
                 <div>
                     <label for="non">Non</label>
-                    <input type="radio" id="non" name="image_principale" value="0" class="form-control">
+                    <input type="radio" id="non" name="image_principale" value="0" class="form-control" checked>
                 </div>
             </div>
 
@@ -42,6 +42,7 @@
                 <thead>
                     <tr>
                         <td>ID</td>
+                        <td>Produit</td>
                         <td>Fichier</td>
                         <td>Image Principale</td>
                         <td>Publier</td>
@@ -52,6 +53,13 @@
                     <?php foreach($images as $image): ?>
                     <tr>
                         <td><?= $image->id; ?></td>
+                        <?php
+                            foreach($produits as $id => $nom){
+                                if($id == $image->id_produits){ ?>
+                                    <td><?= $nom; ?></td> 
+                           <?php     }
+                            }
+                        ?>
                         <td><?= $image->fichier; ?></td>
                         <td><?php if($image->image_principale == 1){
                                     echo "Oui";

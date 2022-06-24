@@ -207,6 +207,7 @@ class UsersController extends AppController {
                 $success = false;
             } else if(preg_match("/[0-9\[^\'£$%^&*()}{@:\'#~?><>,;@\|\=\_+\¬\`\]]/", $_POST["nom"])){
                 $errors["nomError"] = "Veuillez saisir un nom valide.";
+                $success = false;
             }
 
             if(empty($_POST["prenom"])){
@@ -214,6 +215,7 @@ class UsersController extends AppController {
                 $success = false;
             } else if(preg_match("/[0-9\[^\'£$%^&*()}{@:\'#~?><>,;@\|\=\_+\¬\`\]]/", $_POST["prenom"])){
                 $errors["prenomError"] = "Veuillez saisir un prénom valide.";
+                $success = false;
             }
             if(!empty( $_POST["telephone"]) && (!filter_var( $_POST["telephone"]) || strlen( $_POST["telephone"]) != 10)){
                 $errors["telephoneError"] = "Veuillez un numéro valide.";

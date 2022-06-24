@@ -27,7 +27,7 @@ class ProduitsController extends AppController{
 
     public function indexImage(){
         $images = $this->Image->all();
-        $produits = $this->Produit->extract('id', 'nom');
+        $produits = $this->Produit->extractProduit('id', 'nom', "descriptions");
         $form = new BootstrapForm($_POST);
         $this->render('admin.produits.indexImage', compact('produits', 'form', 'images'));
     }
@@ -50,10 +50,19 @@ class ProduitsController extends AppController{
         $form = new BootstrapForm($_POST);
         $this->render('admin.produits.indexProduit', compact('produits', 'form'));
     }
+
     public function addImage(){
         $produits = $this->Produit->extract('id', 'nom');
         $images = $this->Image->all();
         if (!empty($_POST)) {
+            foreach($images as $image){
+                if($image->id_produits == $_POST["id_produits"] && $image->image_principale == true){
+                    $id = $image->id;
+                    $this->Image->update($id, [
+                        'image_principale' => 0
+                    ]);
+                }
+            }
 
             $result = $this->Image->create([
                 'id_produits' => $_POST['id_produits'],
@@ -95,15 +104,16 @@ class ProduitsController extends AppController{
     public function editImage(){
         $success = false;
         $image = $this->Image->find($_GET['id']);
-        $produits = $this->Produit->extract('id', 'nom');
+        $produits = $this->Produit->extractProduit('id', 'nom', "descriptions");
+        
 
         if($_SERVER["REQUEST_METHOD"] == "POST"){
             $success = true;
-
+            
             if($success){
                 $result = $this->Image->update($_GET['id'], [
                     'id_produits' => $_POST['id_produits'],
-                    'fichier' => $_POST['fichier'],
+                    'fichier' => empty($_POST['fichier']) ? $image->fichier : $_POST['fichier'],
                     'image_principale' => $_POST['image_principale'],
                     'publier' => $_POST['publier']
                 ]);
@@ -116,6 +126,10 @@ class ProduitsController extends AppController{
 
     public function deleteProduit(){
         if (!empty($_POST)) {
+            $images = $this->Image->produitImage($_POST['id']);
+            foreach($images as $image){
+                $deleteImage = $this->Image->delete($image->id);
+            }
             $result = $this->Produit->delete($_POST['id']);
             return $this->indexProduit();
         }

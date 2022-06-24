@@ -1,11 +1,9 @@
 <section class="admin-section images">
     <h1>Images</h1>
     <div class="form-bg">
-        <form method="post" enctype="multipart/form-data">
+        <form method="post">
             <?= $form->select("id_produits", "Produits", $produits) ?>
-            <div class="form-group">
-                <input type="file" name="fichier" class="form-control">
-            </div>
+            <?= $form->input("fichier", "Images", $option = ["type" => "file"], $placeholder = "Images") ?>
             <div class="form-group-radio">
                 <div>
                     <h3>Image Principale ? </h3>

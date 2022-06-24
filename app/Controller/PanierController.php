@@ -38,7 +38,7 @@ class PanierController extends AppController{
      * Ajout dans le panier
      */
     public function add(){
-
+        var_dump([$_POST]);
         $referer = $_SERVER['HTTP_REFERER'];
         if($_POST['nbr'] > 0 ){
             $_SESSION['panier']['produit'][$_POST['idProduit']]['prix'] = $_POST['prix'];
